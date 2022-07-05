@@ -1,0 +1,44 @@
+@font-face {
+  font-family: 'arita';
+  font-weight: 300;
+  src: url('../woff/Arita-dotum-Light.woff');
+}
+@font-face {
+  font-family: 'arita';
+  font-weight: 400;
+  src: url('../woff/Arita-dotum-Medium.woff');
+}
+@font-face {
+  font-family: 'arita';
+  font-weight: 600;
+  src: url('../woff/Arita-dotum-SemiBold.woff');
+}
+@font-face {
+  font-family: 'arita';
+  font-weight: 700;
+  src: url('../woff/Arita-dotum-Bold.woff');
+}
+@font-face {
+  font-family: 'cera';
+  font-weight: 400;
+  src: url('../woff/CeraProMedium.woff');
+}
+@font-face {
+  font-family: 'cera';
+  font-weight: 500;
+  src: url('../woff/CeraProRegular.woff');
+}
+
+body{
+  font-family: 'arita';
+  font-weight: 400;
+}
+
+.blind{
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0,0,0,0);
+}
