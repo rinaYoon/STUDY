@@ -1,2 +1,393 @@
 @import 'reset.css';
 @import 'common.css';
+
+/*
+웹폰트
+font-family: 'Montserrat', sans-serif;
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap');
+
+*:focus{
+  outline: 2px dotted #555;
+}
+
+body{
+  font-family: 'arita';
+  font-weight: 400;
+  font-size: 0.8333vw;
+}
+
+/* header */
+.header-navbar{
+  position: fixed;
+  z-index: 50;
+  width: 100vw;
+  height: 3.13vw;
+  color: #fff;
+}
+.header-navbar.scroll{
+  background-color: #fff;
+  color: #000;
+  border-top: 3px solid #fdcd00;
+  border-bottom: 1px solid #f3eeea;
+}
+
+.header-navbar .header-navbar__inner{
+  width: 65.73vw;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-navbar .logo__link{
+  display: inline-block;
+  width: 6.88vw;
+  height: 3.65vw;
+  margin-right: 1.04vw;
+  background-image: url(../images/header/logo_main.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.header-navbar.scroll .logo__link{
+  background-image: url(../images/header/logo.svg);
+}
+.header-navbar .gnb{
+  flex-grow: 1;
+  height: 100%;
+  margin: 0 2.08vw;
+}
+.header-navbar .gnb-list{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.header-navbar .gnb-list__item{
+  height: 100%;
+}
+.header-navbar .gnb-list__link{
+  display: block;
+  font-size: 0.94vw;
+  height: 100%;
+  line-height: 3.13vw;
+  padding: 0 1.04vw;
+  position: relative;
+}
+.header-navbar .gnb-list__link::after{
+  content: '';
+  width: 0;
+  height: 0.10vw;
+  background-color: #fdcd00;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s;
+}
+.header-navbar .gnb-list__link:hover::after{
+  width: 100%;
+}
+.header-navbar .util-list{
+  display: flex;
+}
+.header-navbar .util__link{
+  display: block;
+  font-size: 0.83vw;
+  padding: 0 1.04vw;
+}
+.header-navbar .util-search{
+  width: 1.09vw;
+  height: 1.09vw;
+  margin-left: 0.52vw;
+  margin-top: -3px;
+  background-image: url(../images/header/btn_search_main.png);
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  vertical-align: top;
+}
+.header-navbar.scroll .util-search{
+  background-image: url(../images/header/btn_search.png);
+}
+/* nev - sub */
+.header-navbar .sub-box{
+  width: 100vw;
+  background-color: #fff;
+  padding: 2.60vw 0;
+  position: absolute;
+  top: 57px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.header-navbar .sub-box.hover{
+  opacity: 1;
+  visibility: visible;
+}
+.header-navbar .sub-box__content{
+  width: 65.83vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1.62vw;
+}
+.header-navbar .sub-box__inner{
+  width: 53.39vw;
+  display: flex;
+  justify-content: space-between;
+}
+.header-navbar .gnb-list__item:nth-child(3) .sub-box__content{
+  padding-right: 0;
+  justify-content: center;
+}
+.header-navbar .gnb-list__item:nth-child(3) .sub-box__inner{
+  width: 33.85vw;
+  margin-right: 180px;
+}
+  /* 서브박스 왼쪽 */
+.header-navbar .sub-menu-wrap{
+  flex-grow: 1;
+  position: relative;
+}
+.header-navbar .category-all{
+  font-weight: 600;
+  position: absolute;
+}
+.header-navbar .category-all::after{
+  content: '';
+  display: inline-block;
+  width: 0.36vw;
+  height: 0.63vw;
+  background-image: url(../images/header/icon_category_more.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  margin-left: 0.26vw;
+}
+.header-navbar .category-all:nth-child(1){
+  top: -0.52vw;
+}
+.header-navbar .category-all:nth-child(3){
+  left: 0;
+  bottom: 0;
+}
+.header-navbar .category-all:nth-child(4){
+  right: 12.45vw;
+  bottom: 0;
+}
+.header-navbar .category-all.category-all__story{
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+.header-navbar .category-all.category-all__story::after{
+  width: 0;
+}
+.header-navbar .depth1-list{
+  margin: 1.72vw 0 1.09vw 0;
+  display: flex;
+}
+.header-navbar .depth1-list__item{
+  width: 50%;
+}
+.header-navbar .depth1-list__link{
+  font-weight: 600;
+}
+.header-navbar .depth1-list.depth1-list__story{
+  margin: 1.72vw 0 0 0;
+  display: block;
+}
+.header-navbar .depth1-list__story .depth1-list__item{
+  width: 100%;
+  margin-bottom: 1.09vw;
+}
+.header-navbar .depth1-list__story .depth1-list__link{
+  font-weight: 400;
+}
+.header-navbar .depth2-list{
+  margin-top: 1.09vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+.header-navbar .depth2-list__item{
+  width: 50%;
+  margin-bottom: 1.09vw;
+}
+  /* 서브박스 오른쪽 */
+.header-navbar .sub-benner-wrap{
+  padding-left: 1.77vw;
+  position: relative;
+}
+.header-navbar .sub-benner-wrap::after{
+  content: '';
+  width: 1px;
+  height: 210px;
+  background-color: #f3eeea;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.header-navbar .sub-benner__link .text-wrap{
+  margin-top: 1.04vw;
+}
+/* 검색창 */
+.header-navbar .search-box{
+  position: absolute;
+  top: 57px;
+  left: 0;
+  width: 100vw;
+  background-color: #fff;
+  padding: 5.73vw 0 1.46vw 0;
+  opacity: 0;
+  visibility: hidden;
+}
+.header-navbar .search-box.open{
+  opacity: 1;
+  visibility: visible;
+}
+.header-navbar .search-box__inner{
+  width: 36.72vw;
+  margin: 0 auto;
+}
+.header-navbar .search-wrap{
+  display: flex;
+  justify-content: space-between;
+}
+.header-navbar .search-bar{
+  flex-grow: 1;
+  border: 0;
+  border-bottom: 1px solid #000;
+  font-family: 'arita';
+  font-weight: 300;
+  font-size: 16px;
+}
+.header-navbar .search-bar::placeholder{
+  color: #666;
+}
+.header-navbar .search-button{
+  display: inline-block;
+  width: 5.73vw;
+  height: 2.19vw;
+  background-color: #f3d03e;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2.19vw;
+  font-size: 0.94vw;
+  margin-left: 0.78vw;
+}
+.header-navbar .search-recomm{
+  margin-top: 0.83vw;
+  display: flex;
+  align-items: center;
+  font-size: 0.94vw;
+  font-weight: 600;
+  margin-bottom: 5.36vw;
+}
+.header-navbar .recomm-list{
+  margin-left: 1.41vw;
+  display: flex;
+}
+.header-navbar .recomm-list__item{
+  margin-right: 0.52vw;
+}
+.header-navbar .recomm-list__link{
+  display: block;
+  background-color: #807f7f;
+  padding: 0.21vw 0.31vw;
+  color: #fff;
+}
+.header-navbar .search-box .close-button{
+  display: block;
+  font-weight: 600;
+  background-color: transparent;
+  padding: 0 0.26vw;
+  cursor: pointer;
+  margin: 0 auto;
+}
+.header-navbar .search-box .close-button::after{
+  content: '';
+  display: inline-block;
+  width: 15px;
+  height: 9px;
+  background-image: url(../images/header/icon_search_close.png);
+  margin-left: 17px;
+}
+
+/* main */
+.section-visual{}
+.section-visual .area-swiper{}
+.section-visual .swiper{
+  height: 41.67vw;
+  position: relative;
+}
+.section-visual .area-visual{
+  height: 100%;
+}
+.section-visual .area-visual__item{
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 45%;
+  position: relative;
+}
+.section-visual .area-visual__item:nth-child(1){
+  background-image: url(../images/se00/20220627_final_01-ROSE-HYDRA-GLORY-AMPOULE_main_KV_pc.jpg);
+}
+.section-visual .area-visual__item:nth-child(2){
+  background-image: url(../images/se00/20220627_final_02-ROSE-PHA-LIQUID-MASK_main_KV_pc.jpg);
+}
+.section-visual .area-visual__item:nth-child(3){
+  background-image: url(../images/se00/20220627_final_03-ROSE-WATER-TONER_main_KV_pc.jpg);
+}
+.section-visual .area-visual__item:nth-child(4){
+  background-image: url(../images/se00/20220627_final_04-BAKUCHIOL-RETINOL-CREAM_main_KV_pc.jpg);
+}
+.section-visual .area-visual__item:nth-child(5){
+  background-image: url(../images/se00/20220627_final_05-BLUE-CHAMOMILE-CREAM_main_KV_pc.jpg);
+}
+.section-visual .area-visual__inner{
+  position: absolute;
+  left: 17.5vw;
+  bottom: 13.96vw;
+}
+.section-visual .area-visual__link{
+  display: inline-block;
+}
+.section-visual .area-visual__link .title{
+  color: #fff;
+  font-size: 2.34vw;
+  font-weight: 700;
+  line-height: 2.86vw;
+}
+.section-visual .area-visual__link .txt{
+  color: #fff;
+  font-size: 1.25vw;
+  font-weight: 600;
+  margin-top: 1.09vw;
+}
+.section-visual .area-visual__link .more-button{
+  margin-top: 3.65vw;
+}
+.section-visual .swiper .slide-button{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.3vw;
+  height: 2.45vw;
+  z-index: 1;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.section-visual .swiper .button-arrow-prev{
+  background-image: url(../images/se00/btn_prev.png);
+  left: 1.04vw;
+}
+.section-visual .swiper .button-arrow-next{
+  background-image: url(../images/se00/btn_next.png);
+  right: 1.04vw;
+}
+.section-visual .swiper .swiper-pagination{}

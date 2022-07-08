@@ -29,12 +29,6 @@
   src: url('../woff/CeraProRegular.woff');
 }
 
-body{
-  font-family: 'arita';
-  font-weight: 400;
-  font-size: 16px;
-}
-
 .blind{
   width: 1px;
   height: 1px;
@@ -56,10 +50,21 @@ body{
   height: 50px;
   line-height: 50px;
   text-align: center;
+  z-index: 9999;
 }
 .skip-nav .skip-nav-list__link:focus,
 .skip-nav .skip-nav-list__link:active{
   outline: 2px solid #000;
   border-radius: 3px;
   top: 2px;
+}
+/* 버튼 */
+.more-button{
+  display: inline-block;
+  width: 7.3vw;
+  height: 2.29vw;
+  border: 1px solid #fff;
+  color: #fff;
+  text-align: center;
+  line-height: 2.29vw;
 }
