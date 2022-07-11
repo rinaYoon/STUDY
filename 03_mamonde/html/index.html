@@ -25,7 +25,7 @@
 
   <div class="wrapper">
     <header class="header">
-      <div class="header-navbar">
+      <div class="header-navbar"><!-- scroll -->
         <div class="header-navbar__inner">
           <h1 class="logo"><a href="#" class="logo__link"><span class="blind">마몽드</span></a></h1>
           <nav class="gnb">
@@ -37,7 +37,7 @@
               <li class="gnb-list__item">
                 <a href="#" class="gnb-list__link">제품</a>
                 <!-- 서브메뉴 -->
-                <div class="sub-box">
+                <div class="sub-box"><!-- hover -->
                   <div class="sub-box__content">
                     <div class="sub-box__inner">
                       <!-- 왼쪽메뉴 -->
@@ -133,7 +133,7 @@
             </ul>
           </div>
           <!-- 검색창 -->
-          <div class="search-box">
+          <div class="search-box"><!-- open -->
             <div class="search-box__inner">
               <form method="post">
                 <fieldset>
@@ -163,7 +163,7 @@
       <section class="section section-visual">
         <h2 class="blind">메인 배너</h2>
         <div class="area-swiper">
-          <div class="swiper">
+          <div class="swiper visual-swiper">
             <ul class="swiper-wrapper area-visual">
               <li class="swiper-slide area-visual__item">
                 <div class="area-visual__inner">
@@ -175,6 +175,7 @@
                     <span class="more-button">자세히 보기</span>
                   </a>
                 </div>
+                <div class="bg" data-swiper-parallax="10%"></div>
               </li>
               <li class="swiper-slide area-visual__item">
                 <div class="area-visual__inner">
@@ -186,6 +187,7 @@
                     <span class="more-button">자세히 보기</span>
                   </a>
                 </div>
+                <div class="bg" data-swiper-parallax="10%"></div>
               </li>
               <li class="swiper-slide area-visual__item">
                 <div class="area-visual__inner">
@@ -197,6 +199,7 @@
                     <span class="more-button">자세히 보기</span>
                   </a>
                 </div>
+                <div class="bg" data-swiper-parallax="10%"></div>
               </li>
               <li class="swiper-slide area-visual__item">
                 <div class="area-visual__inner">
@@ -208,6 +211,7 @@
                     <span class="more-button">자세히 보기</span>
                   </a>
                 </div>
+                <div class="bg" data-swiper-parallax="10%"></div>
               </li>
               <li class="swiper-slide area-visual__item">
                 <div class="area-visual__inner">
@@ -219,12 +223,15 @@
                     <span class="more-button">자세히 보기</span>
                   </a>
                 </div>
+                <div class="bg" data-swiper-parallax="10%"></div>
               </li>
             </ul>
             <button class="slide-button button-arrow-prev" type="button"><span class="blind">이전</span></button>
             <button class="slide-button button-arrow-next" type="button"><span class="blind">다음</span></button>
-
-            <div class="swiper-pagination"></div>
+            <div class="pagination-wrap">
+              <div class="swiper-pagination"></div>
+              <button type="button" class="stop-btn"><span class="blind">정지</span></button>
+            </div>
           </div>
         </div>
       </section>
@@ -240,7 +247,7 @@
             <div class="area-swiper__pagination">
               <div class="hash-desc">
                 <ul class="hash-desc-list">
-                  <li class="hash-desc-list__item">
+                  <li class="hash-desc-list__item active">
                     #저자극탄력
                   </li>
                   <li class="hash-desc-list__item">
@@ -256,7 +263,7 @@
               </div>
               <div class="swiper-pagination"></div>
             </div>
-            <div class="swiper">
+            <div class="swiper section01-swiper">
               <ul class="swiper-wrapper area-product">
                 <li class="swiper-slide area-product__item">
                   <a href="#" class="area-product__link">
@@ -272,7 +279,8 @@
                     <div class="text-wrap">
                       <strong class="product-title">바쿠치올 레티놀 크림</strong>
                       <p class="title-desc">
-                        바쿠치올과 순수레티놀의 황금비율<br>저자극 수분 탄력 크림
+                        바쿠치올과 순수레티놀의 황금비율
+                        저자극 수분 탄력 크림
                       </p>
                     </div>
                   </a>
@@ -352,29 +360,29 @@
           <div class="area-swiper">
             <div class="swiper">
               <ul class="swiper-wrapper area-event">
+
                 <li class="swiper-slide area-event__item">
-                  <div class="img-wrap">
-                    <a href="#" class="area-event__link">
-                      <img src="../images/se02/20220509_final_vitasuncream_main_exclusive_banner_pc.jpg" alt="비타민 선크림">
-                    </a>
-                  </div>
                   <div class="text-wrap">
                     <span class="num">01</span>
                     <strong class="event-title">선크림도 저자극으로!</strong>
+                    
                     <div class="tag-wrap">
                       <span class="tag">#써보고 선물하게 되는 선크림!</span>
                       <span class="tag">#눈시림없는</span>
                       <span class="tag">#촉촉한혼합자차</span>
                     </div>
+                    
                     <a href="#" class="more-link">자세히보기</a>
                   </div>
-                </li>
-                <li class="swiper-slide area-event__item">
+
                   <div class="img-wrap">
                     <a href="#" class="area-event__link">
-                      <img src="../images/se02/20220408_final_ROSE-PHA-LIQUID-MASK_main_exclusive_banner_pc.jpg" alt="로즈 PHA 리퀴드 마스크">
+                      <img src="../images/se02/20220509_final_vitasuncream_main_exclusive_banner_pc.jpg" alt="비타민 선크림">
                     </a>
                   </div>
+                </li>
+
+                <li class="swiper-slide area-event__item">
                   <div class="text-wrap">
                     <span class="num">02</span>
                     <strong class="event-title">NEW 로즈 리퀴드 마스크 런칭</strong>
@@ -384,13 +392,14 @@
                     </div>
                     <a href="#" class="more-link">자세히보기</a>
                   </div>
-                </li>
-                <li class="swiper-slide area-event__item">
+
                   <div class="img-wrap">
                     <a href="#" class="area-event__link">
-                      <img src="../images/se02/20220411_final_blue_champmile_cream_main_exclusive_banner_pc.jpg" alt="블루 카모마일 크림">
+                      <img src="../images/se02/20220408_final_ROSE-PHA-LIQUID-MASK_main_exclusive_banner_pc.jpg" alt="로즈 PHA 리퀴드 마스크">
                     </a>
                   </div>
+                </li>
+                <li class="swiper-slide area-event__item">
                   <div class="text-wrap">
                     <span class="num">01</span>
                     <strong class="event-title">시카변절템</strong>
@@ -399,6 +408,11 @@
                       <span class="tag">#유수분밑간템</span>
                     </div>
                     <a href="#" class="more-link">자세히보기</a>
+                  </div>
+                  <div class="img-wrap">
+                    <a href="#" class="area-event__link">
+                      <img src="../images/se02/20220411_final_blue_champmile_cream_main_exclusive_banner_pc.jpg" alt="블루 카모마일 크림">
+                    </a>
                   </div>
                 </li>
               </ul>
@@ -418,91 +432,93 @@
           <h2 class="section__title" lang="en">Mamonde Documentary - Rose Story</h2>
         </div>
         <div class="section-body">
-          <div class="area-story">
-            <div class="area-story__move">
-              <iframe src="https://www.youtube.com/embed/1kgFdznvW80" title="마몽드멘터리 : 모순을 해결하다 #1 로즈하이드라글로리앰플 편" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="area-story__desc">
-              <div class="desc-wrap">
-                <p class="desc">
-                  #모순을 해결하다<br>
-                  로즈에 진심인 마몽드<br>
-                  <br>
-                  ‘로즈 하이드라글로리 앰플‘ 이야기
-                </p>
-                <a href="#" class="more-link">자세히보기</a>
+          <div class="section-body__inner">
+            <div class="area-story">
+              <div class="area-story__move">
+                <iframe src="https://www.youtube.com/embed/1kgFdznvW80" title="마몽드멘터리 : 모순을 해결하다 #1 로즈하이드라글로리앰플 편" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
-              <div class="subtitle">
-                <p class="subtitle__text">
-                  (자막)
-                  사람들은 종종 모순적인 걸 원하죠<br>
-                  <br>
-                  (나레이션)
-                  요즘 사람들은 어느것 하나 포기 못하잖아요
-                  <br>
-                  (자막)
-                  마몽드멘터리 로즈 하이드라 글로리 앰플 편<br>
-                  <br>
-                  좋은 건 둘 다 선택할 수 없는 걸까요?<br>
-                  모순점을 해결하는 것이 기술의 핵심입니다<br>
-                  <br>
-                  (나레이션)<br>
-                  그것을 해결하는 것이 기술의 핵심입니다<br>
-                  <br>
-                  <br>
-                  (자막) #마몽드: 모순을 해결하다<br>
-                  <br>
-                  (나레이션)<br>
-                  피부는 속이 무너지면 겉으로 나타나거든요<br>
-                  <br>
-                  (자막)<br>
-                  #탄탄한 INSIDE<br>
-                  <br>
-                  (나레이션)<br>
-                  장미라는 식물을 생각해 보자만 굉장히 얇고 가벼운데<br>
-                  그안을 들여다 보면 수분이 정말 꽉차있어요<br>
-                  <br>
-                  (자막)<br>
-                  수분으로 가득 차 있는 장미<br>
-                  <br>
-                  (나레이션)<br>
-                  고밀도 수분감을 위해 장미꽃수를 고함량 처방했습니다<br>
-                  <br>
-                  (자막)<br>
-                  #단 한겹만으로<br>
-                  <br>
-                  (나레이션)<br>
-                  수학적으로 이야기하자면 10초 앰플<br>
-                  <br>
-                  (자막)<br>
-                  #속전속결<br>
-                  <br>
-                  (나레이션)<br>
-                  흡수가 정말 빨라서 '속전속결' 이라는 애칭을 지었거든요<br>
-                  임상결과 즉각적인 수분량이 631.277% 증가했고<br>
-                  사용직후 결이 개선되는 효과를 보였습니다.<br>
-                  <br>
-                  (자막)<br>
-                  하나를 선택한다고 나머지 하나를 포기해야 할까요?<br>
-                  <br>
-                  그럴필요 없죠<br>
-                  <br>
-                  # 가벼운 한겹으로 속부터 차오르는 고밀도 수분광<br>
-                  <br>
-                  (나레이션)<br>
-                  제형이 무겁거나 끈적이지 않고<br>
-                  속부터 수분을 가득 채워서 건강한<br>
-                  그런 앰플<br>
-                  <br>
-                  (자막)<br>
-                  한 겹으로 한결 다른 로드 하이드라 글로리 앰플<br>
-                  <br>
-                  (자막)<br>
-                  Mamonde<br>
-                  <br>
-                  엄청난 각질도둑이 왔다<br>
-                  로즈 +PHA 리퀴드 마스크<br>
-                </p>
+              <div class="area-story__desc">
+                <div class="desc-wrap">
+                  <p class="desc">
+                    #모순을 해결하다<br>
+                    로즈에 진심인 마몽드<br>
+                    <br>
+                    ‘로즈 하이드라글로리 앰플‘ 이야기
+                  </p>
+                  <a href="#" class="more-link">자세히보기</a>
+                </div>
+                <div class="subtitle">
+                  <p class="subtitle__text">
+                    (자막)
+                    사람들은 종종 모순적인 걸 원하죠<br>
+                    <br>
+                    (나레이션)
+                    요즘 사람들은 어느것 하나 포기 못하잖아요
+                    <br>
+                    (자막)
+                    마몽드멘터리 로즈 하이드라 글로리 앰플 편<br>
+                    <br>
+                    좋은 건 둘 다 선택할 수 없는 걸까요?<br>
+                    모순점을 해결하는 것이 기술의 핵심입니다<br>
+                    <br>
+                    (나레이션)<br>
+                    그것을 해결하는 것이 기술의 핵심입니다<br>
+                    <br>
+                    <br>
+                    (자막) #마몽드: 모순을 해결하다<br>
+                    <br>
+                    (나레이션)<br>
+                    피부는 속이 무너지면 겉으로 나타나거든요<br>
+                    <br>
+                    (자막)<br>
+                    #탄탄한 INSIDE<br>
+                    <br>
+                    (나레이션)<br>
+                    장미라는 식물을 생각해 보자만 굉장히 얇고 가벼운데<br>
+                    그안을 들여다 보면 수분이 정말 꽉차있어요<br>
+                    <br>
+                    (자막)<br>
+                    수분으로 가득 차 있는 장미<br>
+                    <br>
+                    (나레이션)<br>
+                    고밀도 수분감을 위해 장미꽃수를 고함량 처방했습니다<br>
+                    <br>
+                    (자막)<br>
+                    #단 한겹만으로<br>
+                    <br>
+                    (나레이션)<br>
+                    수학적으로 이야기하자면 10초 앰플<br>
+                    <br>
+                    (자막)<br>
+                    #속전속결<br>
+                    <br>
+                    (나레이션)<br>
+                    흡수가 정말 빨라서 '속전속결' 이라는 애칭을 지었거든요<br>
+                    임상결과 즉각적인 수분량이 631.277% 증가했고<br>
+                    사용직후 결이 개선되는 효과를 보였습니다.<br>
+                    <br>
+                    (자막)<br>
+                    하나를 선택한다고 나머지 하나를 포기해야 할까요?<br>
+                    <br>
+                    그럴필요 없죠<br>
+                    <br>
+                    # 가벼운 한겹으로 속부터 차오르는 고밀도 수분광<br>
+                    <br>
+                    (나레이션)<br>
+                    제형이 무겁거나 끈적이지 않고<br>
+                    속부터 수분을 가득 채워서 건강한<br>
+                    그런 앰플<br>
+                    <br>
+                    (자막)<br>
+                    한 겹으로 한결 다른 로드 하이드라 글로리 앰플<br>
+                    <br>
+                    (자막)<br>
+                    Mamonde<br>
+                    <br>
+                    엄청난 각질도둑이 왔다<br>
+                    로즈 +PHA 리퀴드 마스크<br>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -515,52 +531,54 @@
           <h2 class="section__title" lang="en">With #Mamonde</h2>
         </div>
         <div class="section-body">
-          <div class="area-swiper">
-            <div class="swiper">
-              <ul class="swiper-wrapper area-insta">
-                <li class="swiper-slide area-insta__item">
-                  <div class="slot-layer">
-                    <a href="#" class="area-insta__link" role="button">
-                      <div class="img-wrap">
-                        <img src="../images/se04/570654a35185b5cdc0c3.jpg" alt="review">
+          <div class="section-body__inner">
+            <div class="area-swiper">
+              <div class="swiper">
+                <ul class="swiper-wrapper area-insta">
+                  <li class="swiper-slide area-insta__item">
+                    <div class="slot-layer">
+                      <a href="#" class="area-insta__link" role="button">
+                        <div class="img-wrap">
+                          <img src="../images/se04/570654a35185b5cdc0c3.jpg" alt="review">
+                        </div>
+                        <i><img src="../images/se04/icon-back.jpg" alt="장바구니"></i>
+                      </a>
+                      <div class="text-wrap">
+                        <a href="#" class="user-link">@moonyung2</a>
+                        <p class="user-review">인스타 리뷰 내용</p>
                       </div>
-                      <i><img src="../images/se04/icon-back.jpg" alt="장바구니"></i>
-                    </a>
-                    <div class="text-wrap">
-                      <a href="#" class="user-link">@moonyung2</a>
-                      <p class="user-review">인스타 리뷰 내용</p>
                     </div>
-                  </div>
-                  <div class="slot-layer">
-                    <a href="#" class="area-insta__link" role="button">
-                      <div class="img-wrap">
-                        <img src="../images/se04/570654a35185b5cdc0c3.jpg" alt="review">
+                    <div class="slot-layer">
+                      <a href="#" class="area-insta__link" role="button">
+                        <div class="img-wrap">
+                          <img src="../images/se04/570654a35185b5cdc0c3.jpg" alt="review">
+                        </div>
+                        <i><img src="../images/se04/icon-back.jpg" alt="장바구니"></i>
+                      </a>
+                      <div class="text-wrap">
+                        <a href="#" class="user-link">@moonyung2</a>
+                        <p class="user-review">인스타 리뷰 내용</p>
                       </div>
-                      <i><img src="../images/se04/icon-back.jpg" alt="장바구니"></i>
-                    </a>
-                    <div class="text-wrap">
-                      <a href="#" class="user-link">@moonyung2</a>
-                      <p class="user-review">인스타 리뷰 내용</p>
                     </div>
-                  </div>
-                  <div class="slot-layer">
-                    <a href="#" class="area-insta__link" role="button">
-                      <div class="img-wrap">
-                        <img src="../images/se04/570654a35185b5cdc0c3.jpg" alt="review">
+                    <div class="slot-layer">
+                      <a href="#" class="area-insta__link" role="button">
+                        <div class="img-wrap">
+                          <img src="../images/se04/570654a35185b5cdc0c3.jpg" alt="review">
+                        </div>
+                        <i><img src="../images/se04/icon-back.jpg" alt="장바구니"></i>
+                      </a>
+                      <div class="text-wrap">
+                        <a href="#" class="user-link">@moonyung2</a>
+                        <p class="user-review">인스타 리뷰 내용</p>
                       </div>
-                      <i><img src="../images/se04/icon-back.jpg" alt="장바구니"></i>
-                    </a>
-                    <div class="text-wrap">
-                      <a href="#" class="user-link">@moonyung2</a>
-                      <p class="user-review">인스타 리뷰 내용</p>
                     </div>
-                  </div>
-                </li>
-              </ul>
-              <button class="slide-button button-arrow-prev" type="button"><span class="blind">이전</span></button>
-              <button class="slide-button button-arrow-next" type="button"><span class="blind">다음</span></button>
+                  </li>
+                </ul>
+                <button class="slide-button button-arrow-prev" type="button"><span class="blind">이전</span></button>
+                <button class="slide-button button-arrow-next" type="button"><span class="blind">다음</span></button>
+              </div>
+              <a href="#" class="more-button">자세히 보기</a>
             </div>
-            <a href="#" class="more-button">자세히 보기</a>
           </div>
         </div>
       </section>
@@ -601,6 +619,8 @@
   </div>
 
   <!-- js -->
+  <script src="../js/jquery-3.6.0.min.js"></script>
   <script src="../js/swiper-bundle.min.js"></script>
+  <script src="../js/main.js"></script>
 </body>
 </html>

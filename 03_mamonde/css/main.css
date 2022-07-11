@@ -315,8 +315,7 @@ body{
 }
 
 /* main */
-.section-visual{}
-.section-visual .area-swiper{}
+/* .section-visual */
 .section-visual .swiper{
   height: 41.67vw;
   position: relative;
@@ -327,33 +326,51 @@ body{
 .section-visual .area-visual__item{
   width: 100%;
   height: 100%;
+  position: relative;
+  background-color: #222;
+}
+.section-visual .area-visual__item .bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0 45%;
-  position: relative;
+  /* background-attachment : fixed; */
 }
-.section-visual .area-visual__item:nth-child(1){
+.section-visual .area-visual__item:nth-child(1) .bg{
   background-image: url(../images/se00/20220627_final_01-ROSE-HYDRA-GLORY-AMPOULE_main_KV_pc.jpg);
 }
-.section-visual .area-visual__item:nth-child(2){
+.section-visual .area-visual__item:nth-child(2) .bg{
   background-image: url(../images/se00/20220627_final_02-ROSE-PHA-LIQUID-MASK_main_KV_pc.jpg);
 }
-.section-visual .area-visual__item:nth-child(3){
+.section-visual .area-visual__item:nth-child(3) .bg{
   background-image: url(../images/se00/20220627_final_03-ROSE-WATER-TONER_main_KV_pc.jpg);
 }
-.section-visual .area-visual__item:nth-child(4){
+.section-visual .area-visual__item:nth-child(4) .bg{
   background-image: url(../images/se00/20220627_final_04-BAKUCHIOL-RETINOL-CREAM_main_KV_pc.jpg);
 }
-.section-visual .area-visual__item:nth-child(5){
+.section-visual .area-visual__item:nth-child(5) .bg{
   background-image: url(../images/se00/20220627_final_05-BLUE-CHAMOMILE-CREAM_main_KV_pc.jpg);
 }
 .section-visual .area-visual__inner{
   position: absolute;
   left: 17.5vw;
   bottom: 13.96vw;
+  z-index: 10;
 }
-.section-visual .area-visual__link{
+.section-visual .area-visual__link,
+.section-visual .swiper-slide-prev .area-visual__link{
   display: inline-block;
+  z-index: 10;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.section-visual .swiper-slide-active .area-visual__link{
+  opacity: 1;
 }
 .section-visual .area-visual__link .title{
   color: #fff;
@@ -390,4 +407,151 @@ body{
   background-image: url(../images/se00/btn_next.png);
   right: 1.04vw;
 }
-.section-visual .swiper .swiper-pagination{}
+
+.section-visual .pagination-wrap{
+  position: absolute;
+  bottom: 10.16vw;
+  left: 17.5vw;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+}
+.section-visual .swiper-pagination{
+  position: static;
+  text-align: left;
+  transition: .3s opacity;
+  transform: translate3d(0,0,0);
+  z-index: 10;
+  width: 23.44vw;
+  display: flex;
+}
+.section-visual .swiper-pagination .swiper-pagination-bullet{
+  width: calc(100%/5);
+  height: 0.21vw;
+  border-radius: 0;
+  margin: 0;
+  background-color: #fff;
+  opacity: 0.3;
+  transition: opacity 1s;
+}
+.section-visual .swiper-pagination .swiper-pagination-bullet-active{
+  opacity: 1;
+}
+
+/* section01 */
+.section01 .area-swiper{
+  display: flex;
+}
+.section01 .section-body{
+  margin-bottom: 2.60vw;
+}
+.section01 .area-swiper__pagination{
+  width: 15.89vw;
+  padding-left: 1.93vw;
+  display: flex;
+  align-items: center; 
+  position: relative;
+}
+.section01 .hash-desc-list__item{
+  font-size: 1.033vw;
+  color: #bcbcbc;
+  margin-bottom: 1.98vw;
+}
+.section01 .hash-desc-list__item.active{
+  width: 8.44vw;
+  height: 2.19vw;
+  font-size: 1.446vw;
+  color: #000;
+  font-weight: 600;
+  background-color: #f7ff6e;
+  text-align: center;
+  line-height: 2.19vw;
+  margin: 0 0 1.56vw -7px;
+}
+.section01 .section01-swiper{
+  width: 71.25vw;
+  margin: 0;
+}
+.section01 .img-wrap{
+  width: 17.34vw;
+  height: 24.22vw;
+  position: relative;
+}
+.section01 .img-wrap .product__default{
+  position: absolute;
+}
+.section01 .img-wrap .product__active{
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.section01 .swiper-slide-active .img-wrap .product__active{
+  opacity: 1;
+}
+.section01 .img-wrap .product__active .desc{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  font-size: 1.446vw;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #aaa9a9;
+  padding: 0.42vw 1.35vw;
+}
+.section01 .img-wrap .product__active::after{
+  content: '';
+  position: absolute;
+  bottom: 1.20vw;
+  right: 1.04vw;
+  width: 1.56vw;
+  height: 0.36vw;
+  background: url(../images/common/icon_more.png);
+  background-repeat: no-repeat;
+}
+.section01 .text-wrap{
+  margin-top: 1.04vw;
+}
+.section01 .text-wrap .product-title{
+  padding: 0.26vw;
+  background-color: #faffb5;
+  font-size: 1.136vw;
+  font-weight: 600;
+}
+.section01 .text-wrap .title-desc{
+  margin-top: 0.78vw;
+  font-weight: 500;
+  font-size: 1.033vw;
+  color: #31261d;
+  text-overflow: ellipsis;
+  white-space: normal;
+  line-height: 1.033vw;
+}
+
+/* section02 */
+.section02{}
+.section02 .section-body{}
+.section02 .area-swiper{}
+.section02 .swiper{}
+.section02 .area-event{}
+.section02 .area-event__item{
+  display: flex;
+}
+.section02 .text-wrap{}
+.section02 .text-wrap .num{
+  font-size: 3.356vw;
+  font-weight: 700;
+  color: #ba8961;
+  letter-spacing: -0.10em;
+  display: block;
+  margin-bottom: 0.78vw;
+}
+.section02 .text-wrap .event-title{
+  font-size: 1.549vw;
+  font-weight: 600;
+}
+.section02 .text-wrap .tag-wrap{}
+.section02 .text-wrap .tag-wrap .tag{}
+.section02 .img-wrap{
+  width: 30.47vw;
+}
+.more-link{}

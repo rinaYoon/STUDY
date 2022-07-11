@@ -58,7 +58,22 @@
   border-radius: 3px;
   top: 2px;
 }
-/* 버튼 */
+
+/* 슬라이드 재생 버튼 */
+.stop-btn{
+  display: block;
+  width: 1.04vw;
+  height: 1.04vw;
+  background-image: url(../images/se00/icon_paused_220516.png);
+  background-repeat: no-repeat;
+  margin-left: 0.57vw;
+  background-position: center center;
+  cursor: pointer;
+}
+.stop-btn.start{
+  background-image: url(../images/se00/icon_start_220516.png);
+}
+/* 사각형 more 버튼 */
 .more-button{
   display: inline-block;
   width: 7.3vw;
@@ -67,4 +82,96 @@
   color: #fff;
   text-align: center;
   line-height: 2.29vw;
+}
+
+/* .section-header */
+.section-header{
+  padding: 5.21vw 0 0 12.50vw;
+}
+.section-header .section__title{
+  font-family: 'cera';
+  font-weight: 400;
+  font-size: 2.08vw;
+  margin-bottom: 1.25vw;
+}
+.section-header .title-desc{
+  font-size: 1.239vw;
+  font-family: 'cera';
+  background-color: #f7ff6e;
+  width: 11.34vw;
+  height: 2.08vw;
+  text-align: center;
+  line-height: 2.08vw;
+  border: 1px solid #a9a8a8;
+  border-radius: 3vw;
+  margin-bottom: 1.04vw;
+}
+
+/* area-swiper */
+.area-swiper{
+  padding-left: 12.50vw;
+}
+.section-visual .area-swiper,
+.section04 .area-swiper{
+  padding-left: 0;
+}
+
+/* 공용 스와이퍼 버튼 */
+.section01 .slide-button{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  width: 3.39vw;
+  height: 4.69vw;
+  z-index: 1;
+  cursor: pointer;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.section01 .button-arrow-prev{
+  background-image: url(../images/common/btn_main_prev.png);
+  left: 0;
+}
+.section01 .button-arrow-next{
+  background-image: url(../images/common/btn_main_next.png);
+  right: 0;
+}
+
+/* 공용 페이지 네이션 */
+.section01 .swiper-pagination{
+  position: absolute;
+  left: 1.93vw;
+  bottom: 3px;
+  text-align: center;
+  transition: .3s opacity;
+  transform: translate3d(0,0,0);
+  z-index: 10;
+  width: auto;
+}
+.section01 .swiper-pagination .swiper-pagination-bullet{
+  margin: 0 0.63vw 0 0;
+  width: 0.52vw;
+  height: 0.52vw;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+.section01 .swiper-pagination .swiper-pagination-bullet-active{
+  width: 1.30vw;
+  background-color: #000;
+  border-radius: 1.04vw;
+}
+
+/* .section-body__inner */
+.section-body__inner{
+  width: 75.00vw;
+  margin: 0 auto;
+}
+
+/* 이미지 가로 100% */
+.section01 .img-wrap .product__default >img,
+.section01 .img-wrap .product__active >img,
+.section02 .img-wrap .area-event__link > img{
+  width: 100%;
 }
