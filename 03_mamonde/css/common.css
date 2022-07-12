@@ -83,6 +83,21 @@
   text-align: center;
   line-height: 2.29vw;
 }
+/* 화살표 more 버튼 */
+.more-link{
+  display: inline-block;
+  font-size: 0.929vw;
+  font-weight: 600;
+}
+.more-link::after{
+  content: '';
+  display: inline-block;
+  width: 1.56vw;
+  height: 0.36vw;
+  margin-left: 0.68vw;
+  background-image: url(../images/common/icon_more.png);
+  background-repeat: no-repeat;
+}
 
 /* .section-header */
 .section-header{
@@ -112,15 +127,17 @@
   padding-left: 12.50vw;
 }
 .section-visual .area-swiper,
+.section02 .area-swiper,
 .section04 .area-swiper{
   padding-left: 0;
 }
 
 /* 공용 스와이퍼 버튼 */
-.section01 .slide-button{
+.section01 .slide-button,
+.section02 .slide-button{
   position: absolute;
   top: 50%;
-  transform: translateY(-100%);
+  transform: translateY(-50%);
   width: 3.39vw;
   height: 4.69vw;
   z-index: 1;
@@ -129,27 +146,29 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.section01 .button-arrow-prev{
+.section01 .button-arrow-prev,
+.section02 .button-arrow-prev{
   background-image: url(../images/common/btn_main_prev.png);
   left: 0;
 }
-.section01 .button-arrow-next{
+.section01 .button-arrow-next,
+.section02 .button-arrow-next{
   background-image: url(../images/common/btn_main_next.png);
   right: 0;
 }
 
 /* 공용 페이지 네이션 */
-.section01 .swiper-pagination{
+.section01 .swiper-pagination,
+.section02 .swiper-pagination{
   position: absolute;
-  left: 1.93vw;
-  bottom: 3px;
   text-align: center;
   transition: .3s opacity;
   transform: translate3d(0,0,0);
   z-index: 10;
   width: auto;
 }
-.section01 .swiper-pagination .swiper-pagination-bullet{
+.section01 .swiper-pagination .swiper-pagination-bullet,
+.section02 .swiper-pagination .swiper-pagination-bullet{
   margin: 0 0.63vw 0 0;
   width: 0.52vw;
   height: 0.52vw;
@@ -157,7 +176,8 @@
   border: 1px solid #000;
   border-radius: 50%;
 }
-.section01 .swiper-pagination .swiper-pagination-bullet-active{
+.section01 .swiper-pagination .swiper-pagination-bullet-active,
+.section02 .swiper-pagination .swiper-pagination-bullet-active{
   width: 1.30vw;
   background-color: #000;
   border-radius: 1.04vw;
@@ -172,6 +192,7 @@
 /* 이미지 가로 100% */
 .section01 .img-wrap .product__default >img,
 .section01 .img-wrap .product__active >img,
-.section02 .img-wrap .area-event__link > img{
+.section02 .img-wrap .area-event__link > img,
+.section04 .slot-insta__link .img-wrap > img{
   width: 100%;
 }
