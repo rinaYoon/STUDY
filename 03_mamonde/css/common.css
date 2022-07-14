@@ -29,6 +29,10 @@
   src: url('../woff/CeraProRegular.woff');
 }
 
+select::-ms-expand { 
+	display: none;
+}
+
 .blind{
   width: 1px;
   height: 1px;
@@ -134,7 +138,8 @@
 
 /* 공용 스와이퍼 버튼 */
 .section01 .slide-button,
-.section02 .slide-button{
+.section02 .slide-button,
+.section04 .slide-button{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -147,12 +152,14 @@
   background-position: center;
 }
 .section01 .button-arrow-prev,
-.section02 .button-arrow-prev{
+.section02 .button-arrow-prev,
+.section04 .button-arrow-prev{
   background-image: url(../images/common/btn_main_prev.png);
   left: 0;
 }
 .section01 .button-arrow-next,
-.section02 .button-arrow-next{
+.section02 .button-arrow-next,
+.section04 .button-arrow-next{
   background-image: url(../images/common/btn_main_next.png);
   right: 0;
 }
@@ -193,6 +200,6 @@
 .section01 .img-wrap .product__default >img,
 .section01 .img-wrap .product__active >img,
 .section02 .img-wrap .area-event__link > img,
-.section04 .slot-insta__link .img-wrap > img{
+.footer .info-mark > img{
   width: 100%;
 }

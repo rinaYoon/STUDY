@@ -5,6 +5,10 @@ var swiper = new Swiper(".section-visual .swiper", {
   slidesPerView: 1,
   spaceBetween: 0,
   //loop: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".section-visual .swiper-pagination",
     clickable: true,
@@ -54,4 +58,35 @@ section02Swiper.on('slideNextTransitionStart', function(){
 });
 section02Swiper.on('slideResetTransitionStart', function(){
   $('.section02 .swiper-slide-active .text-wrap').animate({right:500},500);
+});
+
+// section04
+var swiper = new Swiper(".section04 .swiper", {
+  slidesPerView: "auto",
+  spaceBetween: 10,
+  loop: true,
+  cssMode: true,
+  navigation: {
+    nextEl: ".section04 .button-arrow-next",
+    prevEl: ".section04 .button-arrow-prev",
+  },
+});
+
+//윈도우 스크롤
+$(window).scroll(function(){
+  var curr = $(window).scrollTop();
+  var height = $(document).outerHeight(true);
+
+  if(curr > 300){
+    $('.wrapper__top .top-button').addClass('on');
+  }else{
+    $('.wrapper__top .top-button').removeClass('on');
+  }
+
+  console.log(height);
+});
+
+//top 버튼
+$('.wrapper__top .top-button').click(function(){
+  $('html, body').stop().animate({scrollTop:0},500);
 });
