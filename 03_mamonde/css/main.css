@@ -27,12 +27,15 @@ body{
   width: 100vw;
   height: 3.13vw;
   color: #fff;
+  transition: background-color 0.3s, border-top 0.3s;
 }
 .header-navbar.scroll{
   background-color: #fff;
   color: #000;
   border-top: 3px solid #fdcd00;
   border-bottom: 1px solid #f3eeea;
+  box-sizing: border-box;
+  /* 박스사이징을 주었는데도 scroll로 변할 시 보더값때문에 더 내려가는 연출이 되어버립니다. */
 }
 
 .header-navbar .header-navbar__inner{
@@ -72,12 +75,13 @@ body{
 .header-navbar .gnb-list__link{
   display: block;
   font-size: 0.94vw;
+  font-weight: 600;
   height: 100%;
   line-height: 3.13vw;
   padding: 0 1.04vw;
   position: relative;
 }
-.header-navbar .gnb-list__link::after{
+.header-navbar.scroll .gnb-list__link::after{
   content: '';
   width: 0;
   height: 0.10vw;
@@ -88,7 +92,7 @@ body{
   transform: translateX(-50%);
   transition: width 0.3s;
 }
-.header-navbar .gnb-list__link:hover::after{
+.header-navbar.scroll .gnb-list__link:hover::after{
   width: 100%;
 }
 .header-navbar .util-list{
@@ -862,7 +866,7 @@ body{
 }
 .wrapper__top.fixed{
   position: absolute;
-  bottom: 20.83vw;
+  bottom: 15.83vw;
   transition: bottom 0.5s;
 }
 .wrapper__top .top-button{
@@ -875,6 +879,22 @@ body{
   transition: opacity 1s, visibility 1s;
 }
 .wrapper__top .top-button.on{
+  opacity: 1;
+  visibility: visible;
+}
+/* 메뉴, 검색창 bg */
+.menu_bg{
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  width: 100vw;
+  height: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+}
+.menu_bg.on{
   opacity: 1;
   visibility: visible;
 }

@@ -1,10 +1,109 @@
-// section-visual - 패럴랙스 응용이 안됨, 루프가 이상함
-var swiper = new Swiper(".section-visual .swiper", {
+//윈도우 스크롤
+function scrollEvent(){
+  var curr = $(window).scrollTop();
+  var windowHeight = $(window).height();
+  var pageHeight = $(document).outerHeight(true);
+  var footerHeight = $('.footer-wrapper').outerHeight();
+
+  //헤더 메뉴바 스크롤 이벤트 - 검색창은 유지되지만 서브메뉴창은 유지가 되지 않습니다.
+  if(curr > 100){
+    $('.header-navbar').addClass('scroll');
+  }else{
+    $('.header-navbar').removeClass('scroll');
+    $('.gnb-list__item .sub-box').removeClass('hover');
+    $('.menu_bg').removeClass('on');
+
+    if($('.sub-box').hasClass('hover')){
+      $('.header-navbar').addClass('scroll');
+      $('.menu_bg').addClass('on');
+    }
+
+    if($('.search-box').hasClass('open')){
+      $('.header-navbar').addClass('scroll');
+      $('.menu_bg').addClass('on');
+    }
+  }
+
+  //탑버튼 스크롤 이벤트
+  if(curr > 300){
+    $('.wrapper__top .top-button').addClass('on');
+
+    //푸터영역
+    if(curr > pageHeight-windowHeight-footerHeight){
+      $('.wrapper__top').addClass('fixed');
+    }else{
+      $('.wrapper__top').removeClass('fixed');
+    }
+  }else{
+    $('.wrapper__top .top-button').removeClass('on');
+  }
+}
+scrollEvent()
+
+$(window).scroll(function(){
+  scrollEvent()
+});
+
+//top 버튼
+$('.wrapper__top .top-button').click(function(){
+  $('html, body').stop().animate({scrollTop:0},500);
+});
+
+//헤더 메뉴바
+$('.gnb-list__item').mouseover(function(){
+  $('.header-navbar').addClass('scroll');
+  $('.search-box').removeClass('open');
+  $('.gnb-list__item .sub-box').removeClass('hover');
+  $(this).children('.sub-box').addClass('hover');
+  
+  if($('.sub-box').hasClass('hover')){
+    $('.menu_bg').addClass('on');
+  }else{
+    $('.menu_bg').removeClass('on');
+  }
+});
+
+$('.header').mouseleave(function(){
+  var curr = $(window).scrollTop();
+
+  $('.header-navbar').removeClass('scroll');
+  $('.gnb-list__item .sub-box').removeClass('hover');
+  $('.menu_bg').removeClass('on');
+
+  if(curr > 100){
+    $('.header-navbar').addClass('scroll');
+  }
+
+  if($('.search-box').hasClass('open')){
+    $('.header-navbar').addClass('scroll');
+    $('.menu_bg').addClass('on');
+  }
+});
+
+// 검색창
+$('.util-list__item .util-search').click(function(){
+  $('.header-navbar').addClass('scroll');
+  $('.search-box').addClass('open');
+  $('.menu_bg').addClass('on');
+});
+
+$('.search-box .close-button').click(function(){
+  $('.header-navbar').removeClass('scroll');
+  $('.search-box').removeClass('open');
+  $('.menu_bg').removeClass('on');
+});
+
+
+
+
+
+// section-visual - 패럴랙스 응용이 안됩니다. 루프 설정하면 에러가 납니다.
+var visualswiper = new Swiper(".section-visual .swiper", {
   speed: 1000,
   //parallax: true,
   slidesPerView: 1,
   spaceBetween: 0,
-  //loop: true,
+  // loop: "true",
   autoplay: {
     delay: 2500,
     disableOnInteraction: false,
@@ -20,11 +119,17 @@ var swiper = new Swiper(".section-visual .swiper", {
 });
 
 $('.stop-btn').click(function(){
-  $('.stop-btn').addClass('start');
+  if(!$('.stop-btn').hasClass('start')){
+    $('.stop-btn').addClass('start');
+    visualswiper.autoplay.stop();
+  }else{
+    $('.stop-btn').removeClass('start');
+    visualswiper.autoplay.start();
+  }
 });
 
 // section01 - 해시태그 연동하는 방법
-var swiper = new Swiper(".section01 .swiper", {
+var section01swiper = new Swiper(".section01 .swiper", {
   slidesPerView: 4,
   spaceBetween: 14,
   loop: true,
@@ -39,7 +144,7 @@ var swiper = new Swiper(".section01 .swiper", {
   },
 });
 
-// section02 - 이전, 다음으로 넘어갈때 text-wrap 이 안움직임
+// section02 - 이전, 다음으로 넘어갈때 text-wrap 의 동작이 이상해집니다.
 var section02Swiper = new Swiper(".section02 .swiper", {
   slidesPerView: "auto",
   spaceBetween: 15,
@@ -61,7 +166,7 @@ section02Swiper.on('slideResetTransitionStart', function(){
 });
 
 // section04
-var swiper = new Swiper(".section04 .swiper", {
+var section04swiper = new Swiper(".section04 .swiper", {
   slidesPerView: "auto",
   spaceBetween: 10,
   loop: true,
@@ -70,23 +175,4 @@ var swiper = new Swiper(".section04 .swiper", {
     nextEl: ".section04 .button-arrow-next",
     prevEl: ".section04 .button-arrow-prev",
   },
-});
-
-//윈도우 스크롤
-$(window).scroll(function(){
-  var curr = $(window).scrollTop();
-  var height = $(document).outerHeight(true);
-
-  if(curr > 300){
-    $('.wrapper__top .top-button').addClass('on');
-  }else{
-    $('.wrapper__top .top-button').removeClass('on');
-  }
-
-  console.log(height);
-});
-
-//top 버튼
-$('.wrapper__top .top-button').click(function(){
-  $('html, body').stop().animate({scrollTop:0},500);
 });
