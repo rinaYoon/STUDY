@@ -10,12 +10,13 @@ function scrollEvent(){
     $('.header-navbar').addClass('scroll');
   }else{
     $('.header-navbar').removeClass('scroll');
-    $('.gnb-list__item .sub-box').removeClass('hover');
     $('.menu_bg').removeClass('on');
 
     if($('.sub-box').hasClass('hover')){
       $('.header-navbar').addClass('scroll');
       $('.menu_bg').addClass('on');
+    }else{
+      $('.gnb-list__item .sub-box').removeClass('hover');
     }
 
     if($('.search-box').hasClass('open')){
@@ -97,13 +98,13 @@ $('.search-box .close-button').click(function(){
 
 
 
-// section-visual - 패럴랙스 응용이 안됩니다. 루프 설정하면 에러가 납니다.
+// section-visual - 패럴랙스 응용이 안됩니다.
 var visualswiper = new Swiper(".section-visual .swiper", {
   speed: 1000,
-  //parallax: true,
+  parallax: true,
   slidesPerView: 1,
   spaceBetween: 0,
-  // loop: "true",
+  loop: true,
   autoplay: {
     delay: 2500,
     disableOnInteraction: false,

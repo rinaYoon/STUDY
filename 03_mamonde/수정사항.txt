@@ -1,0 +1,5 @@
+<css>
+-모든 background img size들 전부 100% 로 하기 (창 줄일때 이상해짐)
+-헤더 : 서브박스 위치 확인좀(줄일때 떨어짐)
+-sc v : nth-child 쓴것들 전부 html내부 스타일로씀 (loop안먹히는 원인)
+-sc01 : 라인헤이트: 배수로하는게 편하고 잘먹힘 line-height:1.3;
