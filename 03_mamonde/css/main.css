@@ -28,6 +28,7 @@ body{
   width: 100vw;
   height: 3.13vw;
   color: #fff;
+  border-top: 3px solid rgba(255, 255, 255, 0);
   transition: background-color 0.3s, border-top 0.3s;
 }
 .header-navbar.scroll{
@@ -130,7 +131,8 @@ body{
   opacity: 0;
   visibility: hidden;
 }
-.header-navbar .sub-box.hover{
+.header-navbar .sub-box.hover,
+.header-navbar .sub-box:focus{
   opacity: 1;
   visibility: visible;
 }
@@ -235,6 +237,9 @@ body{
   position: absolute;
   top: 0;
   left: 0;
+}
+.header-navbar .sub-benner__link{
+  display: block;
 }
 .header-navbar .sub-benner__link .text-wrap{
   margin-top: 1.04vw;
@@ -460,14 +465,15 @@ body{
   align-items: center; 
   position: relative;
 }
-.section01 .hash-desc-list__item{
+.section01 .hash-list__item .hash-button{
   font-size: 1.033vw;
   color: #bcbcbc;
   margin-bottom: 1.98vw;
+  font-family: 'arita';
+  cursor: pointer;
+  transition: width 1s, height 1s, font-size 1s;
 }
-.section01 .hash-desc-list__item.active{
-  width: 8.44vw;
-  height: 2.19vw;
+.section01 .hash-list__item .hash-button.active{
   font-size: 1.446vw;
   color: #000;
   font-weight: 600;
