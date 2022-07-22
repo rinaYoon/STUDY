@@ -171,18 +171,71 @@ $(function(){
     },
     on: {
       slideChange: function(){
-        //console.log(this.realIndex);
+        /* 삽질 */
+        // if(this.realIndex === 0){
+        //   $('.hash-button.active').removeClass('active');
+        //   $('.hash-button').eq(0).addClass('active');
+        // }else if(this.realIndex === 1){
+        //   $('.hash-button.active').removeClass('active');
+        //   $('.hash-button').eq(1).addClass('active');
+        // }else if(this.realIndex === 2){
+        //   $('.hash-button.active').removeClass('active');
+        //   $('.hash-button').eq(2).addClass('active');
+        // }else if(this.realIndex === 3){
+        //   $('.hash-button.active').removeClass('active');
+        //   $('.hash-button').eq(3).addClass('active');
+        // }else{
+        //   $('.hash-button.active').removeClass('active');
+        // }
+        $('.hash-button.active').removeClass('active');
+        $('.hash-button').eq(this.realIndex).addClass('active');
       }
     }
   });
+  
+  /* 삽질 */
+  // $('.hash-button').eq(0).click(function(){
+  //     $('.hash-button.active').removeClass('active');
+  //     $(this).addClass('active');
+  //     section01swiper.slideToLoop(0, 500, false);
+  // });
+  // $('.hash-button').eq(1).click(function(){
+  //     $('.hash-button.active').removeClass('active');
+  //     $(this).addClass('active');
+  //     section01swiper.slideToLoop(1, 500, false);
+  // });
+  // $('.hash-button').eq(2).click(function(){
+  //     $('.hash-button.active').removeClass('active');
+  //     $(this).addClass('active');
+  //     section01swiper.slideToLoop(2, 500, false);
+  // });
+  // $('.hash-button').eq(3).click(function(){
+  //     $('.hash-button.active').removeClass('active');
+  //     $(this).addClass('active');
+  //     section01swiper.slideToLoop(3, 500, false);
+  // });
+    $('.hash-button').click(function(){
+      var i = $(this).parent('.hash-list__item').index();
 
-  $('.hash-button').click(function(){
-    $('.hash-button').removeClass('active');
-    $(this).addClass('active');
-    console.log(section01swiper.activeIndex);
-  });
+      $('.hash-button.active').removeClass('active');
+      $(this).addClass('active');
 
-  //스와이퍼의 realIndex = hash-button.length 를 동일시?
+      section01swiper.slideToLoop(i, 500, false);
+    });
+    
+
+  /*
+  ~스와이퍼 자주 쓰이는거~
+  .on{}: 스와이퍼 이 외에 따른 이벤트같은거 넣을때 쓰임
+  slideChange: 슬라이드가 바뀔때마다(=액티브가 될때마다) 이벤트가 실행
+  스와이퍼이름.activeIndex: 현대 액티브가 된 슬라이드 번호, 근데 loop일때는 양이 늘어나서 번호가 바뀜
+  스와이퍼이름.realIndex: 슬라이드 ㄹㅇ찐번호 loop적용중일땐 이거 쓰는게 나음
+  스와이퍼이름.slideTo(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함
+  스와이퍼이름.slideToLoop(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함(loop설정되어있을때 전용)
+  */
+
+
+
 
 
 
