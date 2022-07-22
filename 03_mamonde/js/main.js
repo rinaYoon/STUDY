@@ -155,7 +155,7 @@ $(function(){
     }
   });
 
-  // section01 - 해시태그 연동하는 방법
+  // section01
   var section01swiper = new Swiper(".section01 .swiper", {
     slidesPerView: 4,
     spaceBetween: 14,
@@ -235,14 +235,7 @@ $(function(){
   */
 
 
-
-
-
-
-
-
-
-  // section02 - 이전, 다음으로 넘어갈때 text-wrap 의 동작이 이상해집니다.
+  // section02
   var section02Swiper = new Swiper(".section02 .swiper", {
     slidesPerView: "auto",
     spaceBetween: 15,
@@ -255,13 +248,22 @@ $(function(){
       nextEl: ".section02 .button-arrow-next",
       prevEl: ".section02 .button-arrow-prev",
     },
+    on: {
+      slideChange: function(){
+        $('.section02 .area-event__text .text-wrap').eq(this.realIndex).animate({
+          left:0,
+          opacity:1
+        },500);
+      }
+    }
   });
-  section02Swiper.on('slideNextTransitionStart', function(){
-    $('.section02 .swiper-slide-active .text-wrap').animate({left:500},500);
-  });
-  section02Swiper.on('slideResetTransitionStart', function(){
-    $('.section02 .swiper-slide-active .text-wrap').animate({right:500},500);
-  });
+// 마저하기
+
+
+
+
+
+
 
   // section04
   var section04swiper = new Swiper(".section04 .swiper", {
@@ -274,13 +276,6 @@ $(function(){
       prevEl: ".section04 .button-arrow-prev",
     },
   });
-
-
-
-
-
-
-
 
 
 
