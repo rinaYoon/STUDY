@@ -13,13 +13,13 @@
   <!-- 스킵네비 -->
   <div class="skip-nav" aria-label="바로가기 메뉴">
     <ul class="skip-nav-list">
-      <li class="skip-nav-list__item"><a href="#" class="skip-nav-list__link">검색하기</a></li>
+      <li class="skip-nav-list__item"><button id="search-go" class="skip-nav-list__link" type="button">검색하기</button></li>
       <li class="skip-nav-list__item"><a href="#" class="skip-nav-list__link">신제품 바로가기</a></li>
       <li class="skip-nav-list__item"><a href="#" class="skip-nav-list__link">베스트상품 바로가기</a></li>
       <li class="skip-nav-list__item"><a href="#" class="skip-nav-list__link">스킨케어 바로가기</a></li>
       <li class="skip-nav-list__item"><a href="#" class="skip-nav-list__link">메이크업 바로가기</a></li>
       <li class="skip-nav-list__item"><a href="#" class="skip-nav-list__link">남자전용 바로가기</a></li>
-      <li class="skip-nav-list__item"><a href="#" class="skip-nav-list__link">본문보기</a></li>
+      <li class="skip-nav-list__item"><a href="#main" class="skip-nav-list__link">본문보기</a></li>
     </ul>
   </div>
 
@@ -99,7 +99,7 @@
                     <div class="sub-box__inner">
                       <!-- 왼쪽메뉴 -->
                       <div class="sub-menu-wrap">
-                        <span href="#" class="category-all category-all__story">Mamonde</span>
+                        <span class="category-all category-all__story">Mamonde</span>
                         <ul class="depth1-list depth1-list__story">
                           <li class="depth1-list__item"><a href="#" class="depth1-list__link">브랜드 스토리</a></li>
                           <li class="depth1-list__item"><a href="#" class="depth1-list__link">라운지</a></li>
@@ -129,11 +129,11 @@
             <ul class="util-list">
               <li class="util-list__item"><a href="#" class="util__link">로그인</a></li>
               <li class="util-list__item"><a href="#" class="util__link">매장찾기</a></li>
-              <li class="util-list__item"><button class="util-search"><span class="blind">검색</span></button></li>
+              <li class="util-list__item"><button class="util-search" type="button"><span class="blind">검색</span></button></li>
             </ul>
           </div>
           <!-- 검색창 -->
-          <div class="search-box">
+          <div id="search-box" class="search-box">
             <div class="search-box__inner">
               <form method="post">
                 <fieldset>
@@ -159,7 +159,7 @@
         </div>
       </div>
     </header>
-    <main class="main">
+    <main id="main" class="main">
       <section class="section section-visual">
         <h2 class="blind">메인 배너</h2>
         <div class="area-swiper">
@@ -230,7 +230,7 @@
             <button class="slide-button button-arrow-next" type="button"><span class="blind">다음</span></button>
             <div class="pagination-wrap">
               <div class="swiper-pagination"></div>
-              <button type="button" class="stop-btn"><span class="blind">정지</span></button>
+              <button class="stop-btn" type="button"><span class="blind">정지</span></button>
             </div>
           </div>
         </div>
@@ -248,16 +248,16 @@
               <div class="hash-desc">
                 <ul class="hash-list">
                   <li class="hash-list__item">
-                    <button class="hash-button active">#저자극탄력</button>
+                    <button class="hash-button active" type="button">#저자극탄력</button>
                   </li>
                   <li class="hash-list__item">
-                    <button class="hash-button">#장벽 강화</button>
+                    <button class="hash-button" type="button">#장벽 강화</button>
                   </li>
                   <li class="hash-list__item">
-                    <button class="hash-button">#자극 진정</button>
+                    <button class="hash-button" type="button">#자극 진정</button>
                   </li>
                   <li class="hash-list__item">
-                    <button class="hash-button">#저자극클린선크림</button>
+                    <button class="hash-button" type="button">#저자극클린선크림</button>
                   </li>
                 </ul>
               </div>
@@ -361,23 +361,55 @@
             <div class="swiper">
               <ul class="swiper-wrapper area-event">
                 <li class="swiper-slide area-event__item">
+                  <div class="text-wrap">
+                    <span class="num">01</span>
+                    <strong class="event-title">선크림도 저자극으로!</strong>
+                    <div class="tag-wrap">
+                      <span class="tag">#써보고 선물하게 되는 선크림!</span>
+                      <br>
+                      <span class="tag">#눈시림없는</span>
+                      <span class="tag">#촉촉한혼합자차</span>
+                    </div>
+                    <a href="#" class="more-link">자세히보기</a>
+                  </div>
                   <div class="img-wrap">
                     <a href="#" class="area-event__link">
-                      <img src="../images/se02/20220509_final_vitasuncream_main_exclusive_banner_pc.jpg" alt="비타민 선크림">
+                      <img src="../images/se02/20220509_final_vitasuncream_main_exclusive_banner_pc.jpg" alt="비타민 선크림 바로가기">
                     </a>
                   </div>
                 </li>
                 <li class="swiper-slide area-event__item">
+                  <div class="text-wrap">
+                    <span class="num">02</span>
+                    <strong class="event-title">NEW 로즈 리퀴드 마스크 런칭</strong>
+                    <div class="tag-wrap">
+                      <span class="tag">#PHA 7%각질도둑</span>
+                      <br>
+                      <span class="tag">#런칭기념최대혜택</span>
+                    </div>
+                    <a href="#" class="more-link">자세히보기</a>
+                  </div>
                   <div class="img-wrap">
                     <a href="#" class="area-event__link">
-                      <img src="../images/se02/20220408_final_ROSE-PHA-LIQUID-MASK_main_exclusive_banner_pc.jpg" alt="로즈 PHA 리퀴드 마스크">
+                      <img src="../images/se02/20220408_final_ROSE-PHA-LIQUID-MASK_main_exclusive_banner_pc.jpg" alt="로즈 PHA 리퀴드 마스크 바로가기">
                     </a>
                   </div>
                 </li>
                 <li class="swiper-slide area-event__item">
+                  <div class="text-wrap">
+                    <span class="num">03</span>
+                    <strong class="event-title">이것 때문에 시카 손절!</strong>
+                    <div class="tag-wrap">
+                      <span class="tag">#시카변절템</span>
+                      <span class="tag">#마스크 예민보스템</span>
+                      <br>
+                      <span class="tag">#유수분밑간템</span>
+                    </div>
+                    <a href="#" class="more-link">자세히보기</a>
+                  </div>
                   <div class="img-wrap">
                     <a href="#" class="area-event__link">
-                      <img src="../images/se02/20220411_final_blue_champmile_cream_main_exclusive_banner_pc.jpg" alt="블루 카모마일 크림">
+                      <img src="../images/se02/20220411_final_blue_champmile_cream_main_exclusive_banner_pc.jpg" alt="블루 카모마일 크림 바로가기">
                     </a>
                   </div>
                 </li>
@@ -386,41 +418,7 @@
                 <button class="slide-button button-arrow-prev" type="button"><span class="blind">이전</span></button>
                 <button class="slide-button button-arrow-next" type="button"><span class="blind">다음</span></button>
               </div>
-            </div>
-            <div class="area-event__text">
-              <div class="text-wrap">
-                <span class="num">01</span>
-                <strong class="event-title">선크림도 저자극으로!</strong>
-                <div class="tag-wrap">
-                  <span class="tag">#써보고 선물하게 되는 선크림!</span>
-                  <br>
-                  <span class="tag">#눈시림없는</span>
-                  <span class="tag">#촉촉한혼합자차</span>
-                </div>
-                <a href="#" class="more-link">자세히보기</a>
-              </div>
-              <div class="text-wrap">
-                <span class="num">02</span>
-                <strong class="event-title">NEW 로즈 리퀴드 마스크 런칭</strong>
-                <div class="tag-wrap">
-                  <span class="tag">#PHA 7%각질도둑</span>
-                  <br>
-                  <span class="tag">#런칭기념최대혜택</span>
-                </div>
-                <a href="#" class="more-link">자세히보기</a>
-              </div>
-              <div class="text-wrap">
-                <span class="num">03</span>
-                <strong class="event-title">이것 때문에 시카 손절!</strong>
-                <div class="tag-wrap">
-                  <span class="tag">#시카변절템</span>
-                  <span class="tag">#마스크 예민보스템</span>
-                  <br>
-                  <span class="tag">#유수분밑간템</span>
-                </div>
-                <a href="#" class="more-link">자세히보기</a>
-              </div>
-            </div>
+            </div>            
             <div class="swiper-pagination"></div>
           </div>
         </div>
@@ -638,9 +636,9 @@
         <div class="footer__inner">
           <div class="footer-sns">
             <ul class="sns-list">
-              <li class="sns-list__item sns-facebook"><a href="sns-list__link"><span class="blind">페이스북</span></a></li>
-              <li class="sns-list__item sns-insta"><a href="sns-list__link"><span class="blind">인스타그램</span></a></li>
-              <li class="sns-list__item sns-youtobe"><a href="sns-list__link"><span class="blind">유투브</span></a></li>
+              <li class="sns-list__item sns-facebook"><a href="#" class="sns-list__link"><span class="blind">페이스북</span></a></li>
+              <li class="sns-list__item sns-insta"><a href="#" class="sns-list__link"><span class="blind">인스타그램</span></a></li>
+              <li class="sns-list__item sns-youtobe"><a href="#" class="sns-list__link"><span class="blind">유투브</span></a></li>
             </ul>
           </div>
           <div class="footer-section">
@@ -675,7 +673,7 @@
     </footer>
     <!-- top버튼 -->
     <div class="wrapper__top">
-      <button class="top-button"><span class="blind">페이지 맨 위로 이동</span></button>
+      <button class="top-button" type="button"><span class="blind">페이지 맨 위로 이동</span></button>
     </div>
     <!-- 메뉴창, 검색창 bg -->
     <i class="menu_bg"></i>

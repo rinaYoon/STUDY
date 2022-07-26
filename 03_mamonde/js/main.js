@@ -107,7 +107,14 @@ $(function(){
     $('.header-navbar').addClass('scroll');
     $('.search-box').addClass('open');
     $('.menu_bg').addClass('on');
-  });
+  })
+  $('#search-go').click(function(){
+    $('.header-navbar').addClass('scroll');
+    $('.search-box').addClass('open');
+    $('.search-bar').focus();
+    $('.menu_bg').addClass('on');
+    $('.skip-nav').hide();
+  })
 
   $('.search-box .close-button').click(function(){
     $('.header-navbar').removeClass('scroll');
@@ -160,6 +167,7 @@ $(function(){
     slidesPerView: 4,
     spaceBetween: 14,
     loop: true,
+    keyboard: true,
     loopFillGroupWithBlank: true,
     pagination: {
       el: ".section01 .swiper-pagination",
@@ -232,6 +240,9 @@ $(function(){
   스와이퍼이름.realIndex: 슬라이드 ㄹㅇ찐번호 loop적용중일땐 이거 쓰는게 나음
   스와이퍼이름.slideTo(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함
   스와이퍼이름.slideToLoop(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함(loop설정되어있을때 전용)
+
+
+  Keyboard Control
   */
 
 
@@ -240,6 +251,7 @@ $(function(){
     slidesPerView: "auto",
     spaceBetween: 15,
     loop: true,
+    keyboard: true,
     pagination: {
       el: ".section02 .swiper-pagination",
       clickable: true,
@@ -250,7 +262,7 @@ $(function(){
     },
     on: {
       slideChange: function(){
-        $('.section02 .area-event__text .text-wrap').eq(this.realIndex).animate({
+        $('.section02 .area-event__item .text-wrap').eq(this.realIndex).animate({
           left:0,
           opacity:1
         },500);
