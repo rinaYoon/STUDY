@@ -247,8 +247,8 @@ $(function(){
   slidePrevTransitionStart: "slideChangeTransitionStart"와 같음, Prev만
   slidePrevTransitionEnd: "slideChangeTransitionEnd"와 같음, Prev만
 
-  스와이퍼이름.realIndex: 슬라이드 ㄹㅇ찐번호 loop적용중일땐 이거 쓰는게 나음
   스와이퍼이름.activeIndex: 현대 액티브가 된 슬라이드 번호, 근데 loop일때는 양이 늘어나서 번호가 바뀜
+  스와이퍼이름.realIndex: 슬라이드 ㄹㅇ찐번호 loop적용중일땐 이거 쓰는게 나음
 
   스와이퍼이름.slideTo(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함
   스와이퍼이름.slideToLoop(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함(loop설정되어있을때 전용)
@@ -277,23 +277,8 @@ $(function(){
     navigation: {
       nextEl: ".section02 .button-arrow-next",
       prevEl: ".section02 .button-arrow-prev",
-    },
-    on: {
-      slideChange: function(){
-        // $('.section02 .text-wrap').eq(this.realIndex).animate({
-        //   left:0,
-        //   opacity:1
-        // },500);
-        $('')
-      }
     }
   });
-// 마저하기
-
-
-
-
-
 
 
   // section04

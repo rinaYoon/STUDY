@@ -569,12 +569,11 @@ body{
   align-items: center;
   width: auto;
 }
-.section02 .area-event__item.swiper-slide-prev{
-  opacity: 0;
-  visibility: hidden;
-}
 .section02 .img-wrap{
-  width: 30.47vw;
+  width: 29.80vw;
+}
+.section02 .swiper-slide-next .img-wrap{
+  opacity: 1 !important;
 }
 .section02 .area-event__item .text-wrap{
   margin-right: 7.55vw;
