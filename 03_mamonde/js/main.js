@@ -235,14 +235,29 @@ $(function(){
   /*
   ~스와이퍼 자주 쓰이는거~
   .on{}: 스와이퍼 이 외에 따른 이벤트같은거 넣을때 쓰임
+
   slideChange: 슬라이드가 바뀔때마다(=액티브가 될때마다) 이벤트가 실행
-  스와이퍼이름.activeIndex: 현대 액티브가 된 슬라이드 번호, 근데 loop일때는 양이 늘어나서 번호가 바뀜
+
+  slideChangeTransitionStart: 이전, 다음 슬라이드로 넘기기 시작할때 이벤트 발생
+  slideChangeTransitionEnd: 이전, 다음 슬라이드로 넘어가서 끝날때 이벤트 발생
+
+  slideNextTransitionStart: "slideChangeTransitionStart"와 같음, next만
+  slideNextTransitionEnd: "slideChangeTransitionEnd"와 같음, next만
+
+  slidePrevTransitionStart: "slideChangeTransitionStart"와 같음, Prev만
+  slidePrevTransitionEnd: "slideChangeTransitionEnd"와 같음, Prev만
+
   스와이퍼이름.realIndex: 슬라이드 ㄹㅇ찐번호 loop적용중일땐 이거 쓰는게 나음
+  스와이퍼이름.activeIndex: 현대 액티브가 된 슬라이드 번호, 근데 loop일때는 양이 늘어나서 번호가 바뀜
+
   스와이퍼이름.slideTo(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함
   스와이퍼이름.slideToLoop(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함(loop설정되어있을때 전용)
 
+  스와이퍼이름.slidePrev(index, speed, runCallbacks): 이전 슬라이드로 이동
+  스와이퍼이름.slideNext(index, speed, runCallbacks): 다음 슬라이드로 이동
 
   Keyboard Control
+  watchOverflow: 슬라이드가1개라서 슬라이드가 되지 않을때 버튼,페이징버튼 숨겨짐
   */
 
 
@@ -251,7 +266,10 @@ $(function(){
     slidesPerView: "auto",
     spaceBetween: 15,
     loop: true,
+    loopAdditionalSlides: 2,
     keyboard: true,
+    parallax: true,
+    speed : 1000,
     pagination: {
       el: ".section02 .swiper-pagination",
       clickable: true,
@@ -262,10 +280,11 @@ $(function(){
     },
     on: {
       slideChange: function(){
-        $('.section02 .area-event__item .text-wrap').eq(this.realIndex).animate({
-          left:0,
-          opacity:1
-        },500);
+        // $('.section02 .text-wrap').eq(this.realIndex).animate({
+        //   left:0,
+        //   opacity:1
+        // },500);
+        $('')
       }
     }
   });
