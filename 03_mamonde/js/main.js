@@ -131,10 +131,10 @@ $(function(){
   });
 
   //main
-  // section-visual - 패럴랙스 응용 작업중
+  // section-visual
   var visualswiper = new Swiper(".section-visual .swiper", {
-    speed: 1000,
     parallax: true,
+    speed: 1000,
     slidesPerView: 1,
     spaceBetween: 0,
     loop: true,
@@ -281,16 +281,17 @@ $(function(){
   });
 
 
-  // section04
+  // section04 : cssMode 적용 시 nextEl 방향으로 loop가 되지 않습니다!
   var section04swiper = new Swiper(".section04 .swiper", {
     slidesPerView: "auto",
     spaceBetween: 10,
     loop: true,
-    cssMode: true,
+    loopAdditionalSlides: 2,
+    // cssMode: true,
     navigation: {
       nextEl: ".section04 .button-arrow-next",
       prevEl: ".section04 .button-arrow-prev",
-    },
+    }
   });
 
 
