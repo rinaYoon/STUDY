@@ -284,10 +284,12 @@ $(function(){
   // section04 : cssMode 적용 시 nextEl 방향으로 loop가 되지 않습니다!
   var section04swiper = new Swiper(".section04 .swiper", {
     slidesPerView: "auto",
+    slidesPerGroup: 1,
     spaceBetween: 10,
     loop: true,
     loopAdditionalSlides: 2,
-    // cssMode: true,
+    loopFillGroupWithBlank: true,
+    touchRatio: 0,
     navigation: {
       nextEl: ".section04 .button-arrow-next",
       prevEl: ".section04 .button-arrow-prev",
