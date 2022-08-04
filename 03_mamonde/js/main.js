@@ -7,7 +7,6 @@ $(function(){
     var pageHeight = $(document).outerHeight(true);
     var footerHeight = $('.footer-wrapper').outerHeight();
 
-    //헤더 메뉴바 스크롤 이벤트 - 검색창은 유지되지만 서브메뉴창은 유지가 되지 않습니다.
     if(curr > 100){
       $('.header-navbar').addClass('scroll');
     }else{
@@ -60,6 +59,8 @@ $(function(){
     $('.search-box').removeClass('open');
     $('.gnb-list__item .sub-box').removeClass('hover');
     $(this).children('.sub-box').addClass('hover');
+    $('.gnb-list__item').children('.gnb-list__link').removeClass('hover');
+    $(this).children('.gnb-list__link').addClass('hover');
     
     if($('.sub-box').hasClass('hover')){
       $('.menu_bg').addClass('on');
@@ -91,6 +92,7 @@ $(function(){
     $('.header-navbar').removeClass('scroll');
     $('.gnb-list__item .sub-box').removeClass('hover');
     $('.menu_bg').removeClass('on');
+    $('.gnb-list__item').children('.gnb-list__link').removeClass('hover');
 
     if(curr > 100){
       $('.header-navbar').addClass('scroll');
