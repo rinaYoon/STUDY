@@ -43,7 +43,6 @@ $(function(){
 
   scrollEvent()
 
-  
   $(window).scroll(function(){
     scrollEvent()
   });
@@ -53,9 +52,15 @@ $(function(){
     $('html, body').stop().animate({scrollTop:0},500);
   });
 
+
+
+//각 클래스에서 중복되는 add, remove등 끼리끼리 함수로 묶어보기?
+//좀 더 축약할 수 있는 방법 찾기
+
+
   //헤더 메뉴바
   $('.gnb-list__item').mouseover(function(){
-    $('.header-navbar').addClass('scroll');
+    
     $('.search-box').removeClass('open');
     $('.gnb-list__item .sub-box').removeClass('hover');
     $(this).children('.sub-box').addClass('hover');
@@ -131,6 +136,13 @@ $(function(){
       $('.header-navbar').addClass('scroll');
     }
   });
+
+
+
+
+
+
+
 
   //main
   // section-visual
