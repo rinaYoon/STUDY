@@ -307,7 +307,7 @@ $(function(){
     loop: true,
     loopAdditionalSlides: 2,
     loopFillGroupWithBlank: true,
-    touchRatio: 0,
+    allowTouchMove: false,
     navigation: {
       nextEl: ".section04 .button-arrow-next",
       prevEl: ".section04 .button-arrow-prev",
