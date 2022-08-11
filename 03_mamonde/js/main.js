@@ -41,17 +41,13 @@ $(function(){
     }
   }
   $(window).scroll(function(){
-    scrollEvent()
+    scrollEvent();
   });
-  
-  
   
   //top 버튼
   $('.wrapper__top .top-button').click(function(){
     $('html, body').stop().animate({scrollTop:0},500);
   });
-  
-
   
   //헤더 메뉴바  
   function headerMenu(){
@@ -107,8 +103,6 @@ $(function(){
   }
   headerMenu();
   
-  
-  
   // 검색창
   function search(){
     $('.util-list__item .util-search').click(function(){
@@ -142,11 +136,7 @@ $(function(){
   
   
   
-  
-  
-  
-  
-  
+
   
   //main
   // section-visual
@@ -160,6 +150,11 @@ $(function(){
       delay: 2500,
       disableOnInteraction: false,
     },
+    a11y: {
+      prevSlideMessage: '이전 배너보기',
+      nextSlideMessage: '다음 배너보기',
+      slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
+    },
     pagination: {
       el: ".section-visual .swiper-pagination",
       clickable: true,
@@ -168,8 +163,27 @@ $(function(){
       nextEl: ".section-visual .button-arrow-next",
       prevEl: ".section-visual .button-arrow-prev",
     },
+    on: {
+      init: function(){
+        thisSlide = this;
+        $('.stop-btn').click(function(){
+          if(!$('.stop-btn').hasClass('start')){
+            $('.stop-btn').addClass('start');
+            thisSlide.autoplay.stop();
+            $('.stop-btn .blind').text("재생하기");
+            $('.stop-btn').attr({"aria-pressed":"true"});
+          }else{
+            $('.stop-btn').removeClass('start');
+            thisSlide.autoplay.start();
+            $('.stop-btn .blind').text("정지하기");
+            $('.stop-btn').attr({"aria-pressed":"false"});
+          }
+        });
+      }
+    }
   });
-  
+  /*
+  //💩일시정지, 재생버튼 스와이퍼 안에다 넣고, aria-pressed와 blind 내용을 변경
   $('.stop-btn').click(function(){
     if(!$('.stop-btn').hasClass('start')){
       $('.stop-btn').addClass('start');
@@ -179,14 +193,19 @@ $(function(){
       visualswiper.autoplay.start();
     }
   });
+  */
   
   // section01
   var section01swiper = new Swiper(".section01 .swiper", {
     slidesPerView: 4,
     spaceBetween: 14,
     loop: true,
-    keyboard: true,
     loopFillGroupWithBlank: true,
+    a11y: {
+      prevSlideMessage: '이전 배너보기',
+      nextSlideMessage: '다음 배너보기',
+      slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
+    },
     pagination: {
       el: ".section01 .swiper-pagination",
       clickable: true,
@@ -197,7 +216,7 @@ $(function(){
     },
     on: {
       slideChange: function(){
-        /* 삽질 */
+        /* 💩 */
         // if(this.realIndex === 0){
         //   $('.hash-button.active').removeClass('active');
         //   $('.hash-button').eq(0).addClass('active');
@@ -219,7 +238,7 @@ $(function(){
     }
   });
   
-  /* 삽질 */
+  /* 💩 */
   // $('.hash-button').eq(0).click(function(){
   //     $('.hash-button.active').removeClass('active');
   //     $(this).addClass('active');
@@ -249,35 +268,7 @@ $(function(){
       section01swiper.slideToLoop(i, 500, false);
     });
     
-  
-  /*
-  ~스와이퍼 자주 쓰이는거~
-  .on{}: 스와이퍼 이 외에 따른 이벤트같은거 넣을때 쓰임
-  
-  slideChange: 슬라이드가 바뀔때마다(=액티브가 될때마다) 이벤트가 실행
-  
-  slideChangeTransitionStart: 이전, 다음 슬라이드로 넘기기 시작할때 이벤트 발생
-  slideChangeTransitionEnd: 이전, 다음 슬라이드로 넘어가서 끝날때 이벤트 발생
-  
-  slideNextTransitionStart: "slideChangeTransitionStart"와 같음, next만
-  slideNextTransitionEnd: "slideChangeTransitionEnd"와 같음, next만
-  
-  slidePrevTransitionStart: "slideChangeTransitionStart"와 같음, Prev만
-  slidePrevTransitionEnd: "slideChangeTransitionEnd"와 같음, Prev만
-  
-  스와이퍼이름.activeIndex: 현대 액티브가 된 슬라이드 번호, 근데 loop일때는 양이 늘어나서 번호가 바뀜
-  스와이퍼이름.realIndex: 슬라이드 ㄹㅇ찐번호 loop적용중일땐 이거 쓰는게 나음
-  
-  스와이퍼이름.slideTo(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함
-  스와이퍼이름.slideToLoop(index(슬라이드번호), speed(속도), runCallbacks(전환이벤트여부)): '특정'슬라이드로 이동함(loop설정되어있을때 전용)
-  
-  스와이퍼이름.slidePrev(index, speed, runCallbacks): 이전 슬라이드로 이동
-  스와이퍼이름.slideNext(index, speed, runCallbacks): 다음 슬라이드로 이동
-  
-  Keyboard Control
-  watchOverflow: 슬라이드가1개라서 슬라이드가 되지 않을때 버튼,페이징버튼 숨겨짐
-  */
-  
+    
   
   // section02
   var section02Swiper = new Swiper(".section02 .swiper", {
@@ -288,6 +279,11 @@ $(function(){
     keyboard: true,
     parallax: true,
     speed : 1000,
+    a11y: {
+      prevSlideMessage: '이전 배너보기',
+      nextSlideMessage: '다음 배너보기',
+      slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
+    },
     pagination: {
       el: ".section02 .swiper-pagination",
       clickable: true,
@@ -308,6 +304,11 @@ $(function(){
     loopAdditionalSlides: 2,
     loopFillGroupWithBlank: true,
     allowTouchMove: false,
+    a11y: {
+      prevSlideMessage: '이전 배너보기',
+      nextSlideMessage: '다음 배너보기',
+      slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
+    },
     navigation: {
       nextEl: ".section04 .button-arrow-next",
       prevEl: ".section04 .button-arrow-prev",
