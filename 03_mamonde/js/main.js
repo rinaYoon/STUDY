@@ -1,37 +1,98 @@
 $(function(){
+  //전역변수 설정
+  var current = $(window).scrollTop();
+  //console.log(current);
+  var windowHeight = $(window).height();
+  var pageHeight = $(document).outerHeight(true);
+  var footerHeight = $('.footer-wrapper').outerHeight();
 
-  //윈도우 스크롤
-  function scrollEvent(){
-    var curr = $(window).scrollTop();
-    var windowHeight = $(window).height();
-    var pageHeight = $(document).outerHeight(true);
-    var footerHeight = $('.footer-wrapper').outerHeight();
+
+
+  /* 초기화모음? */
+  function initEvent(){
+    topButtonInit();
+  }
+  initEvent();
+
+  /* 스크롤 */
+  $(window).scroll(function(){
+    scrollEvent();
+  });
   
-    if(curr > 100){
-      $('.header-navbar').addClass('scroll');
-    }else{
-      $('.header-navbar').removeClass('scroll');
-      $('.menu_bg').removeClass('on');
-  
-      if($('.sub-box').hasClass('hover')){
-        $('.header-navbar').addClass('scroll');
-        $('.menu_bg').addClass('on');
-      }else{
-        $('.gnb-list__item .sub-box').removeClass('hover');
+
+
+
+
+  /* 함수 묶음 */
+
+  //스크롤이벤트스타일 add, remove 선택적용
+  var scrollStyle = {
+    add: function(addScrollOn){
+      switch (addScrollOn) {
+        case 'scroll':
+          $('.header-navbar').addClass('scroll');
+          break;
+        case 'bgOn':
+          $('.menu_bg').addClass('on');
+          break;
+        case 'scrollAndBgOn':
+          $('.header-navbar').addClass('scroll');
+          $('.menu_bg').addClass('on');
+          break;
       }
-  
-      if($('.search-box').hasClass('open')){
-        $('.header-navbar').addClass('scroll');
-        $('.menu_bg').addClass('on');
+    },
+    remove: function(removeScrollOn){
+      switch (removeScrollOn) {
+        case 'scroll':
+          $('.header-navbar').removeClass('scroll');
+          break;
+        case 'bgOn':
+          $('.menu_bg').removeClass('on');
+          break;
+        case 'scrollAndBgOn':
+          $('.header-navbar').removeClass('scroll');
+          $('.menu_bg').removeClass('on');
+          break;
       }
     }
-  
-    //탑버튼 스크롤 이벤트
-    if(curr > 300){
+  }
+
+  function scrollEvent(){
+    current = $(window).scrollTop();
+    //console.log("scrollEvent:", current);
+    headerScrollEvent();
+    topButtonScrollEvent();
+    gnbMenuTebMovelastBlur();
+  }
+
+  function headerScrollEvent(){
+    if(current > 100){
+      scrollStyle.add('scroll');
+    }else{
+      scrollStyle.remove('scrollAndBgOn');
+      submenuKeepUp();
+      searchKeepUp();
+    }
+  }
+  function submenuKeepUp(){
+    if($('.sub-box').hasClass('hover')){
+      scrollStyle.add('scrollAndBgOn');
+    }else{
+      $('.gnb-list__item .sub-box').removeClass('hover');
+    }
+  }
+
+  function searchKeepUp(){
+    if($('.search-box').hasClass('open')){
+      scrollStyle.add('scrollAndBgOn');
+    }
+  }
+
+  function topButtonScrollEvent(){
+    if(current > 300){
       $('.wrapper__top .top-button').addClass('on');
   
-      //푸터영역
-      if(curr > pageHeight-windowHeight-footerHeight){
+      if(current > pageHeight-windowHeight-footerHeight){
         $('.wrapper__top').addClass('fixed');
       }else{
         $('.wrapper__top').removeClass('fixed');
@@ -40,105 +101,103 @@ $(function(){
       $('.wrapper__top .top-button').removeClass('on');
     }
   }
-  $(window).scroll(function(){
-    scrollEvent();
-  });
-  
-  //top 버튼
-  $('.wrapper__top .top-button').click(function(){
-    $('html, body').stop().animate({scrollTop:0},500);
-  });
-  
+
+  function topButtonInit() {
+    $('.wrapper__top .top-button').click(function(){
+      $('html, body').stop().animate({scrollTop:0},500);
+    });
+  }
+  /* //함수 묶음 */
+
+
+
   //헤더 메뉴바  
-  function headerMenu(){
-    $('.gnb-list__item').mouseover(function(){
-      $('.header-navbar').addClass('scroll');
-      $('.search-box').removeClass('open');
-      $('.gnb-list__item .sub-box').removeClass('hover');
-      $(this).children('.sub-box').addClass('hover');
-      $('.gnb-list__item').children('.gnb-list__link').removeClass('hover');
-      $(this).children('.gnb-list__link').addClass('hover');
-      
-      if($('.sub-box').hasClass('hover')){
-        $('.menu_bg').addClass('on');
-      }else{
-        $('.menu_bg').removeClass('on');
-      }
-    });
+  $('.gnb-list__item').mouseover(function(){
+    scrollStyle.add('scroll');
+    $('.gnb-list__item .sub-box').removeClass('hover');
+    $(this).children('.sub-box').addClass('hover');
+    $('.gnb-list__item').children('.gnb-list__link').removeClass('hover');
+    $(this).children('.gnb-list__link').addClass('hover');
+    $('.search-box').removeClass('open');
     
-    $('.gnb-list__link').focus(function(){
-      $('.header-navbar').addClass('scroll');
-      $('.sub-box').removeClass('hover');
-      $(this).siblings('.sub-box').addClass('hover');
-    });
-    
+    if($('.sub-box').hasClass('hover')){
+      scrollStyle.add('bgOn');
+    }else{
+      scrollStyle.remove('bgOn');
+    }
+  });
+
+  $('.gnb-list__link').focus(function(){
+    scrollStyle.add('scroll');
+    $('.sub-box').removeClass('hover');
+    $(this).siblings('.sub-box').addClass('hover');
+  });
+  
+  function gnbMenuTebMovelastBlur(){
     $('.gnb-list__item:last-child .sub-benner__link').blur(function(){
-      var curr = $(window).scrollTop();
-    
-      $('.header-navbar').removeClass('scroll');
+
+      scrollStyle.remove('scroll');
       $('.sub-box').removeClass('hover');
-    
-      if(curr > 100){
-        $('.header-navbar').addClass('scroll');
-      }
-    });
-    
-    $('.header').mouseleave(function(){
-      var curr = $(window).scrollTop();
-    
-      $('.header-navbar').removeClass('scroll');
-      $('.gnb-list__item .sub-box').removeClass('hover');
-      $('.menu_bg').removeClass('on');
-      $('.gnb-list__item').children('.gnb-list__link').removeClass('hover');
-    
-      if(curr > 100){
-        $('.header-navbar').addClass('scroll');
-      }
-    
-      if($('.search-box').hasClass('open')){
-        $('.header-navbar').addClass('scroll');
-        $('.menu_bg').addClass('on');
+
+      if(current > 100){  
+        scrollStyle.add('scroll');
       }
     });
   }
-  headerMenu();
-  
-  // 검색창
-  function search(){
-    $('.util-list__item .util-search').click(function(){
-      $('.header-navbar').addClass('scroll');
-      $('.search-box').addClass('open');
-      $('.menu_bg').addClass('on');
-    })
-    $('#search-go').click(function(){
-      $('.header-navbar').addClass('scroll');
-      $('.search-box').addClass('open');
-      $('.search-bar').focus();
-      $('.menu_bg').addClass('on');
-      $('.skip-nav').hide();
-    })
     
-    $('.search-box .close-button').click(function(){
-      $('.header-navbar').removeClass('scroll');
-      $('.search-box').removeClass('open');
-      $('.menu_bg').removeClass('on');
-    });
+
+  $('.header').mouseleave(function(){
+    scrollStyle.remove('scrollAndBgOn');
+    $('.gnb-list__item .sub-box').removeClass('hover');
+    $('.gnb-list__item').children('.gnb-list__link').removeClass('hover');
     
-    $('.search-box .close-button').keydown(function(){
-      var curr = $(window).scrollTop();
-    
-      if(e.keyCode == 13, curr > 100){
-        $('.header-navbar').addClass('scroll');
-      }
-    });
-  }
-  search();
+    if($('.search-box').hasClass('open')){
+      scrollStyle.add('scrollAndBgOn');
+    }
   
-  
-  
+    if(current > 100){
+      scrollStyle.add('scroll');
+    }
+  });
 
   
+  // 검색창
+  $('.util-list__item .util-search').click(function(){
+    scrollStyle.add('scrollAndBgOn');
+    $('.search-box').addClass('open');
+  })
+  $('#search-go').click(function(){
+    scrollStyle.add('scrollAndBgOn');
+    $('.search-box').addClass('open');
+    $('.search-bar').focus();
+    $('.skip-nav').hide();
+  })
+  
+  $('.search-box .close-button').click(function(){
+    scrollStyle.remove('scrollAndBgOn');
+    $('.search-box').removeClass('open');
+  });
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
   //main
+  /* 스와이퍼 디폴트값 */
+  function swiperDefault(){
+    //어케넣냐
+  }
+
+
   // section-visual
   var visualswiper = new Swiper(".section-visual .swiper", {
     parallax: true,
