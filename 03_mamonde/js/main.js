@@ -20,11 +20,6 @@ $(function(){
   });
   
 
-
-
-
-  /* 함수 묶음 */
-
   //스크롤이벤트스타일 add, remove 선택적용
   var scrollStyle = {
     add: function(addScrollOn){
@@ -74,42 +69,6 @@ $(function(){
       searchKeepUp();
     }
   }
-  function submenuKeepUp(){
-    if($('.sub-box').hasClass('hover')){
-      scrollStyle.add('scrollAndBgOn');
-    }else{
-      $('.gnb-list__item .sub-box').removeClass('hover');
-    }
-  }
-
-  function searchKeepUp(){
-    if($('.search-box').hasClass('open')){
-      scrollStyle.add('scrollAndBgOn');
-    }
-  }
-
-  function topButtonScrollEvent(){
-    if(current > 300){
-      $('.wrapper__top .top-button').addClass('on');
-  
-      if(current > pageHeight-windowHeight-footerHeight){
-        $('.wrapper__top').addClass('fixed');
-      }else{
-        $('.wrapper__top').removeClass('fixed');
-      }
-    }else{
-      $('.wrapper__top .top-button').removeClass('on');
-    }
-  }
-
-  function topButtonInit() {
-    $('.wrapper__top .top-button').click(function(){
-      $('html, body').stop().animate({scrollTop:0},500);
-    });
-  }
-  /* //함수 묶음 */
-
-
 
   //헤더 메뉴바  
   $('.gnb-list__item').mouseover(function(){
@@ -144,7 +103,6 @@ $(function(){
       }
     });
   }
-    
 
   $('.header').mouseleave(function(){
     scrollStyle.remove('scrollAndBgOn');
@@ -160,12 +118,26 @@ $(function(){
     }
   });
 
-  
+  function submenuKeepUp(){
+    if($('.sub-box').hasClass('hover')){
+      scrollStyle.add('scrollAndBgOn');
+    }else{
+      $('.gnb-list__item .sub-box').removeClass('hover');
+    }
+  }
+    
   // 검색창
+  function searchKeepUp(){
+    if($('.search-box').hasClass('open')){
+      scrollStyle.add('scrollAndBgOn');
+    }
+  }
+
   $('.util-list__item .util-search').click(function(){
     scrollStyle.add('scrollAndBgOn');
     $('.search-box').addClass('open');
   })
+
   $('#search-go').click(function(){
     scrollStyle.add('scrollAndBgOn');
     $('.search-box').addClass('open');
@@ -178,11 +150,29 @@ $(function(){
     $('.search-box').removeClass('open');
   });
 
-
-
-
-
+  //탑버튼
+  function topButtonScrollEvent(){
+    if(current > 300){
+      $('.wrapper__top .top-button').addClass('on');
   
+      if(current > pageHeight-windowHeight-footerHeight){
+        $('.wrapper__top').addClass('fixed');
+      }else{
+        $('.wrapper__top').removeClass('fixed');
+      }
+    }else{
+      $('.wrapper__top .top-button').removeClass('on');
+    }
+  }
+
+  function topButtonInit() {
+    $('.wrapper__top .top-button').click(function(){
+      $('html, body').stop().animate({scrollTop:0},500);
+    });
+  }
+
+
+
 
 
 
@@ -196,6 +186,11 @@ $(function(){
   function swiperDefault(){
     //어케넣냐
   }
+  /* 
+  ~나온의견~
+  -객체로만들어서 갖고있다가 쓰기
+  
+  */
 
 
   // section-visual
