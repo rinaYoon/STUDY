@@ -8,7 +8,7 @@ $(function(){
 
 
 
-  /* 초기화모음? */
+  /* 초기화 */
   function initEvent(){
     topButtonInit();
   }
@@ -172,70 +172,82 @@ $(function(){
   }
 
 
-
-
-
-
-
-
-
-
-
   //main
   /* 스와이퍼 디폴트값 */
-  function swiperDefault(){
-    //어케넣냐
-  }
-  /* 
-  ~나온의견~
-  -객체로만들어서 갖고있다가 쓰기
-  
-  */
+  function swiperDefault(param,speed,slidesPerView,spaceBetween,allowTouchMove,auto,paginationClass,nextButton,prevButton,stopButton){
 
+    if(param==true){param=true}else{param=false}
+    if(auto==false){auto==false}else{'{delay: 2500,disableOnInteraction: false,}'}
 
-  // section-visual
-  var visualswiper = new Swiper(".section-visual .swiper", {
-    parallax: true,
-    speed: 1000,
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    a11y: {
-      prevSlideMessage: '이전 배너보기',
-      nextSlideMessage: '다음 배너보기',
-      slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
-    },
-    pagination: {
-      el: ".section-visual .swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".section-visual .button-arrow-next",
-      prevEl: ".section-visual .button-arrow-prev",
-    },
-    on: {
-      init: function(){
-        thisSlide = this;
-        $('.stop-btn').click(function(){
-          if(!$('.stop-btn').hasClass('start')){
-            $('.stop-btn').addClass('start');
-            thisSlide.autoplay.stop();
-            $('.stop-btn .blind').text("재생하기");
-            $('.stop-btn').attr({"aria-pressed":"true"});
-          }else{
-            $('.stop-btn').removeClass('start');
-            thisSlide.autoplay.start();
-            $('.stop-btn .blind').text("정지하기");
-            $('.stop-btn').attr({"aria-pressed":"false"});
+    return{
+      parallax: param,
+      speed: speed,
+      slidesPerView: slidesPerView,
+      spaceBetween: spaceBetween,
+      loop: true,
+      loopAdditionalSlides: 2,
+      keyboard: true,
+      allowTouchMove: allowTouchMove,
+      autoplay: auto,
+      a11y: {
+        prevSlideMessage: '이전 배너보기',
+        nextSlideMessage: '다음 배너보기',
+        slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
+      },
+      pagination: {
+        el: paginationClass,
+        clickable: true,
+      },
+      navigation: {
+        nextEl: nextButton,
+        prevEl: prevButton,
+      },
+      on: {
+        init: function(){
+          thisSlide = this;
+          
+          if (stopButton==true) {
+            $('.stop-btn').click(function(){
+              if(!$('.stop-btn').hasClass('start')){
+                $('.stop-btn').addClass('start');
+                thisSlide.autoplay.stop();
+                $('.stop-btn .blind').text("재생하기");
+                $('.stop-btn').attr({"aria-pressed":"true"});
+              }else{
+                $('.stop-btn').removeClass('start');
+                thisSlide.autoplay.start();
+                $('.stop-btn .blind').text("정지하기");
+                $('.stop-btn').attr({"aria-pressed":"false"});
+              }
+            });
           }
-        });
+        },
+        slideChange: function(){
+          /* 💩 */
+          // if(this.realIndex === 0){
+          //   $('.hash-button.active').removeClass('active');
+          //   $('.hash-button').eq(0).addClass('active');
+          // }else if(this.realIndex === 1){
+          //   $('.hash-button.active').removeClass('active');
+          //   $('.hash-button').eq(1).addClass('active');
+          // }else if(this.realIndex === 2){
+          //   $('.hash-button.active').removeClass('active');
+          //   $('.hash-button').eq(2).addClass('active');
+          // }else if(this.realIndex === 3){
+          //   $('.hash-button.active').removeClass('active');
+          //   $('.hash-button').eq(3).addClass('active');
+          // }else{
+          //   $('.hash-button.active').removeClass('active');
+          // }
+          $('.hash-button.active').removeClass('active');
+          $('.hash-button').eq(this.realIndex).addClass('active');
+        }
       }
     }
-  });
+  }
+
+  // section-visual
+  var visualswiper = new Swiper(".section-visual .swiper", swiperDefault(true,1000,1,0,true,true,".section-visual .swiper-pagination",".section-visual .button-arrow-next",".section-visual .button-arrow-prev",true));
   /*
   //💩일시정지, 재생버튼 스와이퍼 안에다 넣고, aria-pressed와 blind 내용을 변경
   $('.stop-btn').click(function(){
@@ -255,6 +267,7 @@ $(function(){
     spaceBetween: 14,
     loop: true,
     loopFillGroupWithBlank: true,
+    keyboard: true,
     a11y: {
       prevSlideMessage: '이전 배너보기',
       nextSlideMessage: '다음 배너보기',
@@ -349,7 +362,7 @@ $(function(){
   });
   
   
-  // section04 : cssMode 적용 시 nextEl 방향으로 loop가 되지 않습니다!
+  // section04
   var section04swiper = new Swiper(".section04 .swiper", {
     slidesPerView: "auto",
     slidesPerGroup: 1,

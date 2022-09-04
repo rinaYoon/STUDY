@@ -275,13 +275,13 @@ $(function(){
   
   // section02
   var section02Swiper = new Swiper(".section02 .swiper", {
+    parallax: true,
+    speed : 1000,
     slidesPerView: "auto",
     spaceBetween: 15,
     loop: true,
     loopAdditionalSlides: 2,
     keyboard: true,
-    parallax: true,
-    speed : 1000,
     a11y: {
       prevSlideMessage: '이전 배너보기',
       nextSlideMessage: '다음 배너보기',
