@@ -1,0 +1,96 @@
+/* inline, float, flex, flex-box, grid, dp:table + dp:table-cell + teble-layout, ... */
+
+/* 초기화 */
+* {margin: 0;padding: 0;font: inherit;font-size: 100%;box-sizing: border-box;border: 0;letter-spacing: -0.050em;}
+ol,ul {list-style: none;}
+a {text-decoration: none;}
+img {vertical-align: top;}
+/* //초기화 */
+
+/* 공용 */
+.title {font-weight: bold;text-align: center;}
+
+.area-division-test {padding-bottom: 100px;}
+.main-title {font-size: 30px;}
+
+.area-test .area-division-header .division-title{font-size: 20px;}
+
+.slot-test {margin: 50px auto 0 auto;width: 1000px;}
+.slot-test .test-title .title {font-size: 30px;font-weight: bold;}
+.slot-test .test-title .memo {text-align: center;}
+
+.test-wrap {margin-top: 15px;}
+.test-wrap .test-list {background-color: #eee;}
+.test-wrap .text-list__item {background-color: #fff;width: calc((100% - 60px) / 4);border: 2px solid #c374e2;}
+.test-wrap .text-list__item + .text-list__item {margin-left: 20px;}
+.test-wrap .text-list__item:nth-child(4n+1) {margin-left: 0;}
+.test-wrap .text-list__item:nth-child(n+5) {margin-top: 20px;}
+
+.test-wrap .text-list__link {display: block;width: 100%;height: 100%;}
+.test-wrap .unit-test {padding: 20px;}
+.test-wrap .unit-test .test-img img {width: 100%;}
+.test-wrap .unit-test .test-text {margin-top: 20px;color: #222;}
+
+.test-wrap .unit-test .test-text .title-wrap {display: table;width: 100%;}
+.test-wrap .unit-test .test-text .title-inner {display: table-cell; vertical-align: middle;height: 42px;background-color: #eee;}
+.test-wrap .unit-test .test-text .title {text-align: center;font-size: 16px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+.test-wrap .unit-test .test-text .price {text-align: left;display: block;font-size: 13px;margin-top: 20px;}
+
+.title-text {display: table-cell;}
+/* //공용 */
+
+/* slot01 - inline left */
+.slot01 .test-wrap .test-list {font-size: 0;}
+.slot01 .test-wrap .text-list__item {display: inline-block;}
+/* //slot01 - inline left */
+
+/* slot02 - inline center */
+.slot02 .test-list {font-size: 0;text-align: center;}
+.slot02 .text-list__item {display: inline-block;}
+.slot02 .text-list__item .text-list__link {padding: 20px 0;}
+.slot02 .text-list__item .unit-test {width: 191px;margin: 0 auto;padding: 0;}
+/* //slot02 - inline center */
+
+/* slot03 - float */
+.slot03 .test-wrap .test-list::after {content: '';display: block;clear: both;}
+.slot03 .test-wrap .text-list__item {float: left;}
+/* //slot03 - float */
+
+/* slot04 - flex left */
+.slot04 .test-wrap .test-list {display: flex;flex-wrap: wrap;}
+/* //slot04 - flex left */
+
+/* slot05 - flex center */
+.slot05 .test-list {display: flex;flex-wrap: wrap;justify-content: center;}
+/* //slot05 - flex center */
+
+/* slot06 - inline-flex left */
+.slot06 .test-wrap .test-list {display: flex;flex-wrap: wrap;}
+/* //slot06 - inline-flex left */
+
+/* slot07 - flex center */
+.slot07 .test-list {display: flex;flex-wrap: wrap;justify-content: center;}
+/* //slot07 - flex center */
+
+/* slot08 - grid left */
+.slot08 .test-wrap .test-list {display: grid;grid-template-columns: repeat(4, 1fr);gap: 20px;}
+.slot08 .test-wrap .text-list__item {width: 100%;}
+.slot08 .test-wrap .text-list__item + .text-list__item {margin-left: 0;}
+.slot08 .test-wrap .text-list__item:nth-child(n+5) {margin-top: 0;}
+/* //slot08 - grid left */
+
+/* slot09 - grid center */
+.slot09 .test-list {display: grid; grid-template-columns: repeat(4,1fr);justify-items: center;justify-content: center;gap: 20px;}
+.slot09 .text-list__item {width: 100%;}
+.slot09 .text-list__item.center {width: calc(100%/4);}
+.slot09 .test-wrap .text-list__item + .text-list__item {margin-left: 0;}
+.slot09 .test-wrap .text-list__item:nth-child(n+5) {margin-top: 0;}
+.slot09 .text-list__item.center.center1 {grid-column: span 4;}
+.slot09 .text-list__item.center.center2{grid-column: span 2;width: 50%;justify-self:end;}
+.slot09 .text-list__item.center.center2+.center2 {justify-self:start;}
+/* //slot09 - grid center */
+
+/* slot10 - display table */
+/* .slot10 .test-wrap .test-list {display: table;table-layout: fixed;width: 100%;border-top: 2px solid #dd8006;border-left: 2px solid #dd8006;}
+.slot10 .test-wrap .text-list__item {display: table-cell;border-right: 2px solid #c374e2;border-bottom: 2px solid #c374e2;} */
+/* //slot10 - display table */
