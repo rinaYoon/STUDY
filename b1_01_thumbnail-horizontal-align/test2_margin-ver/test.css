@@ -90,7 +90,49 @@ img {vertical-align: top;}
 .slot09 .text-list__item.center.center2+.center2 {justify-self:start;}
 /* //slot09 - grid center */
 
-/* slot10 - display table */
-/* .slot10 .test-wrap .test-list {display: table;table-layout: fixed;width: 100%;border-top: 2px solid #dd8006;border-left: 2px solid #dd8006;}
-.slot10 .test-wrap .text-list__item {display: table-cell;border-right: 2px solid #c374e2;border-bottom: 2px solid #c374e2;} */
-/* //slot10 - display table */
+
+/* 
+
+  1. nth-child계산하여 margin값을 빼는것보단,
+    ul에 margin -??px 해주는게 좋음.
+    (이유: 나중에 가로값변동, 1줄에 썸네일갯수변동..등등에 유동적으로 대응 가능. (다만 ul의 마진값은 수정할듯))
+  
+  2. html태그 <table>과 css의 display: table; 과는 다르므로
+    접근성에 위배되지 않음.
+    (이유: html은 마크업이고 css는 오직 스타일위주임)
+  
+  3. display: table-cell; 의 활용은 IE처럼 버전 낮은곳에 활용하기.
+    flex나 grid에 굳이 할 필요 없음
+
+  4. 어떤 정렬을 하더라도 그에 걸맞는 block 엘리먼트 활용을 이해할것!
+    정렬마다 구조가 다르고, 감싸는 태그가 다름, 그리고 미래를 생각해서 손이 덜가게,
+    귀찮음을 갖고 잘 설계합시다.
+    (귀찮음의 기준 : 피드백 받기전 nth-child 남발한거)
+
+*/
+
+
+/* ul 마이너스 마진 */
+.area-margin .area-division-header .division-title{font-size: 20px;}
+
+.slot-margin {margin: 50px auto 0 auto;width: 1000px;}
+.slot-margin .margin-title .title {font-size: 30px;font-weight: bold;}
+.slot-margin .margin-title .memo {text-align: center;}
+
+.margin-wrap {padding-top: 15px;}
+.margin-wrap .margin-list {margin: -20px 0 0 -20px;}
+.margin-wrap .margin-list::after {content: '';display: block;clear: both;}
+.margin-wrap .margin-list__item {background-color: #fff;width: calc(100% / 4); margin: 20px 0 0 20px; float: left;}
+
+.margin-wrap .margin-list__link {display: block;width: 100%;height: 100%;}
+
+.margin-wrap .unit-margin {border: 2px solid #c374e2;padding: 20px;}
+.margin-wrap .unit-margin .margin-img img {width: 100%;}
+.margin-wrap .unit-margin .margin-text {margin-top: 20px;color: #222;}
+
+.margin-wrap .unit-margin .margin-text .title-wrap {display: table;width: 100%;}
+.margin-wrap .unit-margin .margin-text .title-inner {display: table-cell; vertical-align: middle;height: 42px;background-color: #eee;}
+.margin-wrap .unit-margin .margin-text .title {text-align: center;font-size: 16px;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;}
+.margin-wrap .unit-margin .margin-text .price {text-align: left;display: block;font-size: 13px;margin-top: 20px;}
+
+.title-text {display: table-cell;}
