@@ -176,6 +176,7 @@ $(function(){
   /* 스와이퍼 옶션값 모음 */
   
   const autoTrue = {delay: 500,disableOnInteraction: false,}
+  // 근데 일케하면 나중에 자동슬라이드 해야하는 영역이 많아질수록 변수가 많아짐 함수로 묶거나 변수를 함수처럼 변경할수 있는것좀 생각해야함
 
   function swiperOption(param,speed,slidesPerView,spaceBetween,allowTouchMove,auto,paginationClass,nextButton,prevButton,stopButton,hashButton){
 
