@@ -173,11 +173,11 @@ $(function(){
 
 
   //main
-  /* 스와이퍼 디폴트값 */
-  function swiperDefault(param,speed,slidesPerView,spaceBetween,allowTouchMove,auto,paginationClass,nextButton,prevButton,stopButton){
+  /* 스와이퍼 옶션값 모음 */
+  
+  const autoTrue = {delay: 500,disableOnInteraction: false,}
 
-    if(param==true){param=true}else{param=false}
-    if(auto==false){auto==false}else{'{delay: 2500,disableOnInteraction: false,}'}
+  function swiperOption(param,speed,slidesPerView,spaceBetween,allowTouchMove,auto,paginationClass,nextButton,prevButton,stopButton,hashButton){
 
     return{
       parallax: param,
@@ -239,15 +239,17 @@ $(function(){
           // }else{
           //   $('.hash-button.active').removeClass('active');
           // }
-          $('.hash-button.active').removeClass('active');
-          $('.hash-button').eq(this.realIndex).addClass('active');
+          if (hashButton==true) {
+            $('.hash-button.active').removeClass('active');
+            $('.hash-button').eq(this.realIndex).addClass('active');
+          }
         }
       }
     }
   }
 
   // section-visual
-  var visualswiper = new Swiper(".section-visual .swiper", swiperDefault(true,1000,1,0,true,true,".section-visual .swiper-pagination",".section-visual .button-arrow-next",".section-visual .button-arrow-prev",true));
+  var visualswiper = new Swiper(".section-visual .swiper", swiperOption(true,1000,1,0,true,autoTrue,".section-visual .swiper-pagination",".section-visual .button-arrow-next",".section-visual .button-arrow-prev",true,false));
   /*
   //💩일시정지, 재생버튼 스와이퍼 안에다 넣고, aria-pressed와 blind 내용을 변경
   $('.stop-btn').click(function(){
