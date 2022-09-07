@@ -119,14 +119,21 @@ img {vertical-align: top;}
 .slot-margin .margin-title .title {font-size: 30px;font-weight: bold;}
 .slot-margin .margin-title .memo {text-align: center;}
 
-.margin-wrap {padding-top: 15px;}
-.margin-wrap .margin-list {margin: -20px 0 0 -20px;}
+.margin-wrap {padding-top: 15px;background-color: #ccc;}
+.margin-wrap .margin-list {margin: -20px 0 0 -20px;background: rgba(182, 226, 255, 0.432);}
 .margin-wrap .margin-list::after {content: '';display: block;clear: both;}
-.margin-wrap .margin-list__item {background-color: #fff;width: calc(100% / 4); margin: 20px 0 0 20px; float: left;}
+.margin-wrap .margin-list__item {width: calc(100% / 4);float: left;margin-top: 20px;}
+/* .margin-wrap .margin-list__item {background-color: #fff;width: calc(100% / 4);float: left;padding: 20px 0 0 20px;border: 1px solid #ccc;} */
+/* li에 padding으로 하니 가로정렬이 되긴하지만 백그라운드컬러가 묻힘 그부분을 우려해야함 */
+
+.margin-wrap .margin-list__item .wrap {border: 2px solid #c374e2;margin-left: 20px;background-color: #fff;}
+/* .margin-wrap .margin-list__item .wrap {border: 2px solid #c374e2;margin-left: 20px;background-color: #fff;} */
+/* li에는 margin-top, li안쪽에 있는 div에게 margin-left 줌.
+마진때문에 아래로 내려가지 않지만, li밖으로 마진이 튀어나감 + li에 한번에 못줘서 조금 번거로움(ex.네이버트렌드쇼핑) */
 
 .margin-wrap .margin-list__link {display: block;width: 100%;height: 100%;}
 
-.margin-wrap .unit-margin {border: 2px solid #c374e2;padding: 20px;}
+.margin-wrap .unit-margin {padding: 20px;}
 .margin-wrap .unit-margin .margin-img img {width: 100%;}
 .margin-wrap .unit-margin .margin-text {margin-top: 20px;color: #222;}
 
