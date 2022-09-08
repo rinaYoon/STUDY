@@ -172,11 +172,22 @@ $(function(){
   }
 
 
+
+
+
+  
   //main
   /* 스와이퍼 옶션값 모음 */
-  
-  const autoTrue = {delay: 500,disableOnInteraction: false,}
-  // 근데 일케하면 나중에 자동슬라이드 해야하는 영역이 많아질수록 변수가 많아짐 함수로 묶거나 변수를 함수처럼 변경할수 있는것좀 생각해야함
+  // var autoTrue = function(time){
+  //   return{
+  //     autoplay: {
+  //       delay: time,
+  //       disableOnInteraction: false,
+  //     }
+  //   }
+  // }
+
+  var autoTrue = {delay: 2000, disableOnInteraction: false,}
 
   function swiperOption(param,speed,slidesPerView,spaceBetween,allowTouchMove,auto,paginationClass,nextButton,prevButton,stopButton,hashButton){
 
@@ -225,21 +236,21 @@ $(function(){
         },
         slideChange: function(){
           /* 💩 */
-          // if(this.realIndex === 0){
-          //   $('.hash-button.active').removeClass('active');
-          //   $('.hash-button').eq(0).addClass('active');
-          // }else if(this.realIndex === 1){
-          //   $('.hash-button.active').removeClass('active');
-          //   $('.hash-button').eq(1).addClass('active');
-          // }else if(this.realIndex === 2){
-          //   $('.hash-button.active').removeClass('active');
-          //   $('.hash-button').eq(2).addClass('active');
-          // }else if(this.realIndex === 3){
-          //   $('.hash-button.active').removeClass('active');
-          //   $('.hash-button').eq(3).addClass('active');
-          // }else{
-          //   $('.hash-button.active').removeClass('active');
-          // }
+          /* if(this.realIndex === 0){
+            $('.hash-button.active').removeClass('active');
+            $('.hash-button').eq(0).addClass('active');
+          }else if(this.realIndex === 1){
+            $('.hash-button.active').removeClass('active');
+            $('.hash-button').eq(1).addClass('active');
+          }else if(this.realIndex === 2){
+            $('.hash-button.active').removeClass('active');
+            $('.hash-button').eq(2).addClass('active');
+          }else if(this.realIndex === 3){
+            $('.hash-button.active').removeClass('active');
+            $('.hash-button').eq(3).addClass('active');
+          }else{
+            $('.hash-button.active').removeClass('active');
+          } */
           if (hashButton==true) {
             $('.hash-button.active').removeClass('active');
             $('.hash-button').eq(this.realIndex).addClass('active');
@@ -249,8 +260,51 @@ $(function(){
     }
   }
 
+  // 비주얼스와이퍼
+  
+  
+  // const visualSwiperOption = swiperOption({
+  //   parallax: true,
+  //   speed: 1500,
+  //   slidesPerView: 1,
+  //   spaceBetween: 0,
+  //   allowTouchMove: true,
+  //   autoplay: autoTrue,
+  //   pagination: {
+  //     el: ".section-visual .swiper-pagination",
+  //     clickable: true,
+  //   },
+  //   navigation: {
+  //     nextEl: nextButton,
+  //     prevEl: prevButton,
+  //   },
+  //   stopButton: true,
+  //   hashButton: false
+  // });
+
+
+  // function test(){
+  //   var autoTrue = {delay: 500, disableOnInteraction: false,}
+
+  //   swiperOption(
+  //     true,1000,1,0,true,
+  //     autoTrue,
+  //     ".section-visual .swiper-pagination",
+  //     ".section-visual .button-arrow-next",
+  //     ".section-visual .button-arrow-prev",
+  //     true,false
+  //     )
+  // } //안댐
+
   // section-visual
-  var visualswiper = new Swiper(".section-visual .swiper", swiperOption(true,1000,1,0,true,autoTrue,".section-visual .swiper-pagination",".section-visual .button-arrow-next",".section-visual .button-arrow-prev",true,false));
+  var visualswiper = new Swiper(".section-visual .swiper", swiperOption(
+    true,1000,1,0,true,
+    autoTrue,
+    ".section-visual .swiper-pagination",
+    ".section-visual .button-arrow-next",
+    ".section-visual .button-arrow-prev",
+    true,false
+    ));
   /*
   //💩일시정지, 재생버튼 스와이퍼 안에다 넣고, aria-pressed와 blind 내용을 변경
   $('.stop-btn').click(function(){
