@@ -172,25 +172,12 @@ $(function(){
   }
 
 
-
-
-
-  
   //main
   /* 스와이퍼 옵션값 모음 */
   function autoTime(time){return{delay: time, disableOnInteraction: false,}}
   function swiperOption(parallax,slidesPerView,spaceBetween,allowTouchMove,autoTime,paginationClass,nextButton,prevButton,stopButton){
 
     return{
-      speed: 1000,
-      loop: true,
-      loopAdditionalSlides: 2,
-      keyboard: true,
-      a11y: {
-        prevSlideMessage: '이전 배너보기',
-        nextSlideMessage: '다음 배너보기',
-        slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
-      },
       parallax: parallax, // 패럴렉스 사용유무(true / false)
       slidesPerView: slidesPerView, // 화면에 보여질 슬라이드 갯수 (숫자표현)
       spaceBetween: spaceBetween, // 슬라이드 간격 조절 (숫자표현)
@@ -208,7 +195,6 @@ $(function(){
         init: function(){
           // 자동슬라이드 정지, 재생 버튼기능 유무(true / false)
           thisSlide = this;
-
           if (stopButton==true) {
             $('.stop-btn').click(function(){
               if(!$('.stop-btn').hasClass('start')){
@@ -225,6 +211,15 @@ $(function(){
             });
           }
         }
+      },
+      speed: 1000,
+      loop: true,
+      loopAdditionalSlides: 2,
+      keyboard: true,
+      a11y: {
+        prevSlideMessage: '이전 배너보기',
+        nextSlideMessage: '다음 배너보기',
+        slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
       }
     }
   }
@@ -273,51 +268,30 @@ $(function(){
 
 
   // section02
-  new Swiper(".section02 .swiper", {
-    slidesPerView: "auto",
-    spaceBetween: 15,
-    loop: true,
-    loopAdditionalSlides: 2,
-    keyboard: true,
-    parallax: true,
-    speed : 1000,
-    a11y: {
-      prevSlideMessage: '이전 배너보기',
-      nextSlideMessage: '다음 배너보기',
-      slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
-    },
-    pagination: {
-      el: ".section02 .swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".section02 .button-arrow-next",
-      prevEl: ".section02 .button-arrow-prev",
-    }
-  });
+  new Swiper(".section02 .swiper", swiperOption(
+    true,
+    "auto",
+    15,
+    true,
+    false,
+    ".section02 .swiper-pagination",
+    ".section02 .button-arrow-next",
+    ".section02 .button-arrow-prev",
+    false
+    ));
   
   
   // section04
-  new Swiper(".section04 .swiper", {
-    slidesPerView: "auto",
-    slidesPerGroup: 1,
-    spaceBetween: 10,
-    loop: true,
-    loopAdditionalSlides: 2,
-    loopFillGroupWithBlank: true,
-    allowTouchMove: false,
-    a11y: {
-      prevSlideMessage: '이전 배너보기',
-      nextSlideMessage: '다음 배너보기',
-      slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
-    },
-    navigation: {
-      nextEl: ".section04 .button-arrow-next",
-      prevEl: ".section04 .button-arrow-prev",
-    }
-  });
-  
-  
-  
+  new Swiper(".section04 .swiper", swiperOption(
+    false,
+    "auto",
+    10,
+    false,
+    false,
+    ".section04 .swiper-pagination",
+    ".section04 .button-arrow-next",
+    ".section04 .button-arrow-prev",
+    false
+    ));  
   
   });
