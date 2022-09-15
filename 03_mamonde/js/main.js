@@ -179,23 +179,23 @@ $(function(){
   //main
   /* 스와이퍼 옵션값 모음 */
   function autoTime(time){return{delay: time, disableOnInteraction: false,}}
-  function swiperOption(parallax,slidesPerView,spaceBetween,allowTouchMove,autoTime,paginationClass,nextButton,prevButton,stopButton,hashButton){
+  function swiperOption(parallax,slidesPerView,spaceBetween,allowTouchMove,autoTime,paginationClass,nextButton,prevButton,stopButton){
 
     return{
-      parallax: parallax, // 패럴렉스 사용유무(true / false)
       speed: 1000,
-      slidesPerView: slidesPerView, // 화면에 보여질 슬라이드 갯수 (숫자표현)
-      spaceBetween: spaceBetween, // 슬라이드 간격 조절 (숫자표현)
       loop: true,
       loopAdditionalSlides: 2,
       keyboard: true,
-      allowTouchMove: allowTouchMove, // 슬라이드 터치 넘김 유무(true / false)
-      autoplay: autoTime, //자동슬라이드 유무 (false / autoTime(속도숫자))
       a11y: {
         prevSlideMessage: '이전 배너보기',
         nextSlideMessage: '다음 배너보기',
         slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
       },
+      parallax: parallax, // 패럴렉스 사용유무(true / false)
+      slidesPerView: slidesPerView, // 화면에 보여질 슬라이드 갯수 (숫자표현)
+      spaceBetween: spaceBetween, // 슬라이드 간격 조절 (숫자표현)
+      allowTouchMove: allowTouchMove, // 슬라이드 터치 넘김 유무(true / false)
+      autoplay: autoTime, //자동슬라이드 유무 (false / autoTime(속도숫자))
       pagination: {
         el: paginationClass,  // 해당 슬라이드 페이지네이션 클래스이름 기재
         clickable: true,
@@ -224,13 +224,6 @@ $(function(){
               }
             });
           }
-        },
-        slideChange: function(){
-          // section01 해시태그기능유무(true / false)
-          if (hashButton==true) {
-            $('.section01 .hash-button.active').removeClass('active');
-            $('.section01 .hash-button').eq(this.realIndex).addClass('active');
-          }
         }
       }
     }
@@ -248,50 +241,26 @@ $(function(){
     ".section-visual .swiper-pagination",
     ".section-visual .button-arrow-next",
     ".section-visual .button-arrow-prev",
-    true,
-    false
+    true
     ));
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
   // section01
-  var section01swiper = new Swiper(".section01 .swiper", {
-    slidesPerView: 4,
-    spaceBetween: 14,
-    loop: true,
-    loopFillGroupWithBlank: true,
-    keyboard: true,
-    a11y: {
-      prevSlideMessage: '이전 배너보기',
-      nextSlideMessage: '다음 배너보기',
-      slideLabelMessage: '총 {{slidesLength}}장의 배너 중 {{index}}번 배너 입니다.',
-    },
-    pagination: {
-      el: ".section01 .swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".section01 .button-arrow-next",
-      prevEl: ".section01 .button-arrow-prev",
-    },
-    on: {
-      slideChange: function(){
-        $('.hash-button.active').removeClass('active');
-        $('.hash-button').eq(this.realIndex).addClass('active');
-      }
-    }
+  var section01swiper = new Swiper(".section01 .swiper", swiperOption(
+    false,
+    4,
+    14,
+    true,
+    false,
+    ".section01 .swiper-pagination",
+    ".section01 .button-arrow-next",
+    ".section01 .button-arrow-prev",
+    false
+    ));
+
+  section01swiper.on('slideChange',function(){
+    $('.hash-button.active').removeClass('active');
+    $('.hash-button').eq(this.realIndex).addClass('active');
   });
 
   $('.hash-button').click(function(){
@@ -299,7 +268,6 @@ $(function(){
 
     $('.hash-button.active').removeClass('active');
     $(this).addClass('active');
-
     section01swiper.slideToLoop(i, 500, false);
   });
 
