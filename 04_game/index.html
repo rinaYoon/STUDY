@@ -32,10 +32,10 @@
     .user {margin-top: 40px;}
     .user .tool {padding: 0 20px 0 20px;display: flex;justify-content: space-evenly;}
     .user .tool .tool__button {width: 180px;height: 180px;border-radius: 50%;border: 0;background-color: transparent;cursor: pointer;}
-    .user .tool .tool__button.scissors {background: url(img/scissors__submit.png)no-repeat;background-size: 100%;}
-    .user .tool .tool__button.rock {background: url(img/rock__submit.png)no-repeat;background-size: 100%;}
-    .user .tool .tool__button.paper {background: url(img/paper__submit.png)no-repeat;background-size: 100%;}
-    .user .tool .tool__button:hover {border: 10px solid rgb(229, 155, 247);}
+    .user .tool .tool__button.button_scissors {background: url(img/scissors__submit.png)no-repeat;background-size: 100%;}
+    .user .tool .tool__button.button_rock {background: url(img/rock__submit.png)no-repeat;background-size: 100%;}
+    .user .tool .tool__button.button_paper {background: url(img/paper__submit.png)no-repeat;background-size: 100%;}
+    .user .tool .tool__button.hover {border: 10px solid rgb(229, 155, 247);}
 
     .a11r-hidden {width: 1px;height: 1px;margin: -1px;position: absolute;clip: rect(0,0,0,0);overflow: hidden;}
   </style>
@@ -45,9 +45,9 @@
       <div class="game-wrap">
         <div class="system">
           <div class="tool">
-            <img src="img/scissors.png" alt="가위">
-            <img src="img/rock.png" alt="바위">
-            <img src="img/paper.png" alt="보">
+            <img src="img/scissors.png" class="system__img system_scissors" alt="가위">
+            <img src="img/rock.png" class="system__img system_rock" alt="바위">
+            <img src="img/paper.png" class="system__img system_paper" alt="보">
           </div>
         </div>
 
@@ -57,13 +57,13 @@
 
         <div class="user">
           <div class="tool">
-            <button class="tool__button scissors" type="button">
+            <button class="tool__button button_scissors" type="button">
               <span class="a11r-hidden">가위 내기</span>
             </button>
-            <button class="tool__button rock" type="button">
+            <button class="tool__button button_rock" type="button">
               <span class="a11r-hidden">바위 내기</span>
             </button>
-            <button class="tool__button paper" type="button">
+            <button class="tool__button button_paper" type="button">
               <span class="a11r-hidden">보 내기</span>
             </button>
           </div>

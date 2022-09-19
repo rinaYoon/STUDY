@@ -2,18 +2,20 @@ $(document).ready(function(){
 
   // 이미지 반복
   var i = 0;
-  var img = $('.system .tool img')
+  var images = $('.system .tool .system__img')
 
-  var roopTime = setInterval(imgRoop, 100);
-
-  function imgRoop(){
-    img.hide();
-    img.eq(i).show();
+  var imgRoop = function(){
+    images.hide();
+    images.eq(i).show();
     i++;
-    if(i >= img.length){
+    if(i >= images.length){
       i = 0;
     }
   }
+
+  var roopTime = setInterval(imgRoop, 100);
+
+  console.log();
 
 
   // 버튼을 클릭하면 3초 반복이미지 중단
@@ -26,6 +28,9 @@ $(document).ready(function(){
     on: function(){
       userButton.removeAttr("disabled");
       userButton.css("cursor", "pointer");
+    },
+    cssBorderRemove: function(){
+      userButton.removeClass('hover');
     }
   }
 
@@ -37,27 +42,35 @@ $(document).ready(function(){
     setTimeout(function(){
       roopTime = setInterval(imgRoop, 100);
       userButtonControl.on();
+      userButtonControl.cssBorderRemove();
+      //가위바위보 결과값 이후 기본멘트로 초기화
       $('.text-box .text').text("가위! 바위! 보!");
-      //위에 text 있는 이유 : 가위바위보 결과값 이후 기본멘트로 초기화
     },3000);
+
+    
+    // 클릭한 버튼과 출력한 이미지 비교하기
+    if(userButton.index(this) == 0){
+      $('.text').text('가위 누름');
+      //만약에 현재 노출되고있는 이미지가 이미지index값 이라면
+      //이미지의 index값을 구해야함
+    }else if(userButton.index(this) == 1){
+      $('.text').text('바위 누름');
+    }else if(userButton.index(this) == 2){
+      $('.text').text('보 누름');
+    }
+
   });
-  
-
-  // 비교하기, 결과값을 폰트에 나타내기
-  // (setTimeout의 시간안에 나오고 사라져야함)
 
 
 
-
-
-
-
-
-
-
-
-
-
+  //버튼호버
+  userButton.mouseover(function(){
+    userButtonControl.cssBorderRemove();
+    $(this).addClass('hover');
+  });
+  userButton.mouseleave(function(){
+    userButtonControl.cssBorderRemove();
+  });
 
 
 
