@@ -83,8 +83,3 @@ img {vertical-align: top;}
 .slot09 .text-list__item.center.center2{grid-column: span 2;border-top: 2px solid rgb(98, 98, 223);width: 50%;justify-self:end;}
 .slot09 .text-list__item.center.center2+.center2 {border-left: 0;justify-self:start;}
 /* //slot09 - grid center */
-
-/* slot10 - display table */
-/* .slot10 .test-wrap .test-list {display: table;table-layout: fixed;width: 100%;border-top: 2px solid #dd8006;border-left: 2px solid #dd8006;}
-.slot10 .test-wrap .text-list__item {display: table-cell;border-right: 2px solid #c374e2;border-bottom: 2px solid #c374e2;} */
-/* //slot10 - display table */

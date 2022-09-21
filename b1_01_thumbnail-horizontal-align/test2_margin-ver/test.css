@@ -1,4 +1,3 @@
-/* inline, float, flex, flex-box, grid, dp:table + dp:table-cell + teble-layout, ... */
 
 /* 초기화 */
 * {margin: 0;padding: 0;font: inherit;font-size: 100%;box-sizing: border-box;border: 0;letter-spacing: -0.050em;}
@@ -92,23 +91,21 @@ img {vertical-align: top;}
 
 
 /* 
-
   1. nth-child계산하여 margin값을 빼는것보단,
-    ul에 margin -??px 해주는게 좋음.
+    ul에 margin:음수값 해주는게 좋음.
     (이유: 나중에 가로값변동, 1줄에 썸네일갯수변동..등등에 유동적으로 대응 가능. (다만 ul의 마진값은 수정할듯))
   
   2. html태그 <table>과 css의 display: table; 과는 다르므로
     접근성에 위배되지 않음.
     (이유: html은 마크업이고 css는 오직 스타일위주임)
   
-  3. display: table-cell; 의 활용은 IE처럼 버전 낮은곳에 활용하기.
-    flex나 grid에 굳이 할 필요 없음
+  3. display: table-cell; 의 활용은 IE처럼 버전 낮은곳에 활용한다.
+    (즉, flex나 grid를 사용 못하는 곳에 필요하다)
 
   4. 어떤 정렬을 하더라도 그에 걸맞는 block 엘리먼트 활용을 이해할것!
     정렬마다 구조가 다르고, 감싸는 태그가 다름, 그리고 미래를 생각해서 손이 덜가게,
     귀찮음을 갖고 잘 설계합시다.
     (귀찮음의 기준 : 피드백 받기전 nth-child 남발한거)
-
 */
 
 
@@ -123,13 +120,16 @@ img {vertical-align: top;}
 .margin-wrap .margin-list {margin: -20px 0 0 -20px;background: rgba(182, 226, 255, 0.432);}
 .margin-wrap .margin-list::after {content: '';display: block;clear: both;}
 .margin-wrap .margin-list__item {width: calc(100% / 4);float: left;margin-top: 20px;}
+
 /* .margin-wrap .margin-list__item {background-color: #fff;width: calc(100% / 4);float: left;padding: 20px 0 0 20px;border: 1px solid #ccc;} */
-/* li에 padding으로 하니 가로정렬이 되긴하지만 백그라운드컬러가 묻힘 그부분을 우려해야함 */
+/* li에 padding으로 하니 가로정렬이 되긴하지만 백그라운드컬러가 묻힌다. 만약 썸네일에 색깔이 들어같다면, 그부분을 고려해야함 <- 이게 제일 깔끔하다 */
 
 .margin-wrap .margin-list__item .wrap {border: 2px solid #c374e2;margin-left: 20px;background-color: #fff;}
+
 /* .margin-wrap .margin-list__item .wrap {border: 2px solid #c374e2;margin-left: 20px;background-color: #fff;} */
-/* li에는 margin-top, li안쪽에 있는 div에게 margin-left 줌.
-마진때문에 아래로 내려가지 않지만, li밖으로 마진이 튀어나감 + li에 한번에 못줘서 조금 번거로움(ex.네이버트렌드쇼핑) */
+/* li에는 margin-top, li안쪽에 있는 div에게 margin-left 준다.
+마진때문에 썸네일이 아래로 내려가지 않지만,
+div에 줬던 마진이 li밖으로 마진이 튀어나감 + li에 한번에 못줘서 조금 번거로움(ex.네이버트렌드쇼핑) */
 
 .margin-wrap .margin-list__link {display: block;width: 100%;height: 100%;}
 

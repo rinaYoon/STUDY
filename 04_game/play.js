@@ -17,9 +17,6 @@ $(document).ready(function(){
 
   let roopTime = setInterval(imgRoop, 2000);
 
-  // 콘솔 a
-  console.log(a);
-
 
   // 버튼을 클릭하면 3초 반복이미지 중단
   let userButton = $('.user .tool .tool__button');
@@ -38,6 +35,7 @@ $(document).ready(function(){
   }
 
   userButton.click(function() {
+
     userButtonControl.off();
 
     clearInterval(roopTime);
@@ -47,7 +45,7 @@ $(document).ready(function(){
       userButtonControl.on();
       userButtonControl.cssBorderRemove();
       //가위바위보 결과값 이후 기본멘트로 초기화
-      $('.text-box .text').text("가위! 바위! 보!");
+      //$('.text-box .text').text("가위! 바위! 보!");
     },3000);
 
     
@@ -62,8 +60,8 @@ $(document).ready(function(){
       $('.text').text('보 누름');
     }
 
-  // 콘솔 a
-  console.log(a);
+    // 콘솔 a
+    console.log(a);
 
   });
 
