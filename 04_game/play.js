@@ -54,7 +54,7 @@ $(document).ready(function(){
     userButtonControl.off();
     clearInterval(roopTime);
 
-    comparisonOfResults(selectedButton);
+    comparisonOfResults(selectedButton, a);
 
     setTimeout(reStart,3000);
     $(this).addClass('hover');
@@ -121,7 +121,7 @@ $(document).ready(function(){
   }
 
   // switch문 (안됨)
-  // function comparisonOfResults01(selectedButton){
+  // function comparisonOfResults(selectedButton, a){
 
   //   let userScissors = selectedButton == 0;
   //   let userRock = selectedButton == 1;
