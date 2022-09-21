@@ -35,9 +35,7 @@ $(document).ready(function(){
     }
   }
 
-
-
-  //버튼호버(CSS)
+  //버튼호버기능
   userButton.mouseover(function(){
     userButtonControl.cssBorderRemove();
     $(this).addClass('hover');
@@ -48,59 +46,151 @@ $(document).ready(function(){
 
 
 
-  // 버튼 클릭 이벤트 (클릭 후 3초 일시중지)
+  // 버튼 클릭 이벤트 (클릭 후 3초 일시중지, 비교 후 결과)
   userButton.click(function() {
 
-    userButtonControl.off();
-    $(this).addClass('hover');
+    let selectedButton = userButton.index(this);
 
+    userButtonControl.off();
     clearInterval(roopTime);
 
-    setTimeout(function(){
-      roopTime = setInterval(imgRoop, 100);
-      userButtonControl.on();
-      userButtonControl.cssBorderRemove();
-      //가위바위보 결과값 이후 기본멘트로 초기화
-      $('.text-box .text').text("가위! 바위! 보!");
-    },3000);
+    comparisonOfResults(selectedButton);
 
-    
-    // 클릭한 버튼과 출력한 이미지 비교하기
-    var selectedButton = userButton.index(this);
-
-    if(selectedButton == 0){
-
-      if(a == 0){
-        $('.text').text('비겼다!');
-      }else if(a == 1){
-        $('.text').text('졌다!');
-      }else if(a == 2){
-        $('.text').text('이겼다!');
-      }
-
-    }else if(selectedButton == 1){
-      
-      if(a == 0){
-        $('.text').text('이겼다!');
-      }else if(a == 1){
-        $('.text').text('비겼다!');
-      }else if(a == 2){
-        $('.text').text('졌다!');
-      }
-
-    }else if(selectedButton == 2){
-      
-      if(a == 0){
-        $('.text').text('졌다!');
-      }else if(a == 1){
-        $('.text').text('이겼다!');
-      }else if(a == 2){
-        $('.text').text('비겼다!');
-      }
-    }
+    setTimeout(reStart,3000);
+    $(this).addClass('hover');
   });
 
 
 
+  // 클릭한 버튼과 출력한 이미지 비교하기, 텍스트상태변화
+  let textStatus = {
+    init: function(){
+      $('.text-box .text').text("가위! 바위! 보!");
+    },
+    win: function(){
+      $('.text-box .text').text("이겼다!");
+    },
+    lost: function(){
+      $('.text-box .text').text("졌다!");
+    },
+    tie: function(){
+      $('.text-box .text').text("무승부다!");
+    },
+  }
 
+  function comparisonOfResults(selectedButton){
+
+    let userScissors = selectedButton == 0;
+    let userRock = selectedButton == 1;
+    let userPaper = selectedButton == 2;
+
+    let systemScissors = a == 0;
+    let systemRock = a == 1;
+    let systemPaper = a == 2;
+
+    if(userScissors){
+
+      if(systemScissors){
+        textStatus.tie();
+      }else if(systemRock){
+        textStatus.lost();
+      }else if(systemPaper){
+        textStatus.win();
+      }
+
+    }else if(userRock){
+      
+      if(systemScissors){
+        textStatus.win();
+      }else if(systemRock){
+        textStatus.tie();
+      }else if(systemPaper){
+        textStatus.lost();
+      }
+
+    }else if(userPaper){
+      
+      if(systemScissors){
+        textStatus.lost();
+      }else if(systemRock){
+        textStatus.win();
+      }else if(systemPaper){
+        textStatus.tie();
+      }
+    }
+  }
+
+  // switch문 (안됨)
+  // function comparisonOfResults01(selectedButton){
+
+  //   let userScissors = selectedButton == 0;
+  //   let userRock = selectedButton == 1;
+  //   let userPaper = selectedButton == 2;
+
+  //   let systemScissors = a == 0;
+  //   let systemRock = a == 1;
+  //   let systemPaper = a == 2;
+
+  //   switch (selectedButton) {
+
+  //     case userScissors:
+  //       switch (a) {
+  //         case systemScissors:
+  //           textStatus.tie();
+  //           break;
+
+  //         case systemRock:
+  //           textStatus.lost();
+  //           break;
+
+  //         case systemPaper:
+  //           textStatus.win();
+  //           break;
+  //       }
+  //       break;
+
+  //     case userRock:
+  //       switch (a) {
+  //         case systemScissors:
+  //           textStatus.win();
+  //           break;
+
+  //         case systemRock:
+  //           textStatus.tie();
+  //           break;
+
+  //         case systemPaper:
+  //           textStatus.lost();
+  //           break;
+  //       }
+  //       break;
+
+  //     case userPaper:
+  //       switch (a) {
+  //         case systemScissors:
+  //           textStatus.lost();
+  //           break;
+
+  //         case systemRock:
+  //           textStatus.win();
+  //           break;
+
+  //         case systemPaper:
+  //           textStatus.tie();
+  //           break;
+  //       }
+  //       break;
+    
+  //   }
+  // }
+
+
+
+  //재시작
+  function reStart(){
+    roopTime = setInterval(imgRoop, 100);
+    userButtonControl.on();
+    userButtonControl.cssBorderRemove();
+    textStatus.init();
+  }
 });
