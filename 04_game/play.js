@@ -2,13 +2,13 @@ $(document).ready(function(){
 
   // 이미지 반복
   let i = 0;
-  let a = 0;
+  let isSave = 0;
   let images = $('.system .tool .system__img')
 
   let imgRoop = function(){
     images.hide();
     images.eq(i).show();
-    a = i;
+    isSave = i;
     i++;
     if(i >= images.length){
       i = 0;
@@ -54,7 +54,7 @@ $(document).ready(function(){
     userButtonControl.off();
     clearInterval(roopTime);
 
-    comparisonOfResults(selectedButton, a);
+    comparisonOfResults(selectedButton);
 
     setTimeout(reStart,3000);
     $(this).addClass('hover');
@@ -84,9 +84,9 @@ $(document).ready(function(){
     let userRock = selectedButton == 1;
     let userPaper = selectedButton == 2;
 
-    let systemScissors = a == 0;
-    let systemRock = a == 1;
-    let systemPaper = a == 2;
+    let systemScissors = isSave == 0;
+    let systemRock = isSave == 1;
+    let systemPaper = isSave == 2;
 
     if(userScissors){
 
