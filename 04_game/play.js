@@ -66,7 +66,9 @@ $(document).ready(function(){
 
     
     // 클릭한 버튼과 출력한 이미지 비교하기
-    if(userButton.index(this) == 0){
+    var selectedButton = userButton.index(this);
+
+    if(selectedButton == 0){
 
       if(a == 0){
         $('.text').text('비겼다!');
@@ -76,7 +78,7 @@ $(document).ready(function(){
         $('.text').text('이겼다!');
       }
 
-    }else if(userButton.index(this) == 1){
+    }else if(selectedButton == 1){
       
       if(a == 0){
         $('.text').text('이겼다!');
@@ -86,7 +88,7 @@ $(document).ready(function(){
         $('.text').text('졌다!');
       }
 
-    }else if(userButton.index(this) == 2){
+    }else if(selectedButton == 2){
       
       if(a == 0){
         $('.text').text('졌다!');
@@ -95,7 +97,6 @@ $(document).ready(function(){
       }else if(a == 2){
         $('.text').text('비겼다!');
       }
-
     }
   });
 
