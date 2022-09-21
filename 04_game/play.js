@@ -15,10 +15,11 @@ $(document).ready(function(){
     }
   }
 
-  let roopTime = setInterval(imgRoop, 2000);
+  let roopTime = setInterval(imgRoop, 100);
 
 
-  // 버튼을 클릭하면 3초 반복이미지 중단
+
+  // 버튼, 버튼컨트롤(일시중지 표현)
   let userButton = $('.user .tool .tool__button');
   let userButtonControl = {
     off: function(){
@@ -34,40 +35,9 @@ $(document).ready(function(){
     }
   }
 
-  userButton.click(function() {
-
-    userButtonControl.off();
-
-    clearInterval(roopTime);
-
-    setTimeout(function(){
-      roopTime = setInterval(imgRoop, 2000);
-      userButtonControl.on();
-      userButtonControl.cssBorderRemove();
-      //가위바위보 결과값 이후 기본멘트로 초기화
-      //$('.text-box .text').text("가위! 바위! 보!");
-    },3000);
-
-    
-    // 클릭한 버튼과 출력한 이미지 비교하기
-    if(userButton.index(this) == 0){
-      $('.text').text('가위 누름');
-      //만약에 현재 노출되고있는 이미지가 몇번째 라면?
-      //이미지.eq(?)값 구하기
-    }else if(userButton.index(this) == 1){
-      $('.text').text('바위 누름');
-    }else if(userButton.index(this) == 2){
-      $('.text').text('보 누름');
-    }
-
-    // 콘솔 a
-    console.log(a);
-
-  });
 
 
-
-  //버튼호버
+  //버튼호버(CSS)
   userButton.mouseover(function(){
     userButtonControl.cssBorderRemove();
     $(this).addClass('hover');
@@ -76,7 +46,59 @@ $(document).ready(function(){
     userButtonControl.cssBorderRemove();
   });
 
-  
+
+
+  // 버튼 클릭 이벤트 (클릭 후 3초 일시중지)
+  userButton.click(function() {
+
+    userButtonControl.off();
+    $(this).addClass('hover');
+
+    clearInterval(roopTime);
+
+    setTimeout(function(){
+      roopTime = setInterval(imgRoop, 100);
+      userButtonControl.on();
+      userButtonControl.cssBorderRemove();
+      //가위바위보 결과값 이후 기본멘트로 초기화
+      $('.text-box .text').text("가위! 바위! 보!");
+    },3000);
+
+    
+    // 클릭한 버튼과 출력한 이미지 비교하기
+    if(userButton.index(this) == 0){
+
+      if(a == 0){
+        $('.text').text('비겼다!');
+      }else if(a == 1){
+        $('.text').text('졌다!');
+      }else if(a == 2){
+        $('.text').text('이겼다!');
+      }
+
+    }else if(userButton.index(this) == 1){
+      
+      if(a == 0){
+        $('.text').text('이겼다!');
+      }else if(a == 1){
+        $('.text').text('비겼다!');
+      }else if(a == 2){
+        $('.text').text('졌다!');
+      }
+
+    }else if(userButton.index(this) == 2){
+      
+      if(a == 0){
+        $('.text').text('졌다!');
+      }else if(a == 1){
+        $('.text').text('이겼다!');
+      }else if(a == 2){
+        $('.text').text('비겼다!');
+      }
+
+    }
+  });
+
 
 
 
