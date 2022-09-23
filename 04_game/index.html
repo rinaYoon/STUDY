@@ -17,27 +17,35 @@
     }
 
     * {margin: 0;padding: 0;box-sizing: border-box;}
+    body {max-width: 700px;margin: 0 auto;}
     img {width: 100%;vertical-align: top;}
 
-    .game-container {width: 700px;margin: 0 auto;overflow: hidden;}
+    .game-container {width: 100.00vw;max-width: 700px;margin: 0 auto;overflow: hidden;}
     .game-box {width: 100%;height: 100%;border: 10px solid rgb(229, 155, 247);border-radius: 400px 400px 100px 100px;}
-    .game-wrap {padding: 90px 0;}
+    .game-wrap {padding: 12.86vw 0;}
 
-    .system .tool {width: 500px;height: 500px;margin: 0 auto;position: relative;}
+    .system .tool {width: 71.43vw;max-width: 500px;height: 71.43vw;max-height: 500px;margin: 0 auto;position: relative;}
     .system .tool img {position: absolute;}
 
-    .text-box {margin-top: 40px;text-align: center;}
-    .text-box .text {font-family: 'HBIOS-SYS';font-size: 50px;}
+    .text-box {margin-top: 5.71vw;text-align: center;}
+    .text-box .text {font-family: 'HBIOS-SYS';font-size: 10.00vw;}
 
-    .user {margin-top: 40px;}
-    .user .tool {padding: 0 20px 0 20px;display: flex;justify-content: space-evenly;}
-    .user .tool .tool__button {width: 180px;height: 180px;border-radius: 50%;border: 0;background-color: transparent;cursor: pointer;}
+    .user {margin-top: 5.71vw;}
+    .user .tool {padding: 0 2.86vw 0 2.86vw;display: flex;justify-content: space-evenly;}
+    .user .tool .tool__button {width: 25.71vw;max-width: 180px;height: 25.71vw;max-height: 180px;border-radius: 50%;border: 0;background-color: transparent;cursor: pointer;}
     .user .tool .tool__button.button_scissors {background: url(img/scissors__submit.png)no-repeat;background-size: 100%;}
     .user .tool .tool__button.button_rock {background: url(img/rock__submit.png)no-repeat;background-size: 100%;}
     .user .tool .tool__button.button_paper {background: url(img/paper__submit.png)no-repeat;background-size: 100%;}
-    .user .tool .tool__button.hover {border: 10px solid rgb(229, 155, 247);}
+    .user .tool .tool__button.hover {border: 1.43vw solid rgb(229, 155, 247);}
 
     .a11r-hidden {width: 1px;height: 1px;margin: -1px;position: absolute;clip: rect(0,0,0,0);overflow: hidden;}
+
+    @media (min-width: 700px) {
+      .game-wrap {padding: 90px 0;}
+      .text-box {margin-top: 40px;}
+      .text-box .text {font-size: 70px;}
+      .user {margin-top: 40px;}
+    }
   </style>
 
   <div class="game-container">
