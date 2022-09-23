@@ -16,7 +16,7 @@ let played = false;
 
 function init() {
   // 1. state 값을 설정 한다.
-  state = "init";
+  state = "init"; //output확인
 
   output();
 
