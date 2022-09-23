@@ -59,7 +59,7 @@ function loopImg(images) {
 function result(index) {
   // 클릭한 버튼과 출력한 이미지 비교하기
 
-  let userScissors = index == 0;
+  let userScissors = index == 0; //변수 index는 played 안에 지정되어있다 (옮겨담기인듯)
   let userRock = index == 1;
   let userPaper = index == 2;
 
@@ -106,7 +106,7 @@ userButton.click(function () {
   if (played) {
     const index = $(this).index();
     stop();
-    result(index);
+    result(index); // 변수 index -> 파라미터로 지정
     restart();
   }
 });
