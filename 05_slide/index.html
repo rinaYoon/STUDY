@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>슬라이드 만들기</title>
+</head>
+<body>
+  <style>
+    * {margin: 0;padding: 0;box-sizing: border-box;}
+    body {max-width:2000px;min-width: 500px;}
+    img {width: 100%;height: 100%;vertical-align: top;object-fit: cover;}
+    ul {list-style: none;}
+
+    .slide-container {
+      position: relative;
+    }
+
+    .slide {
+      width: 100%;
+      overflow: hidden;
+    }
+    .slide-container .slide-wrapper {
+      width: calc(100vw * 6);
+      display: flex;
+      transition: transform 1s;
+    }
+    .slide-container .slide-wrapper::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    .slide-container .slide-wrapper .slide__item {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .slide-container .slide-controls .botton {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      max-width: 100px;
+      max-height: 100px;
+      min-width: 50px;
+      min-height: 50px;
+      width: 5.21vw;
+      height: 5.21vw;
+      border: 0;
+    }
+    .slide-container .slide-controls .button__next {
+      right: 1.56vw;
+      background: url(img/r.png);
+      background-size: 100%;
+      background-position: center;
+    }
+    .slide-container .slide-controls .button__prev {
+      left: 1.56vw;
+      background: url(img/l.png);
+      background-size: 100%;
+      background-position: center;
+    }
+  </style>
+
+  <div class="slide-container">
+    <div class="slide">
+      <ul class="slide-wrapper">
+        <li class="slide__item"><img src="img/1.jpg"></li>
+        <li class="slide__item"><img src="img/2.jpg"></li>
+        <li class="slide__item"><img src="img/3.jpg"></li>
+        <li class="slide__item"><img src="img/4.jpg"></li>
+        <li class="slide__item"><img src="img/5.jpg"></li>
+        <li class="slide__item"><img src="img/6.jpg"></li>
+      </ul>
+    </div>
+    
+    <div class="slide-controls">
+      <button class="botton button__prev"></button>
+      <button class="botton button__next"></button>
+    </div>
+  </div>
+
+  <script src="jquery-3.6.0.min.js"></script>
+  <script src="move-slide.js"></script>
+</body>
+</html>
