@@ -1,7 +1,7 @@
 // ~ 디벨롭 하기 전에 있던 것들 ~
 
 
-//[2022-10-07]--------------------------------------------------------------------
+//[ver1]--------------------------------------------------------------------
 /*
   ~ css에 slide-wrapper가 transform: translateX(); 움직이는지 확인 ~
 
@@ -76,7 +76,72 @@
     }
   });
 
-//[2022-10-07 ver2]-------------------------------------------------------------
+
+//[ver1(바닐라버전)]-------------------------------------------------------------
+
+
+let count = 0;
+let duration = 3000;
+
+
+const slideWrapper = document.querySelector(".slide-container .slide-wrapper");
+const slideLength = document.querySelectorAll(".slide-container .slide__item").length;
+const slideAmount = slideLength - 1;
+
+let movement = {
+  next: function(){
+    count++;
+    slideWrapper.style.transform = "translateX(-" + count + "00vw)";
+
+    if(count > slideAmount){
+      slideWrapper.style.transform = "translateX(-" + 0 + "00vw)";
+      count = 0;
+    }
+  },
+  prev: function(){
+    count--;
+    slideWrapper.style.transform = "translateX(-" + count + "00vw)";
+
+    if(count == -1){
+      slideWrapper.style.transform = "translateX(-" + slideAmount + "00vw)";
+      count = slideAmount;
+    }
+  }
+}
+
+
+let autoSlide = setInterval(movement.next, duration);
+
+
+function stopAndReSet(){
+  clearInterval(autoSlide);
+  setTimeout(reStart,duration);
+
+  function reStart(){
+    clearTimeout(autoSlide);
+    autoSlide = setInterval(movement.next, duration);
+  }
+}
+
+
+
+const buttonWrap = document.querySelector(".slide-container .slide-controls");
+const prevButton = document.querySelector(".slide-container .button__prev");
+const nextButton = document.querySelector(".slide-container .button__next");
+
+buttonWrap.addEventListener("click", function(e){
+
+  stopAndReSet();
+
+  if(e.target === prevButton){
+    movement.prev();
+  }else if(e.target === nextButton){
+    movement.next();
+  }
+});
+
+
+//[ver2]-------------------------------------------------------------
 
 
 let count = 0;
@@ -98,7 +163,7 @@ function pause(){
 
 function rePlay(){
   clearTimeout(restartTimer);
-  restartTimer = setInterval(autoPlay, duration);
+  restartTimer = setTimeout(autoPlay, duration);
 }
 
 function repetition(){
@@ -143,3 +208,78 @@ slideButton.click(function(){
     movement.next();
   }
 });
+
+
+//[ver2(바닐라버전)]-------------------------------------------------------------
+
+let count = 0;
+let duration = 5000;
+let restartTimer = null;
+let autoTimer = null;
+
+function init(){
+  autoPlay();
+}
+
+function autoPlay(){
+  autoTimer = setInterval(repetition, duration);
+}
+
+function pause(){
+  clearInterval(autoTimer);
+}
+
+function rePlay(){
+  clearTimeout(restartTimer);
+  restartTimer = setTimeout(autoPlay, duration);
+}
+
+function repetition(){
+  movement.next();
+}
+
+const slideWrapper = document.querySelector(".slide-container .slide-wrapper");
+const slideLength = document.querySelectorAll(".slide-container .slide__item").length;
+const slideAmount = slideLength - 1;
+let movement = {
+  prev: function(){
+    count--;
+    slideWrapper.style.transform = "translateX(-" + count + "00vw)";
+
+    if(count == -1){
+      slideWrapper.style.transform = "translateX(-" + slideAmount + "00vw)";
+      count = slideAmount;
+    }
+  },
+  next: function(){
+    count++;
+    slideWrapper.style.transform = "translateX(-" + count + "00vw)";
+
+    if(count > slideAmount){
+      slideWrapper.style.transform = "translateX(-" + 0 + "00vw)";
+      count = 0;
+    }
+  }
+}
+
+
+
+const buttonWrap = document.querySelector(".slide-container .slide-controls");
+const prevButton = document.querySelector(".slide-container .button__prev");
+const nextButton = document.querySelector(".slide-container .button__next");
+
+buttonWrap.addEventListener("click", function(e){
+
+  pause();
+  rePlay();
+
+  if(e.target === prevButton){
+    movement.prev();
+  }else if(e.target === nextButton){
+    movement.next();
+  }
+});
+
+
+
+init();

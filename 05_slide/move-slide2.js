@@ -1,44 +1,15 @@
 document.addEventListener("DOMContentLoaded",function(){
 
+
   let count = 0;
-  let duration = 5000;
-  let restartTimer = null;
-  let autoTimer = null;
+  let duration = 3000;
 
-  function init(){
-    autoPlay();
-  }
-
-  function autoPlay(){
-    autoTimer = setInterval(repetition, duration);
-  }
-
-  function pause(){
-    clearInterval(autoTimer);
-  }
-
-  function rePlay(){
-    clearTimeout(restartTimer);
-    restartTimer = setTimeout(autoPlay, duration);
-  }
-
-  function repetition(){
-    movement.next();
-  }
 
   const slideWrapper = document.querySelector(".slide-container .slide-wrapper");
   const slideLength = document.querySelectorAll(".slide-container .slide__item").length;
   const slideAmount = slideLength - 1;
+
   let movement = {
-    prev: function(){
-      count--;
-      slideWrapper.style.transform = "translateX(-" + count + "00vw)";
-  
-      if(count == -1){
-        slideWrapper.style.transform = "translateX(-" + slideAmount + "00vw)";
-        count = slideAmount;
-      }
-    },
     next: function(){
       count++;
       slideWrapper.style.transform = "translateX(-" + count + "00vw)";
@@ -47,6 +18,29 @@ document.addEventListener("DOMContentLoaded",function(){
         slideWrapper.style.transform = "translateX(-" + 0 + "00vw)";
         count = 0;
       }
+    },
+    prev: function(){
+      count--;
+      slideWrapper.style.transform = "translateX(-" + count + "00vw)";
+  
+      if(count == -1){
+        slideWrapper.style.transform = "translateX(-" + slideAmount + "00vw)";
+        count = slideAmount;
+      }
+    }
+  }
+
+
+  let autoSlide = setInterval(movement.next, duration);
+
+
+  function stopAndReSet(){
+    clearInterval(autoSlide);
+    setTimeout(reStart,duration);
+
+    function reStart(){
+      clearTimeout(autoSlide);
+      autoSlide = setInterval(movement.next, duration);
     }
   }
 
@@ -58,8 +52,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
   buttonWrap.addEventListener("click", function(e){
 
-    pause();
-    rePlay();
+    stopAndReSet();
 
     if(e.target === prevButton){
       movement.prev();
@@ -67,10 +60,6 @@ document.addEventListener("DOMContentLoaded",function(){
       movement.next();
     }
   });
-
-
-
-  init();
 
 
 
