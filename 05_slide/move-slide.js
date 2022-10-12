@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded",function(){
   let autoTimer = null;
 
   function init(){
+    slideWrapperWidth();
     autoPlay();
   }
 
@@ -48,6 +49,10 @@ document.addEventListener("DOMContentLoaded",function(){
         count = 0;
       }
     }
+  }
+
+  function slideWrapperWidth(){
+    slideWrapper.style.width = "calc(100vw *" + slideLength + ")";
   }
 
 
