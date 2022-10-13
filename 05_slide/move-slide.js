@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 
   function slideWrapperWidth(){
-    slideWrapper.style.width = "calc(100vw *" + slideLength + ")";
+    slideWrapper.style.width = "calc(100% *" + slideLength + ")";
   }
 
 
