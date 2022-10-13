@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    .table {
+      display: table;
+      width: 500px;
+    }
+
+    .table-cell {
+      display: table-cell;
+      vertical-align: middle;
+      height: 200px;
+      /* ↑ table-cell을 적용하게되면 해당 태그는 표 칸(cell 즉, td)이 되어서
+      width는 부모를 따르게 된다. (높이만 조절 가능) 
+      참고 : https://www.youtube.com/watch?v=AhZGaJvXUJA */
+      background-color: #aaa;
+    }
+
+    .text {
+      text-align: center;
+      font-size: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+  </style>
+  <div class="table">
+    <div class="table-cell">
+      <p class="text">lorem</p>
+    </div>
+  </div>
+</body>
+
+</html>

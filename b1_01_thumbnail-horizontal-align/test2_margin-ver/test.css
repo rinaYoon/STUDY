@@ -90,6 +90,9 @@ img {vertical-align: top;}
 /* //slot09 - grid center */
 
 
+
+
+
 /* 
   1. nth-child계산하여 margin값을 빼는것보단,
     ul에 margin:음수값 해주는게 좋음.
@@ -116,20 +119,54 @@ img {vertical-align: top;}
 .slot-margin .margin-title .title {font-size: 30px;font-weight: bold;}
 .slot-margin .margin-title .memo {text-align: center;}
 
-.margin-wrap {padding-top: 15px;background-color: #ccc;}
+.margin-wrap {padding-top: 15px;background-color: #777;}/* test-wrap */
 .margin-wrap .margin-list {margin: -20px 0 0 -20px;background: rgba(182, 226, 255, 0.432);}
 .margin-wrap .margin-list::after {content: '';display: block;clear: both;}
-.margin-wrap .margin-list__item {width: calc(100% / 4);float: left;margin-top: 20px;}
 
-/* .margin-wrap .margin-list__item {background-color: #fff;width: calc(100% / 4);float: left;padding: 20px 0 0 20px;border: 1px solid #ccc;} */
-/* li에 padding으로 하니 가로정렬이 되긴하지만 백그라운드컬러가 묻힌다. 만약 썸네일에 색깔이 들어같다면, 그부분을 고려해야함 <- 이게 제일 깔끔하다 */
 
-.margin-wrap .margin-list__item .wrap {border: 2px solid #c374e2;margin-left: 20px;background-color: #fff;}
+/* 방법 1 과 방법 2 를 각각 주석을 풀고 확인하기 */
 
-/* .margin-wrap .margin-list__item .wrap {border: 2px solid #c374e2;margin-left: 20px;background-color: #fff;} */
-/* li에는 margin-top, li안쪽에 있는 div에게 margin-left 준다.
-마진때문에 썸네일이 아래로 내려가지 않지만,
-div에 줬던 마진이 li밖으로 마진이 튀어나감 + li에 한번에 못줘서 조금 번거로움(ex.네이버트렌드쇼핑) */
+/*
+방법 1 : li에게 padding을 줘서 간격을 둔다.
+- 간격이 일정해지지만 백그라운드컬러가 묻힌다.
+- 만약 li리스트나 li리스트가 있는 영역에 컬러가 들어간다면, 그부분을 고려해야한다.
+*/
+
+.margin-wrap .margin-list__item {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  float: left;
+  width: calc(100% / 4);
+  padding: 20px 0 0 20px;
+}
+.margin-wrap .margin-list__item .wrap {
+  border: 2px solid #c374e2;
+  background-color: #fff;
+}
+
+
+
+
+/*
+방법 2 : li에는 margin-top, li안에 있는 div에게 margin-left 줘서 간격을 둔다
+- li에게 margin을 주면 마지막 li가 밑으로 내려가는 이슈가 발생하지 않는다.
+- li안에있는 div에게 마진을 줬기 때문에 li밖으로 마진이 튀어나간다. (사람따라 선호하지않음)
+- margin을 한번에 주는게 아니라 따로따로 줘야한다.
+- 번거롭고 유지보수시 햇깔릴수있다.
+*/
+
+/* .margin-wrap .margin-list__item {
+  width: calc(100% / 4);
+  float: left;
+  margin-top: 20px;
+}
+.margin-wrap .margin-list__item .wrap {
+  border: 2px solid #c374e2;
+  margin-left: 20px;
+  background-color: #fff;
+} */
+
+
 
 .margin-wrap .margin-list__link {display: block;width: 100%;height: 100%;}
 

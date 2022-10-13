@@ -34,9 +34,14 @@ img {vertical-align: top;}
 
 /* slot02 - inline center */
 .slot02 .test-list {font-size: 0;border-top: 2px solid #dd8006;text-align: center;}
-.slot02 .text-list__item {display: inline-block;width: calc(100%/4); border-left: 2px solid #c374e2;border-bottom: 2px solid #c374e2;}
+.slot02 .text-list__item {display: inline-block;width: calc(100%/4); border-left: 2px solid #c374e2;border-bottom: 2px solid #c374e2;vertical-align: top;}
 .slot02 .text-list__item:nth-child(4n) {border-right: 2px solid rgb(236, 69, 69);}
 .slot02 .text-list__item:last-child {border-right: 2px solid rgb(0, 179, 24);}
+/* 
+↓ 인라인 센터에서 해당부분에 width를 주지 않으면 리스트 일부의 border가 떠버리는 현상이 나타난다.
+  크기 값이 고정되야지만 패딩이 있어도 밀려나지 않는다.
+*/
+.slot02 .test-wrap .unit-test {padding: 20px;width: 248px;}
 /* //slot02 - inline center */
 
 /* slot03 - float */
