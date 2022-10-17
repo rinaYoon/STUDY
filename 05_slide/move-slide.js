@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded",function(){
   let autoTimer = null;
 
   function init(){
-    slideWrapperWidth();
+    makeClone();
     autoPlay();
   }
 
@@ -30,11 +30,17 @@ document.addEventListener("DOMContentLoaded",function(){
     movement.next();
   }
 
-  const slideWrapper = document.querySelector(".slide-container .slide-wrapper");
-  const slideLength = document.querySelectorAll(".slide-container .slide__item").length;
-  const slideAmount = slideLength - 1;
+  let slideWrapper = document.querySelector(".slide-container .slide-wrapper");
+  let slide = document.querySelectorAll(".slide-container .slide__item");
+  let slideLength = slide.length;
+  let slideAmount = slideLength - 1;
+
   let movement = {
     prev: function(){
+      slide = document.querySelectorAll(".slide-container .slide__item");
+      slideLength = slide.length;
+      slideAmount = slideLength - 1;
+
       count--;
       slideWrapper.style.transform = "translateX(-" + count + "00vw)";
   
@@ -44,6 +50,10 @@ document.addEventListener("DOMContentLoaded",function(){
       }
     },
     next: function(){
+      slide = document.querySelectorAll(".slide-container .slide__item");
+      slideLength = slide.length;
+      slideAmount = slideLength - 1;
+
       count++;
       slideWrapper.style.transform = "translateX(-" + count + "00vw)";
 
@@ -54,14 +64,25 @@ document.addEventListener("DOMContentLoaded",function(){
     }
   }
 
-  function slideWrapperWidth(){
-    slideWrapper.style.width = "calc(100% *" + slideLength + ")";
+  function makeClone(){
+
+    let firstCloneSlide = slide[0].cloneNode(true);
+    firstCloneSlide.classList.add('last-clone');
+    slideWrapper.appendChild(firstCloneSlide);
+
+    let lastClineSlide = slide[slideAmount].cloneNode(true);
+    lastClineSlide.classList.add('first-clone');
+    slideWrapper.prepend(lastClineSlide);
+
+    slideWrapperWidth();
   }
 
-  // 무한반복 참고 영상 :: https://www.youtube.com/watch?v=7rTW0mndIy0&list=PLhMk2scdiA_GiG0yjXvyEVSP5n4c1RLhs&index=25&t=29s
+  function slideWrapperWidth(){
+    slide = document.querySelectorAll(".slide-container .slide__item");
+    slideLength = slide.length;
 
-
-
+    slideWrapper.style.width = "calc(100% *" + slideLength + ")";
+  }
 
 
 

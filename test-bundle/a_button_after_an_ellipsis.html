@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .wrap {
+      display: flex;
+      width: 200px;
+      padding: 0 10px;
+      border: 1px solid silver;
+    }
+    .text {
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      
+      font-size: 14px;
+      line-height: 24px;
+      margin: 20px;
+    }
+
+    /* .text::after {
+      content: '';
+      display: block;
+      clear: both;
+    } */
+
+    .button-wrap {
+      float: right;
+      display: flex;
+      align-items: flex-end;
+      height: 100%;
+      shape-outside: inset(calc(100% - 24px) 0 0 0);
+    }
+    .more_button {
+      /* float: right; */
+      /* height: 20px;
+      background: #3c99dc;
+      color: #fff;
+      line-height: 20px;
+      padding: 0 5px;
+      margin: 25px 10px 0 0;
+      font-size: 12px;
+      shape-outside: border-box; */
+      line-height: 14px;
+      padding: 3px 5px;
+      background: #3c99dc;
+      color: #fff;  
+      margin-bottom: 3px;
+    }
+  </style>
+
+  <div class="wrap">
+    <div class="text">
+      <span class="button-wrap"><a href="#" class="more_button">더보기></a></span>
+      근심을 털어 놓고 다함께 차차차 슬픔을 묻어 놓고 다함께 차차차 차차차 차차차 잊자 잊자 오늘만은 미련을 버리자 울지 말고 그래 그렇게 다함께 차차차
+    </div>
+  </div>
+  
+
+</body>
+
+</html>
