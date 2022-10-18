@@ -1,68 +1,42 @@
 document.addEventListener("DOMContentLoaded",function(){ 
-  // ↑↑↑ body마지막에 js를 첨부해서 이미 본문이 다 읽힌다음에 로드가 되므로 굳이 DOMContentLoaded 를 쓸 필요 x,
-  // (대신 실제 작업시엔 개발팀으로 인해 첨부 위치가 달라질 수도 있음.)
 
-
-  let count = 0;
-  let duration = 5000;
+  let slideWrapper = document.querySelector(".slide-container .slide-wrapper");
+  let slide = document.querySelectorAll(".slide-container .slide__item");
+  let slideLength = slide.length;
+  let slideAmount = slideLength - 1;
+  let slideSize = 100;
+  let slideCount = 1;
+  let duration = 2000;
   let restartTimer = null;
   let autoTimer = null;
+  
 
   function init(){
     makeClone();
     autoPlay();
   }
 
+
   function autoPlay(){
     autoTimer = setInterval(repetition, duration);
   }
 
+
   function pause(){
     clearInterval(autoTimer);
   }
+
 
   function rePlay(){
     clearTimeout(restartTimer);
     restartTimer = setTimeout(autoPlay, duration);
   }
 
+
   function repetition(){
-    movement.next();
+    slideMove(slideCount + 1);
   }
 
-  let slideWrapper = document.querySelector(".slide-container .slide-wrapper");
-  let slide = document.querySelectorAll(".slide-container .slide__item");
-  let slideLength = slide.length;
-  let slideAmount = slideLength - 1;
-
-  let movement = {
-    prev: function(){
-      slide = document.querySelectorAll(".slide-container .slide__item");
-      slideLength = slide.length;
-      slideAmount = slideLength - 1;
-
-      count--;
-      slideWrapper.style.transform = "translateX(-" + count + "00vw)";
-  
-      if(count == -1){
-        slideWrapper.style.transform = "translateX(-" + slideAmount + "00vw)";
-        count = slideAmount;
-      }
-    },
-    next: function(){
-      slide = document.querySelectorAll(".slide-container .slide__item");
-      slideLength = slide.length;
-      slideAmount = slideLength - 1;
-
-      count++;
-      slideWrapper.style.transform = "translateX(-" + count + "00vw)";
-
-      if(count > slideAmount){
-        slideWrapper.style.transform = "translateX(-" + 0 + "00vw)";
-        count = 0;
-      }
-    }
-  }
 
   function makeClone(){
 
@@ -74,15 +48,54 @@ document.addEventListener("DOMContentLoaded",function(){
     lastClineSlide.classList.add('first-clone');
     slideWrapper.prepend(lastClineSlide);
 
-    slideWrapperWidth();
+    updateWidth();
+    setPosition();
+
+    setTimeout(function(){
+      slideWrapper.classList.add('animation');
+    }, 100);
   }
 
-  function slideWrapperWidth(){
+
+  function updateWidth(){
+    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+    let updateSlideLength = updateSlide.length;
+
+    slideWrapper.style.width = "calc(100% *" + updateSlideLength + ")";
+  }
+
+
+  function setPosition(){
+    let initPosition = -slideSize;
+    slideWrapper.style.transform = "translateX(" + initPosition + "vw)";
+  }
+
+
+  function slideMove(num){
     slide = document.querySelectorAll(".slide-container .slide__item");
     slideLength = slide.length;
+    slideAmount = slideLength - 1;
 
-    slideWrapper.style.width = "calc(100% *" + slideLength + ")";
+    slideCount = num;
+
+    slideWrapper.style.transform = "translateX(-" + slideCount*slideSize + "vw)";
+
+    if(slideCount === -1){
+      slideWrapper.style.transform = "translateX(-" + (slideAmount - 1)*slideSize + "vw)";
+      slideCount = slideAmount - 1;
+
+    }else if(slideCount === slideLength){
+      slideWrapper.style.transform = "translateX(-" + slideSize + "vw)";
+      slideCount = 1;
+    }
+
+
+    //인제 자리초기화 하기
   }
+
+
+
+
 
 
 
@@ -98,9 +111,9 @@ document.addEventListener("DOMContentLoaded",function(){
     rePlay();
 
     if(e.target === prevButton){
-      movement.prev();
+      slideMove(slideCount - 1);
     }else if(e.target === nextButton){
-      movement.next();
+      slideMove(slideCount + 1);
     }
   });
 

@@ -11,9 +11,6 @@ let nextButton = document.querySelector('.next'); //다음버튼
 makeClone();
 
 //복사본만들기
-//name.cloneNode(), name.cloneNode(true) << 엘리먼트복사, (true)하면 안의 자식요소까지 복사됨
-// a.appendChild(b) << a 안의 맨 마지막에 b 를 넣겠다는거
-// a.prepend(b) << a안의 맨 앞에 b를 넣음
 function makeClone(){
   for(let i=0; i<slideCount; i++){
     let cloneSlide = slide[i].cloneNode(true);

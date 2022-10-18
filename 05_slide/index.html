@@ -24,8 +24,10 @@
     .slide-container .slide-wrapper {
       /* width: calc(100% * 8); */
       display: flex;
+      /* transform: translateX(-100vw); */
+    }
+    .slide-container .slide-wrapper.animation {
       transition: transform 1s;
-      transform: translateX(-100vw);
     }
     .slide-container .slide-wrapper::after {
       content: '';
