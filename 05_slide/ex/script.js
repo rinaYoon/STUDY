@@ -5,8 +5,8 @@ let slideCount = slide.length; //슬라이드 갯수
 let currentIndex = 0; //좌우버튼 클릭했을때 현재 몇번째인지 용도
 let slideWidth = 200; // li 크기값
 let slideMargin = 30; // li 마진값
-let prev = document.querySelector('.prev'); //이전버튼
-let next = document.querySelector('.next'); //다음버튼
+let prevButton = document.querySelector('.prev'); //이전버튼
+let nextButton = document.querySelector('.next'); //다음버튼
 
 makeClone();
 
@@ -53,9 +53,31 @@ function setPosition(){
   slides.style.transform = "translateX(" + initTranslateValue + "px)";
 }
 
-// --------  https://www.youtube.com/watch?v=7rTW0mndIy0  ------ 좌우버튼 이어서 하기
+// 클릭할때 움직임
+function moveSlide(num){
+  slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+  currentIndex = num;
 
-// 왼쪽버튼
+  if(currentIndex === slideCount || currentIndex === -slideCount){
+    setTimeout(function(){
+      slides.classList.remove('animated');
+      slides.style.left = '0px';
+      currentIndex = 0;
+    }, 500);
+    setTimeout(function(){
+      slides.classList.add('animated');
+    }, 600);
+  }
 
+  console.log('currentIndex : ' + currentIndex, 'slideCount : ' + slideCount);
+}
 
-// 오른쪽버튼
+// 이전
+prevButton.addEventListener('click', function(){
+  moveSlide(currentIndex - 1);
+});
+
+// 다음
+nextButton.addEventListener('click', function(){
+  moveSlide(currentIndex + 1);
+});
