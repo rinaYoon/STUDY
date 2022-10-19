@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded",function(){
   let slideAmount = slideLength - 1;
   let slideSize = 100;
   let slideCount = 1;
-  let duration = 2000;
+  let duration = 5000;
   let restartTimer = null;
   let autoTimer = null;
   
@@ -80,23 +80,29 @@ document.addEventListener("DOMContentLoaded",function(){
 
     slideWrapper.style.transform = "translateX(-" + slideCount*slideSize + "vw)";
 
-    if(slideCount === -1){
-      slideWrapper.style.transform = "translateX(-" + (slideAmount - 1)*slideSize + "vw)";
-      slideCount = slideAmount - 1;
+    if(slideCount === 0){
 
-    }else if(slideCount === slideLength){
-      slideWrapper.style.transform = "translateX(-" + slideSize + "vw)";
-      slideCount = 1;
+      setTimeout(function(){
+        slideWrapper.style.transform = "translateX(-" + (slideAmount - 1)*slideSize + "vw)";
+        slideCount = slideAmount - 1;
+        slideWrapper.classList.remove('animation');
+      }, 1000);
+      setTimeout(function(){
+        slideWrapper.classList.add('animation');
+      }, 1100);
+
+    }else if(slideCount === slideAmount){
+
+      setTimeout(function(){
+        slideWrapper.style.transform = "translateX(-" + slideSize + "vw)";
+        slideCount = 1;
+        slideWrapper.classList.remove('animation');
+      }, 1000);
+      setTimeout(function(){
+        slideWrapper.classList.add('animation');
+      }, 1100);
     }
-
-
-    //인제 자리초기화 하기
   }
-
-
-
-
-
 
 
 
@@ -112,6 +118,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     if(e.target === prevButton){
       slideMove(slideCount - 1);
+      
     }else if(e.target === nextButton){
       slideMove(slideCount + 1);
     }
