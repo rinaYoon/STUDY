@@ -320,7 +320,7 @@ function slideMove(num){
     }, 1100);
 
   }else if(slideCount === slideAmount){
-    
+
     setTimeout(function(){
       slideWrapper.style.transform = "translateX(-" + slideSize + "vw)";
       slideCount = 1;
@@ -331,11 +331,6 @@ function slideMove(num){
     }, 1100);
   }
 }
-
-
-
-
-
 
 
 
@@ -351,6 +346,7 @@ buttonWrap.addEventListener("click", function(e){
 
   if(e.target === prevButton){
     slideMove(slideCount - 1);
+    
   }else if(e.target === nextButton){
     slideMove(slideCount + 1);
   }

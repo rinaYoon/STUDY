@@ -1,53 +1,22 @@
 document.addEventListener("DOMContentLoaded",function(){ 
 
-  let slideWrapper = document.querySelector(".slide-container .slide-wrapper");
-  let slide = document.querySelectorAll(".slide-container .slide__item");
+  let slideWrapper = document.querySelector('.slide-container .slide-wrapper'); // ul
+  let slide = document.querySelectorAll('.slide-container .slide__item'); // li
   let slideLength = slide.length;
-  let slideAmount = slideLength - 1;
-  let slideSize = 100;
-  let slideCount = 1;
-  let duration = 5000;
-  let restartTimer = null;
-  let autoTimer = null;
-  
+  let slideIndex = slideLength - 1;
 
-  function init(){
-    makeClone();
-    autoPlay();
-  }
+  let userCount = 1;
 
 
-  function autoPlay(){
-    autoTimer = setInterval(repetition, duration);
-  }
-
-
-  function pause(){
-    clearInterval(autoTimer);
-  }
-
-
-  function rePlay(){
-    clearTimeout(restartTimer);
-    restartTimer = setTimeout(autoPlay, duration);
-  }
-
-
-  function repetition(){
-    slideMove(slideCount + 1);
-  }
+  makeClone();
 
 
   function makeClone(){
-
-    let firstCloneSlide = slide[0].cloneNode(true);
-    firstCloneSlide.classList.add('last-clone');
-    slideWrapper.appendChild(firstCloneSlide);
-
-    let lastClineSlide = slide[slideAmount].cloneNode(true);
-    lastClineSlide.classList.add('first-clone');
-    slideWrapper.prepend(lastClineSlide);
-
+    // li의 첫번째 부분만 클론(이전버튼용도)
+    let firstSlideClone = slide[slideIndex].cloneNode(true);
+    firstSlideClone.classList.add('prev-clone');
+    slideWrapper.prepend(firstSlideClone);
+    
     updateWidth();
     setPosition();
 
@@ -58,75 +27,105 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
   function updateWidth(){
+    // ul 전체 width길이 구함
     let updateSlide = document.querySelectorAll(".slide-container .slide__item");
     let updateSlideLength = updateSlide.length;
-
+  
     slideWrapper.style.width = "calc(100% *" + updateSlideLength + ")";
   }
 
 
   function setPosition(){
-    let initPosition = -slideSize;
-    slideWrapper.style.transform = "translateX(" + initPosition + "vw)";
+    // ul 초기포지션 세팅
+    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+    let updateSlideLength = updateSlide.length;
+    let initPosition = 100 / updateSlideLength;
+    
+    slideWrapper.style.transform = "translateX(" + -initPosition + "%)";
   }
 
 
-  function slideMove(num){
-    slide = document.querySelectorAll(".slide-container .slide__item");
-    slideLength = slide.length;
-    slideAmount = slideLength - 1;
+  let movement = {
+    prev: function(){
+      let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+      let updateSlideLength = updateSlide.length;
+      let initPosition = 100 / updateSlideLength;
 
-    slideCount = num;
+      userCount--;
+      slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
 
-    slideWrapper.style.transform = "translateX(-" + slideCount*slideSize + "vw)";
+      //console.log('slide : ' + initPosition * userCount , '             userCount : ' + userCount);
+    },
+    next: function(){
+      let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+      let updateSlideLength = updateSlide.length;
+      let initPosition = 100 / updateSlideLength;
 
-    if(slideCount === 0){
-
-      setTimeout(function(){
-        slideWrapper.style.transform = "translateX(-" + (slideAmount - 1)*slideSize + "vw)";
-        slideCount = slideAmount - 1;
-        slideWrapper.classList.remove('animation');
-      }, 1000);
-      setTimeout(function(){
-        slideWrapper.classList.add('animation');
-      }, 1100);
-
-    }else if(slideCount === slideAmount){
-
-      setTimeout(function(){
-        slideWrapper.style.transform = "translateX(-" + slideSize + "vw)";
-        slideCount = 1;
-        slideWrapper.classList.remove('animation');
-      }, 1000);
-      setTimeout(function(){
-        slideWrapper.classList.add('animation');
-      }, 1100);
+      userCount++;      
+      slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
+      
+      //console.log('slide : '+ initPosition * userCount , '             userCount : '+userCount);
     }
   }
 
 
 
-//버튼
+
+
+
+
+
+
+
+
+
+
   const buttonWrap = document.querySelector(".slide-container .slide-controls");
   const prevButton = document.querySelector(".slide-container .button__prev");
   const nextButton = document.querySelector(".slide-container .button__next");
 
   buttonWrap.addEventListener("click", function(e){
 
-    pause();
-    rePlay();
-
     if(e.target === prevButton){
-      slideMove(slideCount - 1);
-      
+      movement.prev();
     }else if(e.target === nextButton){
-      slideMove(slideCount + 1);
+      movement.next();
     }
   });
 
 
 
-  init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

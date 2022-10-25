@@ -195,7 +195,7 @@ $(function(){
         init: function(){
           // 자동슬라이드 정지, 재생 버튼기능 유무(true / false)
           thisSlide = this;
-          if (stopButton==true) {
+          if (stopButton===true) {
             $('.stop-btn').click(function(){
               if(!$('.stop-btn').hasClass('start')){
                 $('.stop-btn').addClass('start');
