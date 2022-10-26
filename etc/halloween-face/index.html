@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎃만드시오 얼굴 할로윈🎃</title>
+</head>
+
+<body>
+  <style>
+    @font-face {
+      font-family: 'DOSGothic';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    ul {
+      list-style: none;
+    }
+    body {
+      max-width: 700px;
+      min-width: 300px;
+      margin: 0 auto;
+      font-family: 'DOSGothic';
+    }
+
+    .title {
+      width: 100%;
+      text-align: center;
+      margin-top: 20px;
+    }
+    .title > p {
+      font-size: 4.29vw;
+    }
+
+    .make {
+      position: relative;
+      width: 100vw;
+      max-width: 700px;
+      height: 100vw;
+      max-height: 700px;
+      /* background: #aaa; */
+    }
+
+    .face {
+      width: 100%;
+      min-width: 300px;
+      overflow: hidden;
+    }
+    .face .face-list {
+      display: flex;
+      /* width: 800.00vw; */ /* <<나중에지움 */
+
+      /* transform: translateX(-700px); */
+    }
+    .face .list__item {
+      width: 100%;
+    }
+
+    .eye {
+      width: 58.71vw;
+      height: 20.71vw;
+      top: 36.43vw;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+    }
+    /* .eye-list {
+      transform: translateY(-230px);
+    } */
+    /* .eye .list__item{
+      background: rgba(204, 204, 204, 0.37);
+    } */
+
+    .mouth {
+      width: 58.71vw;
+      height: 28.00vw;
+      top: 57.14vw;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+    }
+    /* .mouth-list {
+      transform: translateY(-392px);
+    } */
+    /* .mouth .list__item{
+      background: rgba(179, 71, 71, 0.37);
+    } */
+
+    .button-wrap {
+      text-align: center;
+    }
+    .button-wrap > button {
+      padding: 15px 20px;
+      font-family: 'DOSGothic';
+      font-size: 20px;
+      border-radius: 30px;
+      border: 3px solid #000;
+    }
+    .button-wrap > button:hover {
+      background-color: #222;
+      color: #fff;
+    }
+
+
+    /* 공통요소 */
+    .face .list__item img,
+    .eye .list__item img,
+    .mouth .list__item img {
+      width: 100%;
+    }
+
+    .face.is__animation,
+    .eye.is__animation,
+    .mouth.is__animation {
+      transition: transform 1s;
+      /* transform: translateX() translateY(); */
+    }
+
+    /* 미디어쿼리 */
+    @media (min-width: 700px) {
+      .title > p {
+        font-size: 30px;
+      }
+
+      .face .face-list {
+      /* width: 5600px; */ /* <<나중에지움 */
+      }
+
+      .eye {
+        top: 255px;
+        width: 411px;
+        height: 145px;
+      }
+
+      .mouth {
+        width: 411px;
+        height: 196px;
+        top: 400px;
+      }
+    }
+  </style>
+
+  <div class="wrapper">
+    <div class="title">
+      <img src="img/dence.gif" alt="">
+      <p>만들다 멋진 할로윈 호박 당신의 얼굴!</p>
+    </div>
+
+    <div class="make">
+      <div class="face">
+        <ul class="face-list">
+          <li class="list__item"><img src="img/face01.png" alt=""></li>
+          <li class="list__item"><img src="img/face02.png" alt=""></li>
+          <li class="list__item"><img src="img/face03.png" alt=""></li>
+          <li class="list__item"><img src="img/face04.png" alt=""></li>
+          <li class="list__item"><img src="img/face05.png" alt=""></li>
+          <li class="list__item"><img src="img/face06.png" alt=""></li>
+          <li class="list__item"><img src="img/face07.png" alt=""></li>
+          <li class="list__item"><img src="img/face08.png" alt=""></li>
+        </ul>
+      </div>
+
+      <div class="eye">
+        <ul class="eye-list">
+          <li class="list__item"><img src="img/eye01.png" alt=""></li>
+          <li class="list__item"><img src="img/eye02.png" alt=""></li>
+          <li class="list__item"><img src="img/eye03.png" alt=""></li>
+          <li class="list__item"><img src="img/eye04.png" alt=""></li>
+          <li class="list__item"><img src="img/eye05.png" alt=""></li>
+          <li class="list__item"><img src="img/eye06.png" alt=""></li>
+          <li class="list__item"><img src="img/eye07.png" alt=""></li>
+          <li class="list__item"><img src="img/eye08.png" alt=""></li>
+        </ul>
+      </div>
+      
+      <div class="mouth">
+        <ul class="mouth-list">
+          <li class="list__item"><img src="img/mouth01.png" alt=""></li>
+          <li class="list__item"><img src="img/mouth02.png" alt=""></li>
+          <li class="list__item"><img src="img/mouth03.png" alt=""></li>
+          <li class="list__item"><img src="img/mouth04.png" alt=""></li>
+          <li class="list__item"><img src="img/mouth05.png" alt=""></li>
+          <li class="list__item"><img src="img/mouth06.png" alt=""></li>
+          <li class="list__item"><img src="img/mouth07.png" alt=""></li>
+          <li class="list__item"><img src="img/mouth08.png" alt=""></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="button-wrap">
+      <button type="button">🎃만든다 호박🎃</button>
+    </div>
+  </div>
+</body>
+
+<script>
+  document.addEventListener("DOMContentLoaded",function(){
+    let faceWrap = document.querySelector('.face .face-list');
+    let face = document.querySelectorAll('.face .face-list .list__item');
+    let faceLength = face.length;
+    let faceIndex = faceLength - 1;
+
+    let eyeWrap = document.querySelector('.eye .eye-list');
+    let eye = document.querySelectorAll('.eye .eye-list .list__item');
+    let eyeLength = eye.length;
+    let eyeIndex = eyeLength - 1;
+
+    let mouthWrap = document.querySelector('.mouth .mouth-list');
+    let mouth = document.querySelectorAll('.mouth .mouth-list .list__item');
+    let mouthLength = mouth.length;
+    let mouthIndex = mouthLength - 1;
+
+    let randomButton = document.querySelector('.button-wrap button');
+
+    let testCount = 1;
+
+    // face
+    function faceWidth(){
+      faceWrap.style.width = 'calc(100% *'+ faceLength +')';
+    }
+    faceWidth();
+
+    function faceMove(){
+      let faceWidthValue = faceWrap.offsetWidth;
+      faceWrap.style.transform = 'translateX('+ faceWidthValue / faceLength +')';
+
+      console.log(faceWidthValue / faceLength);
+    }
+    //faceMove();
+
+    // 랜덤, 린덤한갯수, 랜덤한 인덱스, 그럴려면 array를 해야함
+    // https://velog.io/@hyowon_lee/JavaScript-transitionend-%EC%9D%B4%EB%B2%A4%ED%8A%B8 
+
+    randomButton.addEventListener('click', function(){
+      alert('asdf');
+    });
+    
+  });
+</script>
+</html>
