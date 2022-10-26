@@ -205,6 +205,11 @@
 
 <script>
   document.addEventListener("DOMContentLoaded",function(){
+
+    // 랜덤, 랜덤한갯수, 랜덤한 인덱스, 그럴려면 array를 해야함, array를 인덱스 순서로 만들고 거기러 랜덤 인덱스를 뽑아서 그 값에 맞는 트렌스폼을 조절
+    // https://velog.io/@hyowon_lee/JavaScript-transitionend-%EC%9D%B4%EB%B2%A4%ED%8A%B8 
+
+
     let faceWrap = document.querySelector('.face .face-list');
     let face = document.querySelectorAll('.face .face-list .list__item');
     let faceLength = face.length;
@@ -222,7 +227,7 @@
 
     let randomButton = document.querySelector('.button-wrap button');
 
-    let testCount = 1;
+    let testCount = 0;
 
     // face
     function faceWidth(){
@@ -231,19 +236,24 @@
     faceWidth();
 
     function faceMove(){
-      let faceWidthValue = faceWrap.offsetWidth;
-      faceWrap.style.transform = 'translateX('+ faceWidthValue / faceLength +')';
+      testCount++
+      faceWrap.style.transform = 'translateX('+ -(100 / faceLength * testCount) +'%)';
 
-      console.log(faceWidthValue / faceLength);
+      console.log(100 / faceLength * testCount);
     }
-    //faceMove();
 
-    // 랜덤, 린덤한갯수, 랜덤한 인덱스, 그럴려면 array를 해야함
-    // https://velog.io/@hyowon_lee/JavaScript-transitionend-%EC%9D%B4%EB%B2%A4%ED%8A%B8 
+
+
+
+
+
 
     randomButton.addEventListener('click', function(){
-      alert('asdf');
+      faceMove();
     });
+
+
+    
     
   });
 </script>
