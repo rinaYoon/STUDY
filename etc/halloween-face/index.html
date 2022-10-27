@@ -46,7 +46,6 @@
       max-width: 700px;
       height: 100vw;
       max-height: 700px;
-      /* background: #aaa; */
     }
 
     .face {
@@ -56,9 +55,6 @@
     }
     .face .face-list {
       display: flex;
-      /* width: 800.00vw; */ /* <<나중에지움 */
-
-      /* transform: translateX(-700px); */
     }
     .face .list__item {
       width: 100%;
@@ -73,12 +69,6 @@
       transform: translateX(-50%);
       overflow: hidden;
     }
-    /* .eye-list {
-      transform: translateY(-230px);
-    } */
-    /* .eye .list__item{
-      background: rgba(204, 204, 204, 0.37);
-    } */
 
     .mouth {
       width: 58.71vw;
@@ -89,12 +79,6 @@
       transform: translateX(-50%);
       overflow: hidden;
     }
-    /* .mouth-list {
-      transform: translateY(-392px);
-    } */
-    /* .mouth .list__item{
-      background: rgba(179, 71, 71, 0.37);
-    } */
 
     .button-wrap {
       text-align: center;
@@ -119,21 +103,16 @@
       width: 100%;
     }
 
-    .face.is__animation,
-    .eye.is__animation,
-    .mouth.is__animation {
+    .face-list.is__animation,
+    .eye-list.is__animation,
+    .mouth-list.is__animation {
       transition: transform 1s;
-      /* transform: translateX() translateY(); */
     }
 
     /* 미디어쿼리 */
     @media (min-width: 700px) {
       .title > p {
         font-size: 30px;
-      }
-
-      .face .face-list {
-      /* width: 5600px; */ /* <<나중에지움 */
       }
 
       .eye {
@@ -227,20 +206,55 @@
 
     let randomButton = document.querySelector('.button-wrap button');
 
-    let testCount = 0;
+    let isMoving = false;
+
+
+
+    function init(){
+      faceSetWidth();
+      faceSetAnimation();
+    }
+
+
 
     // face
-    function faceWidth(){
+    function faceSetWidth(){
       faceWrap.style.width = 'calc(100% *'+ faceLength +')';
     }
-    faceWidth();
 
-    function faceMove(){
-      testCount++
-      faceWrap.style.transform = 'translateX('+ -(100 / faceLength * testCount) +'%)';
+    function faceSetMove(){
+      let randomCount = Math.floor(Math.random() * faceLength);
+      
+      if(isMoving === false){
+        isMoving = true;
+        faceWrap.style.transform = 'translateX('+ -(100 / faceLength * randomCount) +'%)';
+      }
 
-      console.log(100 / faceLength * testCount);
+      faceWrap.addEventListener('transitionend', function(){
+        isMoving = false;
+      });
     }
+
+    function faceSetAnimation(){
+      setTimeout(function(){
+        faceWrap.classList.add('is__animation');
+      }, 100);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -249,12 +263,10 @@
 
 
     randomButton.addEventListener('click', function(){
-      faceMove();
+      faceSetMove();
     });
 
-
-    
-    
+    init();
   });
 </script>
 </html>
