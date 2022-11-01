@@ -5,37 +5,65 @@ document.addEventListener("DOMContentLoaded",function(){
   let slideLength = slide.length;
   let slideIndex = slideLength - 1;
   let userCount = 1;
+  let duration = 5000;
+  let restartTimer = null;
+  let autoTimer = null;
+
+  let animationTime = null;
 
 
-  makeClone();
+  function init(){
+    animationTime = setTimeout(addAnimation, 100);
+    makeClone();
+    autoPlay();
+  }
+
+  function autoPlay(){
+    autoTimer = setInterval(repetition, duration);
+  }
+
+  function pause(){
+    clearInterval(autoTimer);
+  }
+
+  function rePlay(){
+    clearTimeout(restartTimer);
+    restartTimer = setTimeout(autoPlay, duration);
+  }
+
+  function repetition(){
+    slideNext();
+  }
+
+
+
+  function addAnimation(){
+    slideWrapper.classList.add('animation');
+  }
+
+  function removeAnimation(){
+    slideWrapper.classList.remove('animation');
+  }
+
 
 
   function makeClone(){
-    // li의 첫번째 부분만 클론(이전버튼용도)
     let firstSlideClone = slide[slideIndex].cloneNode(true);
     firstSlideClone.classList.add('prev-clone');
     slideWrapper.prepend(firstSlideClone);
     
     updateWidth();
     setPosition();
-
-    setTimeout(function(){
-      slideWrapper.classList.add('animation');
-    }, 100);
   }
 
-
   function updateWidth(){
-    // ul 전체 width길이 구함
     let updateSlide = document.querySelectorAll(".slide-container .slide__item");
     let updateSlideLength = updateSlide.length;
   
     slideWrapper.style.width = "calc(100% *" + updateSlideLength + ")";
   }
 
-
   function setPosition(){
-    // ul 초기포지션 세팅
     let updateSlide = document.querySelectorAll(".slide-container .slide__item");
     let updateSlideLength = updateSlide.length;
     let initPosition = 100 / updateSlideLength;
@@ -44,48 +72,50 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 
 
-  let movement = {
-    prev: function(){
-      let updateSlide = document.querySelectorAll(".slide-container .slide__item");
-      let updateSlideLength = updateSlide.length;
-      let initPosition = 100 / updateSlideLength;
-      let updateSlideIndex = updateSlideLength - 1;
 
-      userCount--;
-      slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
+  function slidePrev(){
+    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+    let updateSlideLength = updateSlide.length;
+    let initPosition = 100 / updateSlideLength;
+    let updateSlideIndex = updateSlideLength - 1;
 
-      if(userCount === -1){
+    userCount--;
+    slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
+
+    slideWrapper.addEventListener('transitionend', function(){
+      if(userCount === 0){
         slideWrapper.style.transform = "translateX(" + -(initPosition * updateSlideIndex) + "%)";
         userCount = updateSlideIndex;
+
+        removeAnimation();
+        clearTimeout(animationTime);
+  
+        animationTime = setTimeout(addAnimation, 100);
       }
-
-      //console.log('slide : ' + initPosition * userCount , '             userCount : ' + userCount);
-      console.log(userCount);
-    },
-    next: function(){
-      let updateSlide = document.querySelectorAll(".slide-container .slide__item");
-      let updateSlideLength = updateSlide.length;
-      let initPosition = 100 / updateSlideLength;
-
-      userCount++;      
-      slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
-
-      if(userCount === updateSlideLength){
-        slideWrapper.style.transform = "translateX(" + -initPosition + "%)";
-        userCount = 1;
-      }
-      //console.log('slide : '+ initPosition * userCount , '             userCount : '+userCount);
-    }
+    });
   }
 
+  function slideNext(){
+    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+    let updateSlideLength = updateSlide.length;
+    let initPosition = 100 / updateSlideLength;
+    let updateSlideIndex = updateSlideLength - 1;
 
+    userCount++;      
+    slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
 
-
-
-
-
-
-
+    slideWrapper.addEventListener('transitionend', function(){
+      if(userCount === updateSlideIndex){
+          userCount = 0;
+          slideWrapper.style.transform = "translateX(" + 0 + "%)";
+  
+          removeAnimation();
+          clearTimeout(animationTime);
+    
+          animationTime = setTimeout(addAnimation, 100);
+      }
+    });
+  }
 
 
 
@@ -95,47 +125,18 @@ document.addEventListener("DOMContentLoaded",function(){
 
   buttonWrap.addEventListener("click", function(e){
 
+    pause();
+    rePlay();
+
     if(e.target === prevButton){
-      movement.prev();
+      slidePrev();
     }else if(e.target === nextButton){
-      movement.next();
+      slideNext();
     }
   });
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  init();
 });
