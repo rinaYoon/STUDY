@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded",function(){ 
 
+  // https://webisfree.com/2020-08-07/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%97%98%EB%A6%AC%EB%A8%BC%ED%8A%B8-%EC%95%9E-%EB%98%90%EB%8A%94-%EB%92%A4%EC%97%90-%EC%9A%94%EC%86%8C-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0-append()-appendchild()-prepend()-insertbefore() 이거보기
+
+
+
+
   let slideWrapper = document.querySelector('.slide-container .slide-wrapper'); // ul
   let slide = document.querySelectorAll('.slide-container .slide__item'); // li
   let slideLength = slide.length;
@@ -8,8 +13,9 @@ document.addEventListener("DOMContentLoaded",function(){
   let duration = 3000;
   let restartTimer = null;
   let autoTimer = null;
-
   let animationTime = null;
+  let played = true;
+  let playedTimer = null;
 
 
   function init(){
@@ -20,6 +26,8 @@ document.addEventListener("DOMContentLoaded",function(){
 
   function autoPlay(){
     autoTimer = setInterval(repetition, duration);
+    played = true;
+    clearTimeout(playedTimer);
   }
 
   function pause(){
@@ -140,10 +148,21 @@ document.addEventListener("DOMContentLoaded",function(){
     pause();
     rePlay();
 
-    if(e.target === prevButton){
-      slidePrev();
-    }else if(e.target === nextButton){
-      slideNext();
+    if(played){
+      if(e.target === prevButton){
+        slidePrev();
+        played = false;
+        playedTimer = setTimeout(function(){
+          played = true;
+        } ,1000);
+
+      }else if(e.target === nextButton){
+        slideNext();
+        played = false;
+        playedTimer = setTimeout(function(){
+          played = true;
+        } ,1000);
+      }
     }
   });
 

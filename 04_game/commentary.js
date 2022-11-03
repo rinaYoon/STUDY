@@ -105,7 +105,7 @@ userButton.click(function () {
   // 버튼 클릭 이벤트 (클릭 후 3초 일시중지, 비교 후 결과)
   if (played) {
     const index = $(this).index();
-    stop();
+    stop(); //played = false;로 해서 버튼이 눌려도 아무반응x
     result(index); // 변수 index -> 파라미터로 지정
     restart();
   }
