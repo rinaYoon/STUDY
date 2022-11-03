@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded",function(){
   let slideLength = slide.length;
   let slideIndex = slideLength - 1;
   let userCount = 1;
-  let duration = 5000;
+  let duration = 3000;
   let restartTimer = null;
   let autoTimer = null;
 
@@ -115,6 +115,18 @@ document.addEventListener("DOMContentLoaded",function(){
           animationTime = setTimeout(addAnimation, 100);
       }
     });
+
+    if(userCount > updateSlideIndex){
+      let overTime = setTimeout(function(){
+        slideWrapper.style.transform = "translateX(" + 0 + "%)";
+        userCount = 0;
+
+        clearTimeout(animationTime);
+        removeAnimation();
+      });
+      clearTimeout(overTime);
+      animationTime = setTimeout(addAnimation, 100);
+    }
   }
 
 
