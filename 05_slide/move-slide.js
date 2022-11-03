@@ -1,12 +1,7 @@
 document.addEventListener("DOMContentLoaded",function(){ 
 
-  // https://webisfree.com/2020-08-07/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%97%98%EB%A6%AC%EB%A8%BC%ED%8A%B8-%EC%95%9E-%EB%98%90%EB%8A%94-%EB%92%A4%EC%97%90-%EC%9A%94%EC%86%8C-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0-append()-appendchild()-prepend()-insertbefore() 이거보기
-
-
-
-
-  let slideWrapper = document.querySelector('.slide-container .slide-wrapper'); // ul
-  let slide = document.querySelectorAll('.slide-container .slide__item'); // li
+  let slideWrapper = document.querySelector('.slide-container .slide-wrapper');
+  let slide = document.querySelectorAll('.slide-container .slide__item');
   let slideLength = slide.length;
   let slideIndex = slideLength - 1;
   let userCount = 1;
@@ -54,7 +49,10 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 
 
-
+  // ~~~~~~ 할거 ~~~~~~
+  // 클론 지우고 prev, next 기능에 첫번째 슬라이드를 끝으로 이동하는거 추가하기
+  // 이동하는방법 알아보기, append, prepend, after, before 도 알아보기
+  
   function makeClone(){
     let firstSlideClone = slide[slideIndex].cloneNode(true);
     firstSlideClone.classList.add('prev-clone');
@@ -113,7 +111,7 @@ document.addEventListener("DOMContentLoaded",function(){
     slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
 
     slideWrapper.addEventListener('transitionend', function(){
-      if(userCount === updateSlideIndex){
+      if(userCount === updateSlideIndex || userCount > updateSlideIndex){
           userCount = 0;
           slideWrapper.style.transform = "translateX(" + 0 + "%)";
   
@@ -123,18 +121,6 @@ document.addEventListener("DOMContentLoaded",function(){
           animationTime = setTimeout(addAnimation, 100);
       }
     });
-
-    if(userCount > updateSlideIndex){
-      let overTime = setTimeout(function(){
-        slideWrapper.style.transform = "translateX(" + 0 + "%)";
-        userCount = 0;
-
-        clearTimeout(animationTime);
-        removeAnimation();
-      });
-      clearTimeout(overTime);
-      animationTime = setTimeout(addAnimation, 100);
-    }
   }
 
 
