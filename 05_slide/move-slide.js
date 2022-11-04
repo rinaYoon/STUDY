@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded",function(){
   let slide = document.querySelectorAll('.slide-container .slide__item');
   let slideLength = slide.length;
   let slideIndex = slideLength - 1;
-  let userCount = 1;
+  let userCount = 0;
   let duration = 3000;
   let restartTimer = null;
   let autoTimer = null;
@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded",function(){
 
   function init(){
     animationTime = setTimeout(addAnimation, 100);
-    makeClone();
-    autoPlay();
+    //autoPlay();
+    updateWidth();
   }
 
   function autoPlay(){
@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded",function(){
   // 클론 지우고 prev, next 기능에 첫번째 슬라이드를 끝으로 이동하는거 추가하기
   // 이동하는방법 알아보기, append, prepend, after, before 도 알아보기
   
+  /* 봉인 
   function makeClone(){
     let firstSlideClone = slide[slideIndex].cloneNode(true);
     firstSlideClone.classList.add('prev-clone');
@@ -62,13 +63,6 @@ document.addEventListener("DOMContentLoaded",function(){
     setPosition();
   }
 
-  function updateWidth(){
-    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
-    let updateSlideLength = updateSlide.length;
-  
-    slideWrapper.style.width = "calc(100% *" + updateSlideLength + ")";
-  }
-
   function setPosition(){
     let updateSlide = document.querySelectorAll(".slide-container .slide__item");
     let updateSlideLength = updateSlide.length;
@@ -76,7 +70,14 @@ document.addEventListener("DOMContentLoaded",function(){
     
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)";
   }
+  */
 
+  function updateWidth(){
+    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+    let updateSlideLength = updateSlide.length;
+  
+    slideWrapper.style.width = "calc(100% *" + updateSlideLength + ")";
+  }
 
 
   function slidePrev(){
@@ -107,20 +108,36 @@ document.addEventListener("DOMContentLoaded",function(){
     let initPosition = 100 / updateSlideLength;
     let updateSlideIndex = updateSlideLength - 1;
 
-    userCount++;      
-    slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
+    let slideOne = document.querySelector('.slide01');
 
-    slideWrapper.addEventListener('transitionend', function(){
-      if(userCount === updateSlideIndex || userCount > updateSlideIndex){
-          userCount = 0;
-          slideWrapper.style.transform = "translateX(" + 0 + "%)";
-  
-          removeAnimation();
-          clearTimeout(animationTime);
+    //userCount++;      
+    //slideWrapper.style.transform = "translateX(" + -(initPosition * userCount) + "%)";
+    slideWrapper.appendChild(updateSlide[0]);
+
+
+
+
+    // slideWrapper.addEventListener('transitionend', function(){
+    //   if(userCount === updateSlideIndex){
+    //     slideWrapper.appendChild(slideOne);
+    //     pause();
+    //   }
+    // });
+
+
+    // slideWrapper.addEventListener('transitionend', function(){
     
-          animationTime = setTimeout(addAnimation, 100);
-      }
-    });
+      // if(userCount === updateSlideLength){
+      //   slideWrapper.prepend(appendSlide);
+
+      //   userCount = 0;
+      //   slideWrapper.style.transform = "translateX(" + 0 + "%)";
+        
+      //   removeAnimation();
+      //   clearTimeout(animationTime);
+      //   animationTime = setTimeout(addAnimation, 100);
+      // }
+    // });
   }
 
 

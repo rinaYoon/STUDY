@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .a_ele{background-color: #ccc;padding: 10px;}
+    .b_ele{background-color: rgb(231, 161, 161);padding: 10px;}
+
+    .list{list-style: none;background: #ccc;}
+    .item{width: 100px;height: 100px;}
+    .i1{background-color: rgb(233, 118, 118);}
+    .i2{background-color: rgb(245, 158, 87);}
+    .i3{background-color: rgb(230, 215, 82);}
+    .i4{background-color: rgb(47, 167, 53);}
+    .i5{background-color: rgb(76, 132, 216);}
+  </style>
+  
+  <span class="a_ele">123</span>
+  <span class="b_ele">456</span>
+
+
+  <ul class="list">
+    <li class="item i1">01</li>
+    <li class="item i2">02</li>
+    <li class="item i3">03</li>
+    <li class="item i4">04</li>
+    <li class="item i5">05</li>
+  </ul>
+
+  <script>
+    
+    let a_ele = document.querySelector('.a_ele');
+    let b_ele = document.querySelector('.b_ele');
+
+    a_ele.appendChild(b_ele);
+
+    let list = document.querySelector('.list');
+    let ione = document.querySelector('.i1');
+    let itwo = document.querySelector('.i2');
+    let ithree = document.querySelector('.i3');
+    let ifor = document.querySelector('.i4');
+    let ifiev = document.querySelector('.i5');
+
+    list.appendChild(ione);
+
+  </script>
+
+
+<!-- 참고
+
+https://webisfree.com/2020-08-07/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EC%97%98%EB%A6%AC%EB%A8%BC%ED%8A%B8-%EC%95%9E-%EB%98%90%EB%8A%94-%EB%92%A4%EC%97%90-%EC%9A%94%EC%86%8C-%EC%9D%B4%EB%8F%99%ED%95%98%EA%B8%B0-append()-appendchild()-prepend()-insertbefore()
+-->
+</body>
+</html>

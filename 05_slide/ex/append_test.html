@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    .container { 
+      width: 400px;
+      height: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+    .wrap {
+      width: 1000px;
+      height: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .item {
+      display: block;
+      float: left;
+      width: 100px;
+      height: 100px;
+    }
+    .item1 { background-color: rgb(238, 89, 89); }
+    .item2 { background-color: rgb(238, 191, 89); }
+    .item3 { background-color: rgb(164, 240, 101); }
+    .item4 { background-color: rgb(226, 240, 101); }
+    .item5 { background-color: rgb(85, 219, 118); }
+    .item6 { background-color: rgb(91, 227, 236); }
+    .item7 { background-color: rgb(91, 166, 236); }
+    .item8 { background-color: rgb(91, 101, 236); }
+    .item9 { background-color: rgb(130, 91, 236); }
+    .item10 { background-color: rgb(212, 91, 236); }
+
+    .btn {
+      margin: 20px 0 0;
+      text-align: center;
+    }
+  </style>
+
+  <div class="container">
+    <div class="wrap">
+      <div class="item item1">1</div>
+      <div class="item item2">2</div>
+      <div class="item item3">3</div>
+      <div class="item item4">4</div>
+      <div class="item item5">5</div>
+      <div class="item item6">6</div>
+      <div class="item item7">7</div>
+      <div class="item item8">8</div>
+      <div class="item item9">9</div>
+      <div class="item item10">10</div>
+    </div>
+  </div>
+  <div class="btn">
+    <button class="prev">prev</button>
+    <button class="next">next</button>
+  </div>
+
+
+  <script src="jquery-3.6.1.min.js"></script>
+  <script>
+    // let wrap = document.querySelector('.wrap');
+
+    // let item = document.querySelectorAll('.item');
+    // let itemWidth = item.offsetWidth;
+
+    // let nextButton = document.querySelector('.next');
+    // let prevButton = document.querySelector('.prev');
+
+    // nextButton.addEventListener("click", function(){
+    //   wrap.animate({left: -itemWidth}, function(){
+    //     this.appendChild()
+    //   });
+    // });
+
+
+    let itemW = $('.item').width();
+
+
+    $('.next').on('click', function(){
+      $('.wrap').animate({left: -itemW }, function(){
+        $('.wrap').append($('.item').first()); // <<< item의 현재 첫번째껏만 맨 마지막으로 이동시킴
+        $('.wrap').css({left: 0});
+      });
+    });
+
+
+
+    $('.prev').on('click', function(){
+    $('.wrap').css({left: -itemW});
+      $('.wrap').prepend($('.item').last());
+      $('.wrap').animate({left: 0});
+    });
+  </script>
+</body>
+</html>
