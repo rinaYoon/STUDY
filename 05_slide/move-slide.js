@@ -60,7 +60,41 @@ document.addEventListener("DOMContentLoaded",function(){
   let dummy = true;
 
   function slidePrev(){
+
+    /*
     
+    $('.prev').on('click', function(){
+      $('.wrap').css({left: -itemW});
+      $('.wrap').prepend($('.item').last());
+      $('.wrap').animate({left: 0});
+    });
+
+    */
+
+    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+    let updateSlideLength = updateSlide.length;
+    let initPosition = 100 / updateSlideLength;
+
+
+
+    slideWrapper.prependChild(updateSlide[updateSlideLength - 1]);
+    //이거 아니래 찾아보기
+
+
+
+    // slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
+
+    // slideWrapper.addEventListener('transitionend', function(){
+    //   removeAnimation();
+    //   clearTimeout(addAnimation);
+
+    //   slideWrapper.style.transform = "translateX(" + 0 + "%)";
+    //   slideWrapper.prependChild(updateSlide[updateSlideLength - 1]);
+
+    //   animationTime = setTimeout(addAnimation, 100);
+    // });
+
+    console.log(updateSlide[updateSlideLength - 1]);
   }
 
   function slideNext(){
@@ -75,11 +109,11 @@ document.addEventListener("DOMContentLoaded",function(){
       if(dummy){
         removeAnimation();
         clearTimeout(addAnimation);
+
         slideWrapper.style.transform = "translateX(" + 0 + "%)";
         slideWrapper.appendChild(updateSlide[0]);
-        animationTime = setTimeout(addAnimation, 100);
 
-        console.log(updateSlide[0]);
+        animationTime = setTimeout(addAnimation, 100);
       }
     });
   }
