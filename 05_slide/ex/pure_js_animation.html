@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: black;
+    }
+
+    .newspaper {
+      padding: 0.5rem;
+      text-transform: uppercase;
+      text-align: center;
+      background-color: white;
+      cursor: pointer;
+    }
+  </style>
+
+  <div id="tunnel" class="newspaper">Spinning newspaper<br />causes dizziness</div>
+
+  <script>
+    // const newspaperSpinning = [
+    //   { transform: 'rotate(0) scale(1)' },
+    //   { transform: 'rotate(360deg) scale(0)' }
+    // ];
+
+    // const newspaperTiming = {
+    //   duration: 2000,
+    //   iterations: 1,
+    // }
+
+    const newspaper = document.querySelector(".newspaper");
+
+    newspaper.addEventListener('click', function(){
+      newspaper.animate([
+      { transform: 'rotate(0) scale(1)' },
+      { transform: 'rotate(360deg) scale(0)' }
+      ], {
+        duration: 2000,
+        iterations: 1
+      });
+    });
+
+
+    // document.getElementById("tunnel").animate([
+    //   { transform: 'translateY(0px)' },
+    //   { transform: 'translateY(-300px)' }
+    // ], {
+    //   duration: 1000,
+    //   iterations: Infinity
+    // });
+
+
+  </script>
+</body>
+</html>

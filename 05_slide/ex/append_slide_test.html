@@ -42,6 +42,16 @@
       margin: 20px 0 0;
       text-align: center;
     }
+
+    .newspaper {
+      padding: 0.5rem;
+      text-transform: uppercase;
+      text-align: center;
+      background-color: rgb(161, 119, 119);
+      cursor: pointer;
+      width: 300px;
+      margin: auto;
+    }
   </style>
 
   <div class="container">
@@ -63,27 +73,31 @@
     <button class="next">next</button>
   </div>
 
-
   <script src="jquery-3.6.1.min.js"></script>
   <script>
-    // let wrap = document.querySelector('.wrap');
-
+    // let list = document.querySelector('.wrap');
     // let item = document.querySelectorAll('.item');
-    // let itemWidth = item.offsetWidth;
+    // let itemWidth = item[0].offsetWidth;
 
     // let nextButton = document.querySelector('.next');
     // let prevButton = document.querySelector('.prev');
 
     // nextButton.addEventListener("click", function(){
-    //   wrap.animate({left: -itemWidth}, function(){
-    //     this.appendChild()
+    //   list.animate([
+    //   { left: -itemWidth + 'px' }
+    //   ], function(){
+    //     list.appendChild(item[0]);
+    //     list.style.left= 0;
+    //   },{
+    //     duration: 500
     //   });
     // });
 
 
+
     let itemW = $('.item').width();
 
-
+//nextBtn
     $('.next').on('click', function(){
       $('.wrap').animate({left: -itemW }, function(){
         $('.wrap').append($('.item').first()); // <<< item의 현재 첫번째껏만 맨 마지막으로 이동시킴
@@ -91,13 +105,20 @@
       });
     });
 
-
-
+//pervBtn
     $('.prev').on('click', function(){
-    $('.wrap').css({left: -itemW});
+      $('.wrap').css({left: -itemW});
       $('.wrap').prepend($('.item').last());
       $('.wrap').animate({left: 0});
     });
+
+
   </script>
+
+
+
+<!-- 참고로 읽어보고 물어보기 좋음
+https://stackoverflow.com/questions/15521081/pure-js-equivalent-of-jquery-animate
+-->
 </body>
 </html>
