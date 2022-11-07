@@ -56,45 +56,22 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 
 
-
-  let dummy = true;
-
   function slidePrev(){
-
-    /*
-    
-    $('.prev').on('click', function(){
-      $('.wrap').css({left: -itemW});
-      $('.wrap').prepend($('.item').last());
-      $('.wrap').animate({left: 0});
-    });
-
-    */
 
     let updateSlide = document.querySelectorAll(".slide-container .slide__item");
     let updateSlideLength = updateSlide.length;
     let initPosition = 100 / updateSlideLength;
 
+    if(prevButton){
+      removeAnimation();
+      slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
+      slideWrapper.prepend(updateSlide[updateSlideLength - 1]);
 
-
-    slideWrapper.prependChild(updateSlide[updateSlideLength - 1]);
-    //이거 아니래 찾아보기
-
-
-
-    // slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
-
-    // slideWrapper.addEventListener('transitionend', function(){
-    //   removeAnimation();
-    //   clearTimeout(addAnimation);
-
-    //   slideWrapper.style.transform = "translateX(" + 0 + "%)";
-    //   slideWrapper.prependChild(updateSlide[updateSlideLength - 1]);
-
-    //   animationTime = setTimeout(addAnimation, 100);
-    // });
-
-    console.log(updateSlide[updateSlideLength - 1]);
+      test = setTimeout(function(){
+        addAnimation();
+        slideWrapper.style.transform = "translateX(" + 0 + "%)";
+      },200);
+    }
   }
 
   function slideNext(){
@@ -102,20 +79,19 @@ document.addEventListener("DOMContentLoaded",function(){
     let updateSlideLength = updateSlide.length;
     let initPosition = 100 / updateSlideLength;
 
+    if(nextButton){
+      slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
 
-    slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
-
-    slideWrapper.addEventListener('transitionend', function(){
-      if(dummy){
+      slideWrapper.addEventListener('transitionend', function(){
         removeAnimation();
-        clearTimeout(addAnimation);
-
+        clearTimeout(animationTime);
+  
         slideWrapper.style.transform = "translateX(" + 0 + "%)";
         slideWrapper.appendChild(updateSlide[0]);
-
+  
         animationTime = setTimeout(addAnimation, 100);
-      }
-    });
+      });
+    }
   }
 
 
