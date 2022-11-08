@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded",function(){ 
+  updateWidth();
+  init();
+});
 
   let slideWrapper = document.querySelector('.slide-container .slide-wrapper');
-  let slide = document.querySelectorAll('.slide-container .slide__item');
-  let slideLength = slide.length;
-  let slideIndex = slideLength - 1;
-  let userCount = 0;
   let duration = 3000;
   let restartTimer = null;
   let autoTimer = null;
@@ -16,7 +15,6 @@ document.addEventListener("DOMContentLoaded",function(){
   function init(){
     animationTime = setTimeout(addAnimation, 100);
     autoPlay();
-    updateWidth();
   }
 
   function autoPlay(){
@@ -35,7 +33,7 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 
   function repetition(){
-    //slideNext();
+    slideNext();
   }
 
 
@@ -56,22 +54,24 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 
 
-  function slidePrev(){
 
+  function slidePrev(){
     let updateSlide = document.querySelectorAll(".slide-container .slide__item");
     let updateSlideLength = updateSlide.length;
     let initPosition = 100 / updateSlideLength;
+
+    slideWrapper.removeEventListener('transitionend', slideNextEventContent);
 
     removeAnimation();
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
     slideWrapper.prepend(updateSlide[updateSlideLength - 1]);
 
-    console.log(updateSlide[updateSlideLength - 1]);
+    //console.log(updateSlide[updateSlideLength - 1]);
 
     test = setTimeout(function(){
       addAnimation();
       slideWrapper.style.transform = "translateX(" + 0 + "%)";
-    },200);
+    },100);
   }
 
   function slideNext(){
@@ -80,18 +80,22 @@ document.addEventListener("DOMContentLoaded",function(){
     let initPosition = 100 / updateSlideLength;
 
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
+    
+    slideWrapper.addEventListener('transitionend', slideNextEventContent);
+  }
 
-    slideWrapper.addEventListener('transitionend', function(){
-      removeAnimation();
-      clearTimeout(animationTime);
+  function slideNextEventContent(){
+    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
 
-      slideWrapper.style.transform = "translateX(" + 0 + "%)";
-      slideWrapper.appendChild(updateSlide[0]);
+    removeAnimation();
+    clearTimeout(animationTime);
 
-      console.log(updateSlide[0]);
+    slideWrapper.style.transform = "translateX(" + 0 + "%)";
+    slideWrapper.appendChild(updateSlide[0]);
 
-      animationTime = setTimeout(addAnimation, 100);
-    });
+    //console.log(updateSlide[0]);
+
+    animationTime = setTimeout(addAnimation, 100);
   }
 
 
@@ -126,5 +130,3 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 
-  init();
-});
