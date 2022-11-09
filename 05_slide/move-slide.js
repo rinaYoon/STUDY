@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded",function(){
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
     slideWrapper.prepend(updateSlide[updateSlideLength - 1]);
 
-    //console.log(updateSlide[updateSlideLength - 1]);
+    console.log(updateSlide[updateSlideLength - 1]);
 
     test = setTimeout(function(){
       addAnimation();
@@ -82,6 +82,8 @@ document.addEventListener("DOMContentLoaded",function(){
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
     
     slideWrapper.addEventListener('transitionend', slideNextEventContent);
+
+    console.log('A');
   }
 
   function slideNextEventContent(){
@@ -96,6 +98,10 @@ document.addEventListener("DOMContentLoaded",function(){
     //console.log(updateSlide[0]);
 
     animationTime = setTimeout(addAnimation, 100);
+
+    console.log('B'); // 문제: 버튼 연타하면 이시키가 갑자기 렉걸림 슬라이드 이동 후에 얘를 꼭 실행시켜야 하는데, 연타땜에 놓쳐서 렉걸리고 안나오나봄 ul이 -initPosition 이동 되어있는 상태인게 증거
+    //해결방법 : 컴퓨터에 소금뿌리고 굿하기
+    //콜백함수가 뭔지 보기
   }
 
 
@@ -105,6 +111,7 @@ document.addEventListener("DOMContentLoaded",function(){
   const nextButton = document.querySelector(".slide-container .button__next");
 
   buttonWrap.addEventListener("click", function(e){
+    
 
     pause();
     rePlay();
@@ -118,6 +125,7 @@ document.addEventListener("DOMContentLoaded",function(){
         } ,1000);
 
       }else if(e.target === nextButton){
+        console.log('click');
         slideNext();
         played = false;
         playedTimer = setTimeout(function(){
