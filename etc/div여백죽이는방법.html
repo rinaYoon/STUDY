@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* img태그는 인라인 요소이다. 인라인태그 공백 줄이는 방향으로 생각해 봅시다. */
+    .test{
+      background-color: #aaa;
+      font-size: 0; /* <<< 부모인 div에게 폰트사이즈0을 줘버린다. */
+    }
+    .division-lookbook-header{
+      background-color: rgb(127, 144, 190);
+    }
+    .lookbook-title img{
+      display: block; /* 또는 img를 블록요소로 바꿔버린다. */
+    }
+  </style>
+</head>
+<body>
+  <div class="test"><img src="a.jpg" alt=""></div>
+
+  <div class="division-lookbook-header">
+    <div class="division-inner">
+      <div class="lookbook-title">
+        <h3 class="kolon-cttd-fix-text">RUNNING & LIFESTYLE</h3>
+        <img src="a.jpg" alt="사람은 누구나 자신만의 시각과 라이프스타일로 살아갑니다. 모두가 스쳐가는 평범한 길이 러너에게는 비범하게 다가올 수 있는 이유이죠. ARC™는 러닝을 위해, 그리고 일상을 살아가는 러너를 위한 디자인을 하고 있습니다.">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
