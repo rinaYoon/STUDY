@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded",function(){
     let updateSlideLength = updateSlide.length;
     let initPosition = 100 / updateSlideLength;
 
+    slideWrapper.classList.remove('slideNextControl');
     removeAnimation();
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
     slideWrapper.prepend(updateSlide[updateSlideLength - 1]);
@@ -77,7 +78,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
     slideWrapper.classList.add('slideNextControl');
-    //console.log('A');
+    console.log('A');
   }
 
   function slideNextEventContent(){
@@ -90,7 +91,7 @@ document.addEventListener("DOMContentLoaded",function(){
       slideWrapper.style.transform = "translateX(" + 0 + "%)";
       slideWrapper.appendChild(updateSlide[0]);
       animationTime = setTimeout(addAnimation, 100);
-      //console.log('B'); 
+      console.log('B'); 
     }
   }
 
@@ -109,20 +110,20 @@ document.addEventListener("DOMContentLoaded",function(){
 
     if(played){
       if(e.target === prevButton){
-        //console.log('prev click');
+        console.log('prev click');
         slidePrev();
         played = false;
         playedTimer = setTimeout(function(){
           played = true;
-        } ,1100); //버튼제어장치
+        } ,1500); //버튼제어장치
 
       }else if(e.target === nextButton){
-        //console.log('naxt click');
+        console.log('naxt click');
         slideNext();
         played = false;
         playedTimer = setTimeout(function(){
           played = true;
-        } ,1100); //버튼제어장치
+        } ,1500); //버튼제어장치
       }
     }
   });
