@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded",function(){
   init();
 });
 
-  let slideWrapper = document.querySelector('.slide-container .slide-wrapper');
+  const slideWrapper = document.querySelector('.slide-container .slide-wrapper');
   let duration = 3000;
   let restartTimer = null;
   let autoTimer = null;
@@ -60,14 +60,10 @@ document.addEventListener("DOMContentLoaded",function(){
     let updateSlideLength = updateSlide.length;
     let initPosition = 100 / updateSlideLength;
 
-    slideWrapper.removeEventListener('transitionend', slideNextEventContent);
-
     removeAnimation();
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
     slideWrapper.prepend(updateSlide[updateSlideLength - 1]);
-
-    console.log(updateSlide[updateSlideLength - 1]);
-
+    //console.log(updateSlide[updateSlideLength - 1]);
     test = setTimeout(function(){
       addAnimation();
       slideWrapper.style.transform = "translateX(" + 0 + "%)";
@@ -80,29 +76,26 @@ document.addEventListener("DOMContentLoaded",function(){
     let initPosition = 100 / updateSlideLength;
 
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
-    
-    slideWrapper.addEventListener('transitionend', slideNextEventContent);
-
-    console.log('A');
+    slideWrapper.classList.add('slideNextControl');
+    //console.log('A');
   }
 
   function slideNextEventContent(){
-    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+    if(slideWrapper.classList.contains('slideNextControl')){
+      let updateSlide = document.querySelectorAll(".slide-container .slide__item");
 
-    removeAnimation();
-    clearTimeout(animationTime);
-
-    slideWrapper.style.transform = "translateX(" + 0 + "%)";
-    slideWrapper.appendChild(updateSlide[0]);
-
-    //console.log(updateSlide[0]);
-
-    animationTime = setTimeout(addAnimation, 100);
-
-    console.log('B'); // 문제: 버튼 연타하면 이시키가 갑자기 렉걸림 슬라이드 이동 후에 얘를 꼭 실행시켜야 하는데, 연타땜에 놓쳐서 렉걸리고 안나오나봄 ul이 -initPosition 이동 되어있는 상태인게 증거
-    //해결방법 : 컴퓨터에 소금뿌리고 굿하기
-    //콜백함수가 뭔지 보기
+      slideWrapper.classList.remove('slideNextControl');
+      removeAnimation();
+      clearTimeout(animationTime);
+      slideWrapper.style.transform = "translateX(" + 0 + "%)";
+      slideWrapper.appendChild(updateSlide[0]);
+      animationTime = setTimeout(addAnimation, 100);
+      //console.log('B'); 
+    }
   }
+
+  slideWrapper.addEventListener('transitionend', slideNextEventContent);
+
 
 
 
@@ -111,30 +104,25 @@ document.addEventListener("DOMContentLoaded",function(){
   const nextButton = document.querySelector(".slide-container .button__next");
 
   buttonWrap.addEventListener("click", function(e){
-    
-
     pause();
     rePlay();
 
     if(played){
       if(e.target === prevButton){
+        //console.log('prev click');
         slidePrev();
         played = false;
         playedTimer = setTimeout(function(){
           played = true;
-        } ,1000);
+        } ,1100); //버튼제어장치
 
       }else if(e.target === nextButton){
-        console.log('click');
+        //console.log('naxt click');
         slideNext();
         played = false;
         playedTimer = setTimeout(function(){
           played = true;
-        } ,1000);
+        } ,1100); //버튼제어장치
       }
     }
   });
-
-
-
-
