@@ -6,129 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🎃만드시오 얼굴 할로윈🎃</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
-  <style>
-    @font-face {
-      font-family: 'DOSGothic';
-      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_eight@1.0/DOSGothic.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    ul {
-      list-style: none;
-    }
-    body {
-      max-width: 700px;
-      min-width: 300px;
-      margin: 0 auto;
-      font-family: 'DOSGothic';
-    }
-
-    .title {
-      width: 100%;
-      text-align: center;
-      margin-top: 20px;
-    }
-    .title > p {
-      font-size: 4.29vw;
-    }
-
-    .make {
-      position: relative;
-      width: 100vw;
-      max-width: 700px;
-      height: 100vw;
-      max-height: 700px;
-    }
-
-    .face {
-      width: 100%;
-      min-width: 300px;
-      overflow: hidden;
-    }
-    .face .face-list {
-      display: flex;
-    }
-    .face .list__item {
-      width: 100%;
-    }
-
-    .eye {
-      width: 58.71vw;
-      height: 20.71vw;
-      top: 36.43vw;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      overflow: hidden;
-    }
-
-    .mouth {
-      width: 58.71vw;
-      height: 28.00vw;
-      top: 57.14vw;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      overflow: hidden;
-    }
-
-    .button-wrap {
-      text-align: center;
-    }
-    .button-wrap > button {
-      padding: 15px 20px;
-      font-family: 'DOSGothic';
-      font-size: 20px;
-      border-radius: 30px;
-      border: 3px solid #000;
-    }
-    .button-wrap > button:hover {
-      background-color: #222;
-      color: #fff;
-    }
-
-
-    /* 공통요소 */
-    .face .list__item img,
-    .eye .list__item img,
-    .mouth .list__item img {
-      width: 100%;
-    }
-
-    .face-list.is__animation,
-    .eye-list.is__animation,
-    .mouth-list.is__animation {
-      transition: transform 1s;
-    }
-
-    /* 미디어쿼리 */
-    @media (min-width: 700px) {
-      .title > p {
-        font-size: 30px;
-      }
-
-      .eye {
-        top: 255px;
-        width: 411px;
-        height: 145px;
-      }
-
-      .mouth {
-        width: 411px;
-        height: 196px;
-        top: 400px;
-      }
-    }
-  </style>
-
   <div class="wrapper">
     <div class="title">
       <img src="img/dence.gif" alt="">
@@ -161,7 +42,7 @@
           <li class="list__item"><img src="img/eye08.png" alt=""></li>
         </ul>
       </div>
-      
+
       <div class="mouth">
         <ul class="mouth-list">
           <li class="list__item"><img src="img/mouth01.png" alt=""></li>
@@ -180,93 +61,7 @@
       <button type="button">🎃만든다 호박🎃</button>
     </div>
   </div>
+
+  <script src="index.js"></script>
 </body>
-
-<script>
-  document.addEventListener("DOMContentLoaded",function(){
-
-    // 랜덤, 랜덤한갯수, 랜덤한 인덱스, 그럴려면 array를 해야함, array를 인덱스 순서로 만들고 거기러 랜덤 인덱스를 뽑아서 그 값에 맞는 트렌스폼을 조절
-    // https://velog.io/@hyowon_lee/JavaScript-transitionend-%EC%9D%B4%EB%B2%A4%ED%8A%B8 
-
-
-    let faceWrap = document.querySelector('.face .face-list');
-    let face = document.querySelectorAll('.face .face-list .list__item');
-    let faceLength = face.length;
-    let faceIndex = faceLength - 1;
-
-    let eyeWrap = document.querySelector('.eye .eye-list');
-    let eye = document.querySelectorAll('.eye .eye-list .list__item');
-    let eyeLength = eye.length;
-    let eyeIndex = eyeLength - 1;
-
-    let mouthWrap = document.querySelector('.mouth .mouth-list');
-    let mouth = document.querySelectorAll('.mouth .mouth-list .list__item');
-    let mouthLength = mouth.length;
-    let mouthIndex = mouthLength - 1;
-
-    let randomButton = document.querySelector('.button-wrap button');
-
-    let isMoving = false;
-
-
-
-    function init(){
-      faceSetWidth();
-      faceSetAnimation();
-    }
-
-
-
-    // face
-    function faceSetWidth(){
-      faceWrap.style.width = 'calc(100% *'+ faceLength +')';
-    }
-
-    function faceSetMove(){
-      let randomCount = Math.floor(Math.random() * faceLength);
-      
-      if(isMoving === false){
-        isMoving = true;
-        faceWrap.style.transform = 'translateX('+ -(100 / faceLength * randomCount) +'%)';
-      }
-
-      faceWrap.addEventListener('transitionend', function(){
-        isMoving = false;
-      });
-    }
-
-    function faceSetAnimation(){
-      setTimeout(function(){
-        faceWrap.classList.add('is__animation');
-      }, 100);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    randomButton.addEventListener('click', function(){
-      faceSetMove();
-    });
-
-    init();
-  });
-</script>
 </html>
