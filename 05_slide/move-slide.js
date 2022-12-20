@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded",function(){
     },100);
   }
 
-  function slideNext(){
+  function slideNext(){ //트랜지션 일어나는동안 버튼 반응X,
     let updateSlide = document.querySelectorAll(".slide-container .slide__item");
     let updateSlideLength = updateSlide.length;
     let initPosition = 100 / updateSlideLength;
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded",function(){
     //console.log('A___'+slideNextControl);
   }
 
-  function slideNextEventContent(){
+  function slideNextEventContent(){//트랜지션 끝날 때 버튼 반응 O, 또는 promise나 async/await 찾아보기
     if(slideNextControl === true){
       let updateSlide = document.querySelectorAll(".slide-container .slide__item");
 
@@ -107,10 +107,10 @@ document.addEventListener("DOMContentLoaded",function(){
     pause();
     rePlay();
     
-    //버튼제어장치, 한번클릭하면 1.5초동안 클릭X
+    //버튼제어장치
     if(played === true){
       played = false;
-      playedTimer = setTimeout(function(){
+      playedTimer = setTimeout(function(){//<<< 삭제
         played = true;
       } ,1500); 
 

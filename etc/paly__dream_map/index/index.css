@@ -1,0 +1,100 @@
+/* font */
+@font-face {
+  font-family: 'hbios';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'mabi';
+  src: url('cont/Mabinogi_Classic_TTF.woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #111111;
+  color: #fff;
+}
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+}
+
+.area-login {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  text-align: center;
+}
+.area-login .area-login__inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.area-login .section-info {
+  padding: 52px 0 57px;
+}
+.area-login .section-info .text {
+  font-family: 'hbios';
+  font-size: 35px;
+  line-height: 50px;
+}
+.area-login .section-info .tip {
+  display: block;
+  font-family: 'mabi';
+  font-size: 15px;
+  letter-spacing: 0.050em;
+  margin-top: 18px;
+}
+
+.area-login .section-form fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.area-login .section-form .text {
+  display: block;
+  margin: 0 auto;
+  padding: 0 10px;
+  font-family: 'mabi';
+  font-size: 16px;
+  letter-spacing: 0.050em;
+  color: #ffffff;
+  text-align: center;
+  width: 300px;
+  height: 60px;
+  border: 1px solid #ffffff;
+  background-color: transparent;
+}
+.area-login .section-form .text+.text {
+  margin-top: 10px;
+}
+.area-login .section-form .text::placeholder {
+  color: #808080;
+}
+.area-login .section-form .submit-button {
+  display: block;
+  margin: 57px auto 0;
+  width: 300px;
+  height: 60px;
+  background-color: #ffffff;
+  border: 0;
+  padding: 0;
+  font-family: 'mabi';
+  font-size: 16px;
+  letter-spacing: 0.050em;
+  cursor: pointer;
+}
