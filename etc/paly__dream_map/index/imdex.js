@@ -34,9 +34,12 @@ function mapCheak(){
 }
 
 function addMapLink(){
-  loginForm.setAttribute("action", "../map/"+mapCodeInput.value+".html");
+  loginForm.setAttribute("action", "https://rinayoon.github.io/yoon_ri_na-study/etc/paly__dream_map/map/"+mapCodeInput.value+".html");
   infoText.innerHTML = `계정 및 코드가 확인되었습니다...<br>접속하기 버튼을 눌러 이동하십시오.`;
   submitButton.innerText = "접속하기";
+  submitButton.style.marginTop = "0";
+  accountInput.style.display = "none";
+  mapCodeInput.style.display = "none";
   loginForm.removeEventListener("submit", addButtonEvent);
 }
 
