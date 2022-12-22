@@ -4,27 +4,23 @@ document.addEventListener("DOMContentLoaded",function(){
 });
 
   const slideWrapper = document.querySelector('.slide-container .slide-wrapper');
+  let slide = document.querySelectorAll(".slide-container .slide__item");
   const buttonWrap = document.querySelector(".slide-container .slide-controls");
   const prevButton = document.querySelector(".slide-container .button__prev");
   const nextButton = document.querySelector(".slide-container .button__next");
   let duration = 3000;
   let restartTimer = null;
   let autoTimer = null;
-  let animationTime = null;
-  let played = null;
-  let playedTimer = null;
-  let slideNextControl = null;
+  let played = true; //버튼 제어 장치
+  let slideNextControl = null; //Next 슬라이드 트랜지션
 
 
   function init(){
-    animationTime = setTimeout(addAnimation, 100);
     autoPlay();
   }
 
   function autoPlay(){
     autoTimer = setInterval(repetition, duration);
-    played = true;
-    clearTimeout(playedTimer);
   }
 
   function pause(){
@@ -51,82 +47,109 @@ document.addEventListener("DOMContentLoaded",function(){
   }
 
   function updateWidth(){
-    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
-    let updateSlideLength = updateSlide.length;
+    slide = document.querySelectorAll(".slide-container .slide__item");
+    let slideLength = slide.length;
   
-    slideWrapper.style.width = "calc(100% *" + updateSlideLength + ")";
+    slideWrapper.style.width = "calc(100% *" + slideLength + ")";
   }
 
 
 
   function slidePrev(){
-    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
-    let updateSlideLength = updateSlide.length;
-    let initPosition = 100 / updateSlideLength;
-
+    slide = document.querySelectorAll(".slide-container .slide__item");
+    let slideLength = slide.length;
+    let initPosition = 100 / slideLength;
+    
     removeAnimation();
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
-    slideWrapper.prepend(updateSlide[updateSlideLength - 1]);
-    //console.log(updateSlide[updateSlideLength - 1]);
+    slideWrapper.prepend(slide[slideLength - 1]);
+
     test = setTimeout(function(){
       addAnimation();
       slideWrapper.style.transform = "translateX(" + 0 + "%)";
     },100);
   }
 
-  function slideNext(){ //트랜지션 일어나는동안 버튼 반응X,
-    let updateSlide = document.querySelectorAll(".slide-container .slide__item");
-    let updateSlideLength = updateSlide.length;
-    let initPosition = 100 / updateSlideLength;
-
-    slideWrapper.style.transform = "translateX(" + -initPosition + "%)";
-    slideNextControl = true;
-    //console.log('A___'+slideNextControl);
+  function prevButtonContent(){
+    //Next슬라이드 이동 중에 Prev버튼을 눌렀을때의 대응
+    if(slideNextControl === true){
+      slideWrapper.style.transform = "translateX(" + 0 + "%)";
+      slideNextControl = false;
+      played = true;
+    }else{
+      slidePrev();
+    }
   }
 
-  function slideNextEventContent(){//트랜지션 끝날 때 버튼 반응 O, 또는 promise나 async/await 찾아보기
+  function slideNext(){
+    slide = document.querySelectorAll(".slide-container .slide__item");
+    let slideLength = slide.length;
+    let initPosition = 100 / slideLength;
+
+    addAnimation();
+    slideWrapper.style.transform = "translateX(" + -initPosition + "%)";
+    slideNextControl = true;
+  }
+
+  function slideNextEventContent(){
     if(slideNextControl === true){
-      let updateSlide = document.querySelectorAll(".slide-container .slide__item");
+      slide = document.querySelectorAll(".slide-container .slide__item");
 
       slideNextControl = false;
       removeAnimation();
-      clearTimeout(animationTime);
       slideWrapper.style.transform = "translateX(" + 0 + "%)";
-      slideWrapper.appendChild(updateSlide[0]);
-      animationTime = setTimeout(addAnimation, 100);
-      //console.log('B___'+slideNextControl); 
+      slideWrapper.appendChild(slide[0]);
     }
   }
 
 
 
-  // Next슬라이드전용 슬라이드들 위치 바꾸는 이벤트
-  slideWrapper.addEventListener('transitionend', slideNextEventContent);
+  // Prev, Next 슬라이드 트랜지션 이벤트
+  slideWrapper.addEventListener('transitionend', function(){
+    slideNextEventContent();
+    played = true;
+  });
 
   buttonWrap.addEventListener("click", function(e){
     pause();
     rePlay();
     
-    //버튼제어장치
     if(played === true){
       played = false;
-      playedTimer = setTimeout(function(){//<<< 삭제
-        played = true;
-      } ,1500); 
 
       if(e.target === prevButton){
-        //console.log('prev click___'+slideNextControl);
-        
-        //Next슬라이드 이동 중에 Prev버튼을 눌렀을때의 대응
-        if(slideNextControl === true){
-          slideWrapper.style.transform = "translateX(" + 0 + "%)";
-          slideNextControl = false;
-        }else{
-          slidePrev();
-        }
-      }else if(e.target === nextButton){ 
-        //console.log('naxt click');
+        prevButtonContent();
+      }else if(e.target === nextButton){
         slideNext();
       }
     }
   });
+
+
+
+/*
+
+슬라이드 페이지 네이션 불릿 만들기
+- 특징:
+  - 클릭하면 숫자만큼의 슬라이드로 나타남 (3번불릿 -> 3번슬라이드)
+  - 이동한 불릿과 슬라이드의 왼쪽, 오른쪽 기준으로
+    왼쪽 선택시 Prev, 오른쪽 선택하면 Next
+  - 슬라이드 이동될때마다 불릿도 똑같이 active 상태가 되야함 (표시)
+
+- 룰
+  - 일단 next방향부터 해보기.....
+  - 클릭한 불릿의 인덱스 = 슬라이드 인덱스
+  - 불릿 기준으로 prev이동, next이동 (단, slideWrapper 이동은 여전히 100만큼만 움직인다. 고정임.)
+    (즉 이동 연출은 그대로, 슬라이드를 이동시킨다.)
+  - 불릿+슬라이드 인덱스 번호를 통해 이전, 다음에 있는 나머지 슬라이드를
+    어케 뒤나 앞으로 보내는지 생각해보기
+    - 똑같이 appendChild 랑 prepend 쓰면될듯
+    - 나머지 슬라이드를 몽땅 보내야 하는 이유 : 이동 후 이전, 다음기능이 자연스럽게 이어져야 해서
+
+이전
+slideWrapper.prepend(slide[slideLength - 1]);
+
+다음
+slideWrapper.appendChild(slide[0]);
+
+*/
