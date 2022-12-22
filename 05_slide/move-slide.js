@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded",function(){
 
 슬라이드 페이지 네이션 불릿 만들기
 - 특징:
+  - 슬라이드 페이지 갯수만큼 불릿이 생성됨
   - 클릭하면 숫자만큼의 슬라이드로 나타남 (3번불릿 -> 3번슬라이드)
   - 이동한 불릿과 슬라이드의 왼쪽, 오른쪽 기준으로
     왼쪽 선택시 Prev, 오른쪽 선택하면 Next
