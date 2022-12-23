@@ -147,10 +147,10 @@ document.addEventListener("DOMContentLoaded",function(){
     - 똑같이 appendChild 랑 prepend 쓰면될듯
     - 나머지 슬라이드를 몽땅 보내야 하는 이유 : 이동 후 이전, 다음기능이 자연스럽게 이어져야 해서
 
-이전
-slideWrapper.prepend(slide[slideLength - 1]);
-
-다음
-slideWrapper.appendChild(slide[0]);
+- 생각
+  - 1. 슬라이드 숫자만큼 불릿을 생성한다.
+  - 2. 불릿을 클릭한 인덱스 숫자 기준으로 클래스이름 2개를 만든다.
+    - ex) 3을찍었다면 >> 만약 3보다 작으면 클래스1, 아니면 만약 3보다 크다면 클래스2
+  - 3. 그렇게 적용한 클래스를 가지고 appendChild 랑 prepend 를 사용하여 옮긴다.
 
 */
