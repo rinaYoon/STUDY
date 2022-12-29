@@ -63,6 +63,8 @@ document.addEventListener("DOMContentLoaded",function(){
     removeAnimation();
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)"
     slideWrapper.prepend(slide[slideLength - 1]);
+    slide[slideLength - 1].classList.add("slide-active");
+    slide[0].classList.remove("slide-active");
 
     test = setTimeout(function(){
       addAnimation();
@@ -89,6 +91,8 @@ document.addEventListener("DOMContentLoaded",function(){
     addAnimation();
     slideWrapper.style.transform = "translateX(" + -initPosition + "%)";
     slideNextControl = true;
+    slide[1].classList.add("slide-active");
+    slide[0].classList.remove("slide-active");
   }
 
   function slideNextEventContent(){
@@ -141,4 +145,7 @@ document.addEventListener("DOMContentLoaded",function(){
   - 액티브 기준으로 옆에있게 빠르게 이동
 - 트랜지션이 끝난 후 그 순서를 어떻게 해야할지..
 - 그리고 이것들 전부 반복일텐데 이 흐름을 어떻게?
+
+1. 일단 '현재 화면에 보이는 슬라이드' 를 slide-active 라는 클래스 부여하기. (완료)
+2. ...
 */
