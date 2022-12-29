@@ -8,11 +8,11 @@ document.addEventListener("DOMContentLoaded",function(){
   const buttonWrap = document.querySelector(".slide-container .slide-controls");
   const prevButton = document.querySelector(".slide-container .button__prev");
   const nextButton = document.querySelector(".slide-container .button__next");
-  let duration = 3000;
+  let duration = 7000;
   let restartTimer = null;
   let autoTimer = null;
   let played = true; //버튼 제어 장치
-  let slideNextControl = null; //Next 슬라이드 트랜지션
+  let slideNextControl = null; //Next 슬라이드 트랜지션종료
 
 
   function init(){
@@ -39,11 +39,11 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
   function addAnimation(){
-    slideWrapper.classList.add('animation');
+    slideWrapper.classList.add("animation");
   }
 
   function removeAnimation(){
-    slideWrapper.classList.remove('animation');
+    slideWrapper.classList.remove("animation");
   }
 
   function updateWidth(){
@@ -128,29 +128,17 @@ document.addEventListener("DOMContentLoaded",function(){
 
 
 /*
+  1. 슬라이드 숫자만큼 불릿을 생성한다.
+  2. 불릿을 클릭한 인덱스 숫자 기준으로 클래스이름 2개를 만든다.
+    ex) 3을찍었다면 >> 만약 3보다 작으면 클래스1, 아니면 만약 3보다 크다면 클래스2
+    (단, 찍은숫자(3)의 -1 숫자(2)는 클래스를 붙이지 않는다(그래야 next때 안이상해짐))
+  3. 그렇게 적용한 클래스를 가지고 appendChild 랑 prepend 를 사용하여 옮긴다.
+    (근데 모든 클래스가 안움직일테니 for문 써야할지도)
 
-슬라이드 페이지 네이션 불릿 만들기
-- 특징:
-  - 슬라이드 페이지 갯수만큼 불릿이 생성됨
-  - 클릭하면 숫자만큼의 슬라이드로 나타남 (3번불릿 -> 3번슬라이드)
-  - 이동한 불릿과 슬라이드의 왼쪽, 오른쪽 기준으로
-    왼쪽 선택시 Prev, 오른쪽 선택하면 Next
-  - 슬라이드 이동될때마다 불릿도 똑같이 active 상태가 되야함 (표시)
-
-- 룰
-  - 일단 next방향부터 해보기.....
-  - 클릭한 불릿의 인덱스 = 슬라이드 인덱스
-  - 불릿 기준으로 prev이동, next이동 (단, slideWrapper 이동은 여전히 100만큼만 움직인다. 고정임.)
-    (즉 이동 연출은 그대로, 슬라이드를 이동시킨다.)
-  - 불릿+슬라이드 인덱스 번호를 통해 이전, 다음에 있는 나머지 슬라이드를
-    어케 뒤나 앞으로 보내는지 생각해보기
-    - 똑같이 appendChild 랑 prepend 쓰면될듯
-    - 나머지 슬라이드를 몽땅 보내야 하는 이유 : 이동 후 이전, 다음기능이 자연스럽게 이어져야 해서
-
-- 생각
-  - 1. 슬라이드 숫자만큼 불릿을 생성한다.
-  - 2. 불릿을 클릭한 인덱스 숫자 기준으로 클래스이름 2개를 만든다.
-    - ex) 3을찍었다면 >> 만약 3보다 작으면 클래스1, 아니면 만약 3보다 크다면 클래스2
-  - 3. 그렇게 적용한 클래스를 가지고 appendChild 랑 prepend 를 사용하여 옮긴다.
-
+------
+- 자연스럽게 넘길라면 현재 액티브슬라이드의 옆에 있어야함 (next = 오른쪽, prev = 왼쪽)
+  - 일단 액티브클래스를 만들어야 하는듯
+  - 액티브 기준으로 옆에있게 빠르게 이동
+- 트랜지션이 끝난 후 그 순서를 어떻게 해야할지..
+- 그리고 이것들 전부 반복일텐데 이 흐름을 어떻게?
 */
