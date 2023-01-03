@@ -8,6 +8,7 @@
 ## ✍자주쓸것 같음 + 새로수집한거
 ### 지마켓, 옥션 영역 나누기
 > event-○○○ > division > area > slot > unit
+>> 또는 event-○○○ > area > division > slot > unit
 - `event-wrapper` : 페이지 전체를 감쌈(wrapper)
   ```html
   <div class="event-wrapper"></div>
@@ -76,7 +77,7 @@
 * `nav` : 네비게이션 (이벤트 페이지에도 해당됨)
 * `body` : 나눠진 영역마다의 내용물, 위에 헤더랑 같이 사용
 * `fence` : =inner
-* `division` : 분활(=색션)
+* `division` : 분활(=section)
 * `area` : ('division'아래의)영역 명칭
 * `slot` : ('area'아래의)영역 명칭
 * `unit` : 구성, 단위, 앨리먼트 그룹 (ex. 버튼의 꾸밈요소나 태그하나만으로 안될때)
@@ -94,8 +95,11 @@
 * `recommend` : 상품 추천, 추천용도
 * `deal` : 딜, 이건 딜페이지에서만 쓰이는 말로만 사용될듯하다.
 * `notice` : 공지, 공지사항, 꼭 확인해야하는 안내사항
+* `info` : infomation, 정보 안내 (상품정보)
+* `guide` : 가이드, 안내 (info랑은 다름)
+* `caution` : 주의사항, 경고
 * `review` : 리뷰, 후기
-* `bundle` : 묶음 이라는 뜻인데, ul>li에서 발견됨. (상품)묶음으로 표현한듯
+* `bundle` : 묶음, 덩어리라는 뜻인데, ul>li에서 발견됨. (상품)묶음으로 표현한듯
 * `case` : 케이스, 'button-case'로 사용됨, 감싸는 용도의 명칭
 * `util` : 유틸리티(홈페이지의 맨 우측 상단 로그인, 마이페이지 같은 기능 묶음)
 * `sale` : (큰틀, 타이틀을 갖고 있는)세일, 할인
