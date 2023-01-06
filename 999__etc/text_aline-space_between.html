@@ -6,34 +6,53 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-</head>
-
-<body>
   <style>
     * {
       margin: 0;
-      padding: 10px;
+      padding: 0;
       box-sizing: border-box;
     }
-    p {
+    .a {
       text-align: justify;
-
       width: 150px;
       height: 50px;
       border-radius: 100px;
       border: 5px solid #000;
+      margin-top: 50px;
+      padding: 0 20px;
+      line-height: 40px;
     }
-    p::after {
+    .a::after {
+      content: '';
+      display: inline-block;
+      width: 100%;
+    }
+
+    .bb {
+      border-radius: 100px;
+      border: 5px solid rgb(109, 58, 177);
+      margin-top: 50px;
+      width: 150px;
+    }
+    .bb .ccc {
+      text-align: justify;
+      width: 150px;
+      height: 50px;
+      display: block;
+    }
+    .bb .ccc::after {
       content: '';
       display: inline-block;
       width: 100%;
     }
   </style>
+</head>
 
-
+<body>
   <p class="a">활동 내역</p>
   <p class="a">지 역</p>
 
+  <p class="bb"><span class="ccc">활동 내역</span></p>
+  <p class="bb"><span class="ccc">지 역</span></p>
 </body>
-
 </html>
