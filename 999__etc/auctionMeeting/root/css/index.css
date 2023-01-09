@@ -1,18 +1,21 @@
+/* 공통 */
 .event-wrapper {max-width:2000px;margin:0 auto;background-color:#fff;font-size: 16px;line-height:1;}
 .event-wrapper .event-header-fence,
 .event-wrapper .division-fence {width:920px;margin:0 auto;}
-.event-wrapper .text {font-size: 24px;line-height: 36px;letter-spacing: -0.020em;}
-.event-wrapper .text-bold {font-size: 24px;line-height: 36px;letter-spacing: -0.020em;font-weight: bold;}
+.event-wrapper .text {font-size: 24px;line-height: 36px;letter-spacing: -0.020em;word-break: keep-all;}
+.event-wrapper .text-bold {font-size: 24px;line-height: 36px;letter-spacing: -0.020em;font-weight: bold;word-break: keep-all;}
 .event-wrapper .finish-link,
 .event-wrapper .form-button,
 .event-wrapper .alert-link {display: block;font-size: 30px;line-height: 28px;letter-spacing: -0.020em;color: #fff;background-color: #000;width: 400px;padding: 26px 0;margin: 0 auto;border-radius: 100px;text-align: center;}
 
+/* 이벤트헤더 */
 .event-wrapper .event-header {background: url(../images/pc.header-bg.jpg);background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;padding-bottom: 120px;}
 .event-wrapper .event-header .event-header-intro {background-color: #fff;text-align: center;padding: 70px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
 .event-wrapper .event-header .intro-desc {margin-top: 65px;}
 .event-wrapper .event-header .desc-title {font-size: 30px;color: #e07f6d;margin-bottom: 20px;display: block;}
 .event-wrapper .event-header .slot-intro__finish .finish-link {margin-top: 46px;}
 
+/* 이벤트바디 */
 .event-wrapper .event-body {background: url(../images/pc.body-bg.jpg);background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;font-size: 0;padding-bottom: 100px;}
 .area-division-form .division-form {background: url(../images/pc.form-bg.jpg);background-color: #fff;background-repeat: no-repeat;background-position: center top;background-size: 100% 80px;display: inline-block;width: 100%;margin-top: -62px;padding: 82px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
 .area-division-form .slot-form {width: 780px;margin: 0 auto;}
@@ -31,7 +34,7 @@
 .area-division-form .slot-form--01 .guide-list__item + .guide-list__item {margin-top: 21px;}
 .area-division-form .slot-form--01 .guide-list__item .list-title {display: block;color: #e07f6d;border: 1px solid #e07f6d;border-radius: 100px;width: 145px;height: 43px;line-height: 43px;text-align: justify;padding: 0 19px;box-sizing: border-box;}
 .area-division-form .slot-form--01 .guide-list__item .list-title::after {content: '';display: inline-block;width: 100%;}
-.area-division-form .slot-form--01 .guide-list__item .text {margin: 5px 0 0 15px;}
+.area-division-form .slot-form--01 .guide-list__item .text {margin: 5px 0 0 0;padding-left: 15px;width: calc(100% - 145px);}
 .area-division-form .slot-form--01 .form-button {margin-top: 60px;}
 .area-division-form .slot-form--01 .notice {margin-top: 70px;}
 .area-division-form .slot-form--01 .notice-list__item {font-size: 22px;line-height: 30px;color: #a6a6a6;display: flex;}

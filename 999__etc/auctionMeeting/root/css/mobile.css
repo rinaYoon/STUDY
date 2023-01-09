@@ -1,7 +1,93 @@
+/* 공통 */
 .event-wrapper {max-width:720px;margin:0 auto;background-color:#fff;font-size: 16px;line-height:1;}
 .event-wrapper img {width: 100%;}
 .event-wrapper .event-header-fence,
 .event-wrapper .division-fence {padding: 0 30px;}
+.event-wrapper .text {font-size: 4.17vw;line-height: 6.11vw;letter-spacing: -0.020em;word-break: keep-all;}
+.event-wrapper .text-bold {font-size: 4.17vw;line-height: 6.11vw;letter-spacing: -0.020em;font-weight: bold;word-break: keep-all;}
+.event-wrapper .finish-link,
+.event-wrapper .form-button,
+.event-wrapper .alert-link {display: block;font-size: 4.17vw;line-height: 3.89vw;letter-spacing: -0.020em;color: #fff;background-color: #000;width: 58.33vw;padding: 4.17vw 0;margin: 0 auto;border-radius: 13.89vw;text-align: center;}
 
-.event-wrapper .event-header {background: url(../images/m.header-bg.jpg);background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;padding-bottom: 120px;}
-.event-wrapper .event-header .event-header-intro {background-color: #fff;text-align: center;padding: 70px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
+/* 이벤트헤더 */
+.event-wrapper .event-header {background: url(../images/m.header-bg.jpg);background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;padding-bottom: 15.28%;}
+.event-wrapper .event-header .event-header-intro {background-color: #fff;text-align: center;padding: 11.11% 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
+.event-wrapper .event-header .intro-desc {margin-top: 7.78%;}
+.event-wrapper .event-header .desc-title {font-size: 4.72vw;color: #e07f6d;margin-bottom: 3.06vw;display: block;}
+.event-wrapper .event-header .slot-intro__finish .finish-link {margin-top: 8.06%;}
+
+/* 이벤트바디 */
+.event-wrapper .event-body {background: url(../images/m.body-bg.jpg);background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;font-size: 0;padding-bottom: 13.89%;}
+.area-division-form .division-form {background: url(../images/m.form-bg.jpg);background-color: #fff;background-repeat: no-repeat;background-position: center top;background-size: 100% 6.81vw;display: inline-block;width: 100%;margin-top: -5.56%;padding: 11.39% 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
+.area-division-form .slot-form {padding: 0 5.56%;}
+
+.area-division-form .slot-form .radio-select label {display: flex;align-items: center;}
+.area-division-form .slot-form .radio-select .radio-button {display: flex;justify-content: center;align-items: center;width: 6.94vw;height: 6.94vw;border: 1px solid #b5b5b5;border-radius: 50%;}
+.area-division-form .slot-form .radio-select input[type="radio"]:checked + .radio-button::after {content: '';display: inline-block;width: 4.44vw;height: 4.44vw;background-color: #eb907f;border-radius: 50%;}
+.area-division-form .slot-form .radio-select input[type="radio"]:focus + .radio-button{border: 1px solid #000;}
+
+.area-division-form .slot-form .radio-select .text {margin-left: 1.39%;}
+.area-division-form .select-list__item + .select-list__item {margin-top: 4.72%;}
+.area-division-form .slot-form .input-text {width: 75vw;height: 11.11vw;border: 1px solid #b3b3b3;padding: 0 3.89vw;box-sizing: border-box;}
+.area-division-form .slot-form .input-text::placeholder {color: #b3b3b3;}
+
+
+.area-division-form .slot-form--01 {text-align: center;}
+.area-division-form .slot-form--01 .guide-list__item {width: 100%; display: flex;flex-direction: column;align-items: center;}
+.area-division-form .slot-form--01 .guide-list__item + .guide-list__item {margin-top: 6.94%;}
+.area-division-form .slot-form--01 .guide-list__item .list-title {display: block;color: #e07f6d;border: 1px solid #e07f6d;border-radius: 7.08vw;width: 25vw;height: 7.08vw;line-height: 7vw;text-align: justify;padding: 0 4%;box-sizing: border-box;}
+.area-division-form .slot-form--01 .guide-list__item .list-title::after {content: '';display: inline-block;width: 100%;}
+.area-division-form .slot-form--01 .guide-list__item .text {margin-top: 2.78%;}
+.area-division-form .slot-form--01 .form-button {margin-top: 9.72%;}
+.area-division-form .slot-form--01 .notice {margin-top: 9.44%;}
+.area-division-form .slot-form--01 .notice-list__item {font-size: 3.89vw;line-height: 5.56vw;color: #a6a6a6;text-align: left;position: relative;padding-left: 2.08vw;}
+.area-division-form .slot-form--01 .notice-list__item + .notice-list__item {margin-top: 5%;}
+.area-division-form .slot-form--01 .notice-list__item::before {content: '';display: inline-block;width: 0.69vw;height: 0.69vw;border-radius: 50%;background-color: #a6a6a6;position: absolute;left: 0;top: 2.08vw;}
+
+.area-division-form .slot-form--02 .fillin-list__item {margin-top: 11.11%;}
+.area-division-form .slot-form--02 .fillin-list__item .radio-select {margin-top: 4.86%;}
+.area-division-form .slot-form--02 .fillin-list__item .input-text {margin-top: 3.06%;}
+.area-division-form .slot-form--02 .fillin-list__item .input-text.text {margin-left: 0;}
+.area-division-form .slot-form--02 .form-button {margin-top: 8.33%;}
+
+.area-division-form .slot-form--03 .consent-info .info-list {margin-top: 11.11%;}
+.area-division-form .slot-form--03 .radio-select {margin-top: 11.11%;}
+.area-division-form .slot-form--03 .etc {margin-top: 11.11%;}
+.area-division-form .slot-form--03 .etc .etc-list__item {position: relative;padding-left: 1.81vw;}
+.area-division-form .slot-form--03 .etc .etc-list__item::before {content: '';display: inline-block;width: 0.42vw;height: 0.42vw;border-radius: 50%;background-color: #000;position: absolute;left: 0;top: 2.08vw;}
+
+.area-division-form .division-alert .dimd {width: 100%;height: 100%;position: fixed;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.6);}
+.area-division-form .division-alert .alert-type {position: absolute;top: 5.56%;left: 50%;transform: translateX(-50%);z-index: 999;}
+.area-division-form .division-alert .unit-alert {width: 88.89vw;background-color: #fff;padding: 9.72vw 6.94vw;box-sizing: border-box;}
+.area-division-form .division-alert .unit-alert .text {text-align: center;}
+.area-division-form .division-alert .unit-alert .alert-link {width: 58.33vw;padding: 4.17vw 0;margin-top: 6.25vw;}
+.area-division-form .division-alert .unit-alert .alert-link:focus {outline: 0.42vw solid #e07f6d;}
+.area-division-form .division-alert .unit-alert .alert-link + .alert-link {margin-top: 4.17vw;}
+
+/* 미디어쿼리 */
+@media only all and (min-width: 720px) {
+  .event-wrapper .text {font-size: 30px;line-height: 44px;}
+  .event-wrapper .text-bold {font-size: 30px;line-height: 44px;}
+  .event-wrapper .finish-link,
+  .event-wrapper .form-button,
+  .event-wrapper .alert-link {font-size: 30px;line-height: 28px;width: 420px;padding: 30px 0;border-radius: 100px;}
+
+  .event-wrapper .event-header .desc-title {font-size: 34px;margin-bottom: 22px;}
+  .area-division-form .division-form {background-size: 100% 49px;}
+
+  .area-division-form .slot-form .radio-select .radio-button {width: 50px;height: 50px;}
+  .area-division-form .slot-form .radio-select input[type="radio"]:checked + .radio-button::after {width: 32px;height: 32px;}
+  .area-division-form .slot-form .input-text {width: 540px;height: 80px;padding: 0 28px;}
+
+  .area-division-form .slot-form--01 .guide-list__item .list-title {border: 1px solid #e07f6d;border-radius: 100px;width: 180px;height: 51px;line-height: 51px;}
+  .area-division-form .slot-form--01 .notice-list__item {font-size: 28px;line-height: 40px;padding-left: 15px;}
+  .area-division-form .slot-form--01 .notice-list__item::before {width: 5px;height: 5px;top: 15px;}
+
+  .area-division-form .slot-form--03 .etc .etc-list__item {padding-left: 13px;}
+  .area-division-form .slot-form--03 .etc .etc-list__item::before {width: 3px;height: 3px;top: 15px;}
+
+  .area-division-form .division-alert .unit-alert {width: 640px;padding: 70px 50px;}
+  .area-division-form .division-alert .unit-alert .alert-link {width: 420px;padding: 30px 0;margin-top: 45px;}
+  .area-division-form .division-alert .unit-alert .alert-link:focus {outline: 3px solid #e07f6d;}
+  .area-division-form .division-alert .unit-alert .alert-link + .alert-link {margin-top: 30px;}
+}
