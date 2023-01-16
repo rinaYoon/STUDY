@@ -19,7 +19,7 @@
 }
 
 /* 공통 */
-.event-wrapper {max-width:2000px;margin:0 auto;background-color:#fff;line-height:1;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;font-weight: 500;font-size: 24px;line-height: 36px;letter-spacing: -0.020em;word-break: keep-all;}
+.event-wrapper {max-width:2000px;margin:0 auto;background-color:#fff;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;font-weight: 500;font-size: 24px;line-height: 36px;letter-spacing: -0.020em;word-break: keep-all;}
 .event-wrapper .event-header-fence,
 .event-wrapper .division-fence {width:920px;margin:0 auto;}
 .event-wrapper fieldset {margin: 0;padding: 0;}
@@ -28,37 +28,42 @@
 .event-wrapper .button-wrap {text-align: center;}
 .event-wrapper .button-wrap .finish-link,
 .event-wrapper .button-wrap .form-button,
-.event-wrapper .button-wrap .alert-link {display: inline-block;font-size: 30px;line-height: 80px;letter-spacing: -0.020em;color: #fff;background-color: #000;width: 400px;margin: 0 auto;border-radius: 100px;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;}
+.event-wrapper .button-wrap .alert-link {display: inline-block;font-size: 30px;line-height: 80px;letter-spacing: -0.020em;color: #fff;background-color: #262626;width: 400px;margin: 0 auto;border-radius: 100px;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;}
+
+/* 공통 라디오 버튼 커스텀 */
+.radio-select label {display: flex;align-items: center;}
+.radio-select .radio-button {display: flex;align-items: center;justify-content: center;width: 26px;height: 26px;border: 1px solid #b5b5b5;border-radius: 50%;}
+.radio-select input[type="radio"]:checked + .radio-button::after {content: '';display: inline-block;width: 16px;height: 16px;background-color: #eb907f;border-radius: 50%;}
+.radio-select input[type="radio"]:focus + .radio-button{border: 1px solid #000;}
+.radio-select .text {margin-left: 10px;}
+
+/* 공통 입력창 커스텀 */
+.input_wrap {width: 280px;}
+.input_wrap .input-text {width: 100%;height: 50px;box-sizing: border-box;border: 1px solid #b3b3b3;padding: 0 14px;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;font-weight: 500;font-size: 24px;line-height: 36px;letter-spacing: -0.020em;}
+.input_wrap .input-text::placeholder {color: #b3b3b3;}
+.input_wrap input[type="number"]::-webkit-inner-spin-button {all: unset;}
+
+
 
 /* 이벤트헤더 */
 .event-wrapper .event-header {background: url(../images/pc.header-bg.jpg);background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;padding-bottom: 120px;}
-.event-wrapper .event-header .event-header-intro {background-color: #fff;text-align: center;padding: 65px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
+.event-wrapper .event-header .event-header-intro {background-color: #fff;text-align: center;padding: 65px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);color: #333333;}
 .event-wrapper .event-header .slot-intro .intro-desc {margin-top: 60px;}
 .event-wrapper .event-header .slot-intro .desc-title {font-size: 30px;font-weight: 700; color: #e07f6d;display: block;}
 .event-wrapper .event-header .slot-intro .desc-text {margin-top: 15px;}
+
 .event-wrapper .event-header .slot-intro__finish .desc-text:nth-child(2) {font-weight: 700;}
 .event-wrapper .event-header .slot-intro__finish .desc-text:nth-child(4) {margin-top: 42px;}
 .event-wrapper .event-header .slot-intro__finish .button-wrap {margin-top: 46px;}
 
+
+
 /* 이벤트바디 */
-.event-wrapper .event-body {background: url(../images/pc.body-bg.jpg);background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;padding-bottom: 100px;}
-.area-division-form .division-form {background: url(../images/pc.form-bg.jpg);background-color: #fff;;background-repeat: no-repeat;background-position: center top;background-size: 100% 80px;display: inline-block;width: 100%;margin-top: -62px;padding: 82px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
+.event-wrapper .event-body {background: url(../images/pc.body-bg.jpg);background-repeat: no-repeat;background-position: center top;background-size: 100% 100%;padding-bottom: 100px;color: #1a1a1a;}
+.area-division-form .division-form {background: url(../images/pc.form-bg.jpg);background-color: #fff;background-repeat: no-repeat;background-position: center top;background-size: 100% 80px;display: inline-block;width: 100%;margin-top: -62px;padding: 82px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
 
 .area-division-form .slot-form {padding: 0 64px;}
-
-/* 라디오 버튼 커스텀 */
 .area-division-form .slot-form .select-list__item + .select-list__item {margin-top: 10px;}
-.area-division-form .slot-form .radio-select label {display: flex;align-items: center;}
-.area-division-form .slot-form .radio-select .radio-button {display: flex;align-items: center;justify-content: center;width: 26px;height: 26px;border: 1px solid #b5b5b5;border-radius: 50%;}
-.area-division-form .slot-form .radio-select input[type="radio"]:checked + .radio-button::after {content: '';display: inline-block;width: 16px;height: 16px;background-color: #eb907f;border-radius: 50%;}
-.area-division-form .slot-form .radio-select input[type="radio"]:focus + .radio-button{border: 1px solid #000;}
-.area-division-form .slot-form .radio-select .text {margin-left: 10px;}
-
-/* 입력창 커스텀 */
-.area-division-form .slot-form .input_wrap {width: 280px;}
-.area-division-form .slot-form .input-text {width: 100%;height: 50px;box-sizing: border-box;border: 1px solid #b3b3b3;padding: 0 14px;font-family: 'Gmarket Sans';font-weight: 500;font-size: 24px;line-height: 36px;letter-spacing: -0.020em;}
-.area-division-form .slot-form .input-text::placeholder {color: #b3b3b3;}
-.area-division-form .slot-form input[type="number"]::-webkit-inner-spin-button {all: unset;}
 
 /* slot-form--01 */
 .area-division-form .slot-form--01 .guide-list {display: flex;flex-wrap: wrap;justify-content: space-between;}
@@ -81,13 +86,12 @@
 .area-division-form .slot-form--02 .fillin-list__item {margin-top: 60px;}
 .area-division-form .slot-form--02 .fillin-list__item .radio-select {margin-top: 24px;}
 
-.area-division-form .slot-form--02 .fillin-list__item .input_wrap {margin-top: 15px;}
+.area-division-form .slot-form--02 .fillin-list__item .list-text {font-weight: 700;}
+.area-division-form .slot-form--02 .fillin-list__item .select-list__item {display: flex;}
+.area-division-form .slot-form--02 .fillin-list__item .select-list__item .input_wrap {margin-top: 15px;}
 .area-division-form .slot-form--02 .fillin-list__item:nth-child(2) .input_wrap {margin: 0 0 0 15px;position: relative;}
 .area-division-form .slot-form--02 .fillin-list__item:nth-child(2) .input-text {position: absolute;top: 50%;transform: translateY(-50%);}
 .area-division-form .slot-form--02 .fillin-list__item:nth-child(4) .input_wrap {width: 440px;}
-
-.area-division-form .slot-form--02 .fillin-list__item .select-list__item {display: flex;}
-.area-division-form .slot-form--02 .fillin-list__item .list-text {font-weight: 700;}
 
 .area-division-form .slot-form--02 .resident_registration_number {display: flex;justify-content: space-between;align-items: center;margin-top: 15px;}
 .area-division-form .slot-form--02 .resident_registration_number .input_wrap {margin-top: 0;width: 100%;}
@@ -96,7 +100,6 @@
 .area-division-form .slot-form--02 .resident_registration_number .hyphen {margin: 0 10px;}
 
 .area-division-form .slot-form--02 .button-wrap {margin-top: 60px;}
-/* //slot-form--02 */
 
 /* slot-form--03 */
 .area-division-form .slot-form--03 .consent-info .info-list {margin-top: 50px;}
@@ -108,7 +111,6 @@
 .area-division-form .slot-form--03 .etc .etc-list {margin-top: 5px;}
 .area-division-form .slot-form--03 .etc .etc-list__item {display: flex;}
 .area-division-form .slot-form--03 .etc .etc-list__item::before {content: '';display: inline-block;width: 3px;height: 3px;border-radius: 50%;background-color: #000;margin: 14px 10px 0 0;}
-/* //slot-form--03 */
 
 /* alert */
 .area-division-form .division-alert .dimd {width: 100vw;height: 100vw;position: fixed;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.6);}
@@ -125,5 +127,3 @@
 .area-division-form .division-alert .unit-alert .alert-link:focus {outline: 3px solid #e07f6d;}
 
 .area-division-form .division-alert .alert-type--01 .alert-text:nth-child(2) {margin-top: 0;}
-/* //alert */
-/* //이벤트바디 */
