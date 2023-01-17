@@ -80,8 +80,8 @@
 .area-division-form .slot-form--01 .notice-list__item::before {content: '';display: inline-block;width: 0.56vw;height: 0.56vw;border-radius: 50%;background-color: #a6a6a6;margin: 2.78vw 1.81vw 0 0;}
 
 /* slot-form--02 */
-.area-division-form .slot-form--02 .fillin-list__item {margin-top: 9.86%;}
-.area-division-form .slot-form--02 .fillin-list__item:first-child {margin-top: 8.75%;}
+.area-division-form .slot-form--02 .fillin-list {margin-top: 8.75%;}
+.area-division-form .slot-form--02 .fillin-list__item + .fillin-list__item {margin-top: 9.86%;}
 .area-division-form .slot-form--02 .fillin-list__item .radio-select {margin-top: 3.61%;}
 
 .area-division-form .slot-form--02 .fillin-list__item .list-text {font-weight: 700;}
@@ -101,7 +101,7 @@
 /* slot-form--03 */
 .area-division-form .slot-form--03 .consent-info .info-text + .info-text {margin-top: 2.78%;}
 .area-division-form .slot-form--03 .consent-info .info-list {margin-top: 8.75%;}
-.area-division-form .slot-form--03 .consent-info .info-list__item:not(.info-list__item:nth-child(2)) .list-text {font-weight: 700;}
+.area-division-form .slot-form--03 .consent-info .info-list__item .list-text {font-weight: 700;}
 
 .area-division-form .slot-form--03 .radio-select,
 .area-division-form .slot-form--03 .etc {margin-top: 12%;}

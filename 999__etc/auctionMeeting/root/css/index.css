@@ -50,11 +50,11 @@
 .event-wrapper .event-header .event-header-intro {background-color: #fff;text-align: center;padding: 65px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);color: #333333;}
 .event-wrapper .event-header .slot-intro .intro-desc {margin-top: 60px;}
 .event-wrapper .event-header .slot-intro .desc-title {font-size: 30px;font-weight: 700; color: #e07f6d;display: block;}
-.event-wrapper .event-header .slot-intro .desc-text {margin-top: 15px;}
+.event-wrapper .event-header .slot-intro .desc-text {margin-top: 3px;}
 
 .event-wrapper .event-header .slot-intro__finish .desc-text:nth-child(2) {font-weight: 700;}
-.event-wrapper .event-header .slot-intro__finish .desc-text:nth-child(4) {margin-top: 42px;}
-.event-wrapper .event-header .slot-intro__finish .button-wrap {margin-top: 46px;}
+.event-wrapper .event-header .slot-intro__finish .desc-text:nth-child(4) {margin-top: 33px;}
+.event-wrapper .event-header .slot-intro__finish .button-wrap {margin-top: 42px;}
 
 
 
@@ -79,21 +79,23 @@
 
 .area-division-form .slot-form--01 .notice {margin-top: 70px;}
 .area-division-form .slot-form--01 .notice-list__item {font-size: 22px;line-height: normal;color: #a6a6a6;display: flex;}
-.area-division-form .slot-form--01 .notice-list__item + .notice-list__item {margin-top: 20px;}
+.area-division-form .slot-form--01 .notice-list__item + .notice-list__item {margin-top: 15px;}
 .area-division-form .slot-form--01 .notice-list__item::before {content: '';display: inline-block;width: 3px;height: 3px;border-radius: 50%;background-color: #a6a6a6;margin: 10px 10px 0 0;}
 
 /* slot-form--02 */
-.area-division-form .slot-form--02 .fillin-list__item {margin-top: 60px;}
-.area-division-form .slot-form--02 .fillin-list__item .radio-select {margin-top: 24px;}
+.area-division-form .slot-form--02 .fillin-list {margin-top: 44px;}
+.area-division-form .slot-form--02 .fillin-list__item + .fillin-list__item {margin-top: 52px;}
+.area-division-form .slot-form--02 .fillin-list__item .radio-select {margin-top: 17px;}
 
 .area-division-form .slot-form--02 .fillin-list__item .list-text {font-weight: 700;}
+.area-division-form .slot-form--02 .fillin-list__item .input_wrap {margin-top: 18px;}
 .area-division-form .slot-form--02 .fillin-list__item .select-list__item {display: flex;}
 .area-division-form .slot-form--02 .fillin-list__item .select-list__item .input_wrap {margin-top: 15px;}
 .area-division-form .slot-form--02 .fillin-list__item:nth-child(2) .input_wrap {margin: 0 0 0 15px;position: relative;}
 .area-division-form .slot-form--02 .fillin-list__item:nth-child(2) .input-text {position: absolute;top: 50%;transform: translateY(-50%);}
 .area-division-form .slot-form--02 .fillin-list__item:nth-child(4) .input_wrap {width: 440px;}
 
-.area-division-form .slot-form--02 .resident_registration_number {display: flex;justify-content: space-between;align-items: center;margin-top: 15px;}
+.area-division-form .slot-form--02 .resident_registration_number {display: flex;justify-content: space-between;align-items: center;margin-top: 18px;}
 .area-division-form .slot-form--02 .resident_registration_number .input_wrap {margin-top: 0;width: 100%;}
 .area-division-form .slot-form--02 .resident_registration_number .first,
 .area-division-form .slot-form--02 .resident_registration_number .last {width: 100%;}
@@ -103,11 +105,11 @@
 
 /* slot-form--03 */
 .area-division-form .slot-form--03 .consent-info .info-list {margin-top: 50px;}
-.area-division-form .slot-form--03 .consent-info .info-list__item:not(.info-list__item:nth-child(2)) .list-text {font-weight: 700;}
+.area-division-form .slot-form--03 .consent-info .info-list__item .list-text {font-weight: 700;}
 
 .area-division-form .slot-form--03 .radio-select {margin-top: 50px;}
 
-.area-division-form .slot-form--03 .etc {margin-top: 50px;}
+.area-division-form .slot-form--03 .etc {margin-top: 45px;}
 .area-division-form .slot-form--03 .etc .etc-list {margin-top: 5px;}
 .area-division-form .slot-form--03 .etc .etc-list__item {display: flex;}
 .area-division-form .slot-form--03 .etc .etc-list__item::before {content: '';display: inline-block;width: 3px;height: 3px;border-radius: 50%;background-color: #000;margin: 14px 10px 0 0;}
