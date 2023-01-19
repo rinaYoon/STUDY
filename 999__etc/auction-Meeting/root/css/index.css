@@ -23,6 +23,7 @@
 .event-wrapper .event-header-fence,
 .event-wrapper .division-fence {width:920px;margin:0 auto;}
 .event-wrapper fieldset {margin: 0;padding: 0;}
+.event-wrapper [class$="__bold"] {font-weight: 700;}
 
 /* 공통 버튼 커스텀 */
 .event-wrapper .button-wrap {text-align: center;}
@@ -31,17 +32,27 @@
 .event-wrapper .button-wrap .alert-link {display: inline-block;font-size: 30px;line-height: 80px;letter-spacing: -0.020em;color: #fff;background-color: #262626;width: 400px;margin: 0 auto;border-radius: 100px;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;}
 
 /* 공통 라디오 버튼 커스텀 */
-.radio-select label {display: flex;align-items: center;}
-.radio-select .radio-button {display: flex;align-items: center;justify-content: center;width: 26px;height: 26px;border: 1px solid #b5b5b5;border-radius: 50%;}
-.radio-select input[type="radio"]:checked + .radio-button::after {content: '';display: inline-block;width: 16px;height: 16px;background-color: #eb907f;border-radius: 50%;}
-.radio-select input[type="radio"]:focus + .radio-button{border: 1px solid #000;}
-.radio-select .text {margin-left: 10px;}
+.radio-select label {font-size: 0;}
+.radio-select .ui-input__radio {position: relative;display: inline-block;margin-right: 10px;width: 26px;height: 26px;border: 1px solid #b5b5b5;border-radius: 50%;vertical-align: middle;}
+.radio-select input[type="radio"]:checked + .ui-input__radio::after {content: '';width: 16px;height: 16px;background-color: #eb907f;border-radius: 50%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
+.radio-select input[type="radio"]:focus + .ui-input__radio{border: 1px solid #000;}
+.radio-select .text {vertical-align: middle;font-size: 24px;margin-right: 15px;}
+
+.radio-select .select-list__item .ui-input-wrap {margin-top: -8px;}
 
 /* 공통 입력창 커스텀 */
-.input_wrap {width: 280px;}
-.input_wrap .input-text {width: 100%;height: 50px;box-sizing: border-box;border: 1px solid #b3b3b3;padding: 0 14px;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;font-weight: 500;font-size: 24px;line-height: 36px;letter-spacing: -0.020em;}
-.input_wrap .input-text::placeholder {color: #b3b3b3;}
-.input_wrap input[type="number"]::-webkit-inner-spin-button {all: unset;}
+.ui-input-wrap {display: inline-block;}
+.ui-input-wrap + .ui-input-wrap {margin-left: 10px;}
+.ui-input-wrap .ui-input__text {width: 280px;height: 50px;box-sizing: border-box;border: 1px solid #b3b3b3;padding: 0 14px;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;font-weight: 500;font-size: 24px;line-height: 36px;letter-spacing: -0.020em;}
+.ui-input-wrap .ui-input__text::placeholder {color: #b3b3b3;}
+.ui-input-wrap input[type="tel"] {width: 440px;}
+.ui-input-wrap input[type="number"] {width: 100%;}
+.ui-input-wrap input[type="number"]::-webkit-inner-spin-button {all: unset;}
+
+.ui-input-bundle {display: inline-block;}
+.ui-input-bundle .bundle-wrap {display: flex;justify-content: space-between;align-items: center;}
+.ui-input-bundle .ui-input-wrap {margin-top: 0;flex: 1;}
+.ui-input-bundle .hyphen {margin: 0 10px;}
 
 
 
@@ -85,22 +96,7 @@
 /* slot-form--02 */
 .area-division-form .slot-form--02 .fillin-list {margin-top: 44px;}
 .area-division-form .slot-form--02 .fillin-list__item + .fillin-list__item {margin-top: 52px;}
-.area-division-form .slot-form--02 .fillin-list__item .radio-select {margin-top: 17px;}
-
-.area-division-form .slot-form--02 .fillin-list__item .list-text {font-weight: 700;}
-.area-division-form .slot-form--02 .fillin-list__item .input_wrap {margin-top: 18px;}
-.area-division-form .slot-form--02 .fillin-list__item .select-list__item {display: flex;}
-.area-division-form .slot-form--02 .fillin-list__item .select-list__item .input_wrap {margin-top: 15px;}
-.area-division-form .slot-form--02 .fillin-list__item:nth-child(2) .input_wrap {margin: 0 0 0 15px;position: relative;}
-.area-division-form .slot-form--02 .fillin-list__item:nth-child(2) .input-text {position: absolute;top: 50%;transform: translateY(-50%);}
-.area-division-form .slot-form--02 .fillin-list__item:nth-child(4) .input_wrap {width: 440px;}
-
-.area-division-form .slot-form--02 .resident_registration_number {display: flex;justify-content: space-between;align-items: center;margin-top: 18px;}
-.area-division-form .slot-form--02 .resident_registration_number .input_wrap {margin-top: 0;width: 100%;}
-.area-division-form .slot-form--02 .resident_registration_number .first,
-.area-division-form .slot-form--02 .resident_registration_number .last {width: 100%;}
-.area-division-form .slot-form--02 .resident_registration_number .hyphen {margin: 0 10px;}
-
+.area-division-form .slot-form--02 .fillin-list__item .list-text {font-weight: 700;margin-bottom: 18px;}
 .area-division-form .slot-form--02 .button-wrap {margin-top: 60px;}
 
 /* slot-form--03 */
