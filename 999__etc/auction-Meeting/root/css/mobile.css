@@ -19,7 +19,7 @@
 }
 
 /* 공통 */
-.event-wrapper {max-width:720px;margin:0 auto;background-color:#fff;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;font-weight: 500;font-size: 4.17vw;line-height: 6.11vw;letter-spacing: -0.020em;word-break: keep-all;}
+.event-wrapper {max-width:720px;margin:0 auto;background-color:#fff;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;font-weight: 500;font-size: 4.17vw;line-height: 6.11vw;letter-spacing: -0.020em;}
 .event-wrapper .event-header-fence,
 .event-wrapper .division-fence {padding: 0 4.17%;}
 .event-wrapper fieldset {margin: 0;padding: 0;}
@@ -31,11 +31,11 @@
 .event-wrapper .button-wrap .alert-link {display: inline-block;font-size: 4.72vw;line-height: 12.22vw;letter-spacing: -0.020em;color: #fff;background-color: #262626;width: 58.33vw;margin: 0 auto;border-radius: 13.89vw;}
 
 /* 공통 라디오 버튼 커스텀 */
-.radio-select label {display: flex;align-items: center;}
-.radio-select .radio-button {display: flex;align-items: center;justify-content: center;width: 6.94vw;height: 6.94vw;border: 1px solid #b5b5b5;border-radius: 50%;}
-.radio-select input[type="radio"]:checked + .radio-button::after {content: '';display: inline-block;width: 4.44vw;height: 4.44vw;background-color: #eb907f;border-radius: 50%;}
-.radio-select input[type="radio"]:focus + .radio-button{border: 1px solid #000;}
-.radio-select .text {margin-left: 1.67vw;}
+.radio-select label {font-size: 0;}
+.radio-select .ui-input__radio {position: relative;display: inline-block;vertical-align: middle;width: 6.94vw;height: 6.94vw;border: 1px solid #b5b5b5;border-radius: 50%;margin-right: 1.67vw;}
+.radio-select input[type="radio"]:checked + .ui-input__radio::after {content: '';width: 4.44vw;height: 4.44vw;background-color: #eb907f;border-radius: 50%;position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);}
+.radio-select input[type="radio"]:focus + .ui-input__radio{border: 1px solid #000;}
+.radio-select .text {font-size: 4.17vw;vertical-align: middle;margin-right: 1.67vw;display: inline-block;}
 
 /* 공통 입력창 커스텀 */
 .input_wrap {width: 75vw;}
@@ -136,9 +136,9 @@
 	.event-wrapper .button-wrap .alert-link {font-size: 34px;line-height: 88px;width: 420px;border-radius: 100px;}
 	
 	/* 공통 라디오 버튼 커스텀 */
-	.radio-select .radio-button {width: 50px;height: 50px;}
-	.radio-select input[type="radio"]:checked + .radio-button::after {width: 32px;height: 32px;}
-	.radio-select .text {margin-left: 12px;}
+	.radio-select .ui-input__radio {width: 50px;height: 50px;margin-right: 12px;}
+	.radio-select input[type="radio"]:checked + .ui-input__radio::after {width: 32px;height: 32px;}
+	.radio-select .text {font-size: 30px;margin-right: 12px;}
 
 	/* 공통 입력창 커스텀 */
 	.input_wrap {width: 540px;}

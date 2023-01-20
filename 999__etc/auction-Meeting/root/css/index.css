@@ -23,7 +23,6 @@
 .event-wrapper .event-header-fence,
 .event-wrapper .division-fence {width:920px;margin:0 auto;}
 .event-wrapper fieldset {margin: 0;padding: 0;}
-.event-wrapper [class$="__bold"] {font-weight: 700;}
 
 /* 공통 버튼 커스텀 */
 .event-wrapper .button-wrap {text-align: center;}
