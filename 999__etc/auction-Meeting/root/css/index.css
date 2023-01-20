@@ -38,11 +38,12 @@
 .radio-select input[type="radio"]:focus + .ui-input__radio{border: 1px solid #000;}
 .radio-select .text {vertical-align: middle;font-size: 24px;margin-right: 15px;display: inline-block;}
 
-.radio-select .select-list__item .ui-input-wrap {margin-top: -8px;}
+.radio-select .select-list__item .ui-input-wrap {margin-top: -8px;font-size: 24px;box-sizing: border-box;}
 
 /* 공통 입력창 커스텀 */
 .ui-input-wrap {display: inline-block;}
 .ui-input-wrap + .ui-input-wrap {margin-left: 10px;}
+.ui-input-wrap + .ui-input-wrap + .ui-input-wrap {margin-top: 10px;}
 .ui-input-wrap .ui-input__text {width: 280px;height: 50px;box-sizing: border-box;border: 1px solid #b3b3b3;padding: 0 14px;font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;font-weight: 500;font-size: 24px;line-height: 36px;letter-spacing: -0.020em;}
 .ui-input-wrap .ui-input__text::placeholder {color: #b3b3b3;}
 .ui-input-wrap input[type="tel"] {width: 440px;}
@@ -63,8 +64,6 @@
 .event-wrapper .event-header .slot-intro .desc-title {font-size: 30px;font-weight: 700; color: #e07f6d;display: block;}
 .event-wrapper .event-header .slot-intro .desc-text {margin-top: 3px;}
 
-.event-wrapper .event-header .slot-intro__finish .desc-text:nth-child(2) {font-weight: 700;}
-.event-wrapper .event-header .slot-intro__finish .desc-text:nth-child(4) {margin-top: 33px;}
 .event-wrapper .event-header .slot-intro__finish .button-wrap {margin-top: 42px;}
 
 
@@ -74,7 +73,8 @@
 .area-division-form .division-form {background: url(../images/pc.form-bg.jpg);background-color: #fff;background-repeat: no-repeat;background-position: center top;background-size: 100% 80px;display: inline-block;width: 100%;margin-top: -62px;padding: 82px 0;box-shadow: 0px 5px 20px 0px rgba(164, 112, 69, 0.1);}
 
 .area-division-form .slot-form {padding: 0 64px;}
-.area-division-form .slot-form .select-list__item + .select-list__item {margin-top: 10px;}
+.area-division-form .slot-form .select-list__item + .select-list__item {margin-top: 10px;font-size: 0;}
+.area-division-form .slot-form .select-list__item + .select-list__item::after {content: '';display: block;clear: both;}
 
 /* slot-form--01 */
 .area-division-form .slot-form--01 .guide-list__wrap {display: flex;}
@@ -109,17 +109,16 @@
 .area-division-form .slot-form--03 .etc .etc-list__item::before {content: '';display: inline-block;width: 3px;height: 3px;border-radius: 50%;background-color: #000;margin: 14px 10px 0 0;}
 
 /* alert */
-.area-division-form .division-alert .dimd {width: 100vw;height: 100vw;position: fixed;top: 0;left: 0;background-color: rgba(0, 0, 0, 0.6);}
-.area-division-form .division-alert .alert-type {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 999;}
+.event-alert .alert-type {position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);}
 
-.area-division-form .division-alert .unit-alert {width: 580px;background-color: #fff;padding: 60px 0 70px;}
-.area-division-form .division-alert .unit-alert .alert-text {text-align: center;display: block;}
-.area-division-form .division-alert .unit-alert .alert-text + .alert-text {margin-top: 30px;}
-.area-division-form .division-alert .unit-alert .alert-text .bold {font-weight: 700;}
+.event-alert .unit-alert {width: 580px;background-color: #fff;padding: 60px 0 70px;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);z-index: 999;}
+.event-alert .unit-alert .alert-text {text-align: center;display: block;}
+.event-alert .unit-alert .alert-text + .alert-text {margin-top: 30px;}
+.event-alert .unit-alert .alert-text .bold {font-weight: 700;}
 
-.area-division-form .division-alert .unit-alert .button-wrap {margin-top: 40px;}
-.area-division-form .division-alert .unit-alert .button-wrap + .button-wrap {margin-top: 10px;}
-.area-division-form .division-alert .unit-alert .alert-link {width: 260px;font-size: 26px;line-height: 60px;}
-.area-division-form .division-alert .unit-alert .alert-link:focus {outline: 3px solid #e07f6d;}
+.event-alert .unit-alert .button-wrap {margin-top: 40px;}
+.event-alert .unit-alert .button-wrap + .button-wrap {margin-top: 10px;}
+.event-alert .unit-alert .alert-link {width: 260px;font-size: 26px;line-height: 60px;}
+.event-alert .unit-alert .alert-link:focus {outline: 3px solid #e07f6d;}
 
-.area-division-form .division-alert .alert-type--01 .alert-text:nth-child(2) {margin-top: 0;}
+.event-alert .alert-type .dimd {display: block;width: 100vw;height: 100vw;background-color: rgba(0, 0, 0, 0.6);}

@@ -42,13 +42,14 @@
           <!-- //이벤트 인트로 -->
 
           <!-- 이벤트 조기 종료 -->
-          <div class="slot-intro__finish">
+          <div class="slot-intro__finish" style="display: none;">
             <h3 class="blind">이벤트 조기 종료 안내</h3>
             <div class="finish-desc">
               <p class="desc-text">
                 저희 이벤트에 관심을 보여주셔서 감사합니다.<br>
                 <strong class="desc-text__bold">고객님들의 적극적인 참여로 이벤트를 조기 종료하게 되었습니다.</strong><br>
-                향후 더 나은 이벤트로 찾아뵙겠습니다.<br class="break">
+                향후 더 나은 이벤트로 찾아뵙겠습니다.<br>
+                <br>
                 감사합니다.
               </p>
             </div>
@@ -80,7 +81,7 @@
           <div class="division-fence">
             <div class="division-form">
               <!-- slot-form__01 -->
-              <div class="slot-form slot-form--01">
+              <div class="slot-form slot-form--01" style="display: none;">
                 <div class="form-title">
                   <h3 class="blind">참여 안내</h3>
                 </div>
@@ -148,7 +149,7 @@
               <!-- //slot-form__01 -->
 
               <!-- slot-form__02 -->
-              <div class="slot-form slot-form--02">
+              <div class="slot-form slot-form--02" style="display: none;">
                 <div class="form-title">
                   <h3 class="blind">좌담회 신청 작성</h3>
                 </div>
@@ -331,100 +332,102 @@
               </div>
               <!-- //slot-form__03 -->
             </div>
-
-            <div class="division-alert">
-              <!-- 알림창1 (개인정보 '예' 체크) -->
-              <div class="alert-type alert-type--01" style="display: none;">
-                <div class="unit-alert">
-                  <p class="alert-text">
-                    고객님,<br>
-                    좌담회 참여에 동의해 주셔서 감사합니다.<br class="break">
-
-                    <strong class="bold">11월 말 ~ 12월 초</strong>에 고객님께 전화드려<br>
-                    간단한 질문 및 일정 약속을 잡도록 하겠습니다.<br class="break">
-
-                    참여에 동의해주신 고객님이 많으셔서<br>
-                    모집인원을 초과할 경우<br>
-                    모든 고객님께 전화드리지 못하는 점은<br>
-                    미리 양해 부탁 드립니다.<br class="break">
-
-                    전화드리지 못할 경우 제공해주신 개인정보는<br>
-                    좌담회 이전에 모두 폐기하겠습니다.
-                  </p>
-
-                  <div class="button-wrap">
-                    <a href="#" class="alert-link">닫기</a>
-                  </div>
-                </div>
-                <span class="dimd"></span>
-              </div>
-              <!-- //알림창1 -->
-
-              <!-- 알림창2 (개인정보 '아니오' 체크) -->
-              <div class="alert-type alert-type--02" style="display: none;">
-                <div class="unit-alert">
-                  <p class="alert-text">
-                    고객님의 소중한 의견 감사드립니다.<br class="break">
-
-                    고객님께서 입력해 주신<br>
-                    성함, 연락처, 거주지는 바로 폐기하겠습니다.<br class="break">
-
-                    저희 좌담회에 관심을 보여주셔서 고맙습니다.
-                  </p>
-
-                <div class="button-wrap">
-                  <a href="#" class="alert-link">닫기</a>
-                </div>
-                </div>
-                <span class="dimd"></span>
-              </div>
-              <!-- //알림창2 -->
-
-              <!-- 알림창3 (개인정보 '예' 체크하고 참여 완료된 경우) -->
-              <div class="alert-type alert-type--03" style="display: none;">
-                <div class="unit-alert">
-                  <p class="alert-text">
-                    고객님께서는 이미 참여 동의가<br>
-                    정상적으로 완료되셨습니다!
-                  </p>
-
-                  <div class="button-wrap">
-                    <a href="#" class="alert-link">닫기</a>
-                  </div>
-                </div>
-                <span class="dimd"></span>
-              </div>
-              <!-- //알림창3 -->
-
-              <!-- 알림창4 (개인정보 '아니오' 체크하고 참여 완료된 경우) -->
-              <div class="alert-type alert-type--04" style="display: none;">
-                <div class="unit-alert">
-                  <p class="alert-text">
-                    고객님께서는 개인 정보 이용에<br>
-                    동의하지 않으셨습니다.<br class="break">
-
-                    개인 정보 이용에 동의하시고,<br>
-                    좌담회 참여 신청을 다시 하시겠습니까?
-                  </p>
-
-                  <div class="button-wrap">
-                    <a href="#" class="alert-link">아니오</a>
-                  </div>
-
-                  <div class="button-wrap">
-                    <a href="#" class="alert-link">예</a>
-                  </div>
-                </div>
-                <span class="dimd"></span>
-              </div>
-              <!-- //알림창4 -->
-            </div>
           </div>
         </div>
         <!-- //area-division-form -->
       </div>
     </div>
     <!-- //event-body -->
+
+    <!-- alert -->
+    <div class="event-alert">
+      <!-- 알림창1 (개인정보 '예' 체크) -->
+      <div class="alert-type alert-type--01" style="display: none;">
+        <div class="unit-alert">
+          <p class="alert-text">
+            고객님,<br>
+            좌담회 참여에 동의해 주셔서 감사합니다.<br>
+            <br>
+            <strong class="bold">11월 말 ~ 12월 초</strong>에 고객님께 전화드려<br>
+            간단한 질문 및 일정 약속을 잡도록 하겠습니다.<br>
+            <br>
+            참여에 동의해주신 고객님이 많으셔서<br>
+            모집인원을 초과할 경우<br>
+            모든 고객님께 전화드리지 못하는 점은<br>
+            미리 양해 부탁 드립니다.<br>
+            <br>
+            전화드리지 못할 경우 제공해주신 개인정보는<br>
+            좌담회 이전에 모두 폐기하겠습니다.
+          </p>
+
+          <div class="button-wrap">
+            <a href="#" class="alert-link">닫기</a>
+          </div>
+        </div>
+        <span class="dimd"></span>
+      </div>
+      <!-- //알림창1 -->
+
+      <!-- 알림창2 (개인정보 '아니오' 체크) -->
+      <div class="alert-type alert-type--02" style="display: none;">
+        <div class="unit-alert">
+          <p class="alert-text">
+            고객님의 소중한 의견 감사드립니다.<br>
+            <br>
+            고객님께서 입력해 주신<br>
+            성함, 연락처, 거주지는 바로 폐기하겠습니다.<br>
+            <br>
+            저희 좌담회에 관심을 보여주셔서 고맙습니다.
+          </p>
+
+        <div class="button-wrap">
+          <a href="#" class="alert-link">닫기</a>
+        </div>
+        </div>
+        <span class="dimd"></span>
+      </div>
+      <!-- //알림창2 -->
+
+      <!-- 알림창3 (개인정보 '예' 체크하고 참여 완료된 경우) -->
+      <div class="alert-type alert-type--03" style="display: none;">
+        <div class="unit-alert">
+          <p class="alert-text">
+            고객님께서는 이미 참여 동의가<br>
+            정상적으로 완료되셨습니다!
+          </p>
+
+          <div class="button-wrap">
+            <a href="#" class="alert-link">닫기</a>
+          </div>
+        </div>
+        <span class="dimd"></span>
+      </div>
+      <!-- //알림창3 -->
+
+      <!-- 알림창4 (개인정보 '아니오' 체크하고 참여 완료된 경우) -->
+      <div class="alert-type alert-type--04" style="display: none;">
+        <div class="unit-alert">
+          <p class="alert-text">
+            고객님께서는 개인 정보 이용에<br>
+            동의하지 않으셨습니다.<br>
+            <br>
+            개인 정보 이용에 동의하시고,<br>
+            좌담회 참여 신청을 다시 하시겠습니까?
+          </p>
+
+          <div class="button-wrap">
+            <a href="#" class="alert-link">아니오</a>
+          </div>
+
+          <div class="button-wrap">
+            <a href="#" class="alert-link">예</a>
+          </div>
+        </div>
+        <span class="dimd"></span>
+      </div>
+      <!-- //알림창4 -->
+    </div>
+    <!-- //alert -->
   </div>
   <script src="../js/index.js"></script>
 </body>
