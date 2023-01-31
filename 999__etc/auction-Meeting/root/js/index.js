@@ -9,8 +9,6 @@ const alertClossButton = document.querySelectorAll(".event-alert .alert-link");
 
 function consent(){
   redioSelect.addEventListener('click', function(e){
-    alertCloss();
-
     if(e.target === consentButton){
       alertType[0].style = "";
       alertType[1].style.display = "none";
@@ -19,6 +17,8 @@ function consent(){
       alertType[1].style = "";
       alertType[0].style.display = "none";
     }
+
+    alertCloss();
   });
 }
 
