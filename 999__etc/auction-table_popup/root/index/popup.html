@@ -20,12 +20,6 @@
             아이템 교환 쿠폰 선택하기
           </h2>
         </div>
-
-        <div class="button-wrap">
-          <button type="button" class="closs-button">
-            <span class="blind">닫기</span>
-          </button>
-        </div>
       </div>
     </div>
     <!-- //popup-header -->
@@ -36,46 +30,53 @@
       <div class="aria-coupon">
         <div class="aria-division-fence">
           <div class="division-coupon">
-            <div class="table-wrap">
+            <div class="coupon-table__wrap">
               <table class="coupon-table">
                 <caption class="blind">쿠폰 선택창</caption>
                 <thead>
                   <tr>
-                    <th scope="col" class="title">NO</th>
-                    <th scope="col" class="title">아이템 쿠폰번호</th>
-                    <th scope="col" class="title">쿠폰타입</th>
-                    <th scope="col" class="title">쿠폰상태</th>
+                    <th scope="col" class="slot-title">NO</th>
+                    <th scope="col" class="slot-title">아이템 쿠폰번호</th>
+                    <th scope="col" class="slot-title">쿠폰타입</th>
+                    <th scope="col" class="slot-title">쿠폰상태</th>
                   </tr>
                 </thead>
+
                 <tbody>
                   <tr>
-                    <td class="slot-">
-                      <div class="unit-number">
+                    <td>
+                      <div class="slot-number">
                         <div class="check-wrap">
-                          <input type="checkbox" name="check">
+                          <label>
+                            <input type="checkbox" name="check01" class="blind">
+                            <span class="check-button"></span>
+                          </label>
                         </div>
-                        <span class="number">1</span>
+
+                        <span class="number-text">1</span>
                       </div>
                     </td>
-                    <td class="slot-">ABCD-12-EFGH</td>
-                    <td class="slot-">일반</td>
-                    <td class="slot-">상태좀</td>
+
+                    <td>
+                      <div class="slot-data">
+                        <span class="data-text">ABCD-12-EFGH</span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="slot-type">
+                        <span class="type-text">일반</span>
+                      </div>
+                    </td>
+
+                    <td>
+                      <div class="slot-status">
+                        <span class="status">일반</span>
+                      </div>
+                    </td>
                   </tr>
                 </tbody>
               </table>
-              <!-- 
-                ~생각을 해봅시다~
-                NO -> 쿠폰목록넘버
-                아이템쿠폰번호
-                쿠폰타입 -> type
-                쿠폰상태 -> status
-  
-                쿠폰상태가 불가, 완료일때 전체 체크박스클릭 X
-                쿠폰타입이 그룹인 얘들만 갈색, 사용불가, 사용완료는 통일하게 회색인듯
-  
-                unuse?
-                type-group?
-              -->
             </div>
 
             <div class="button-wrap">
@@ -94,6 +95,16 @@
         </div>
       </div>
       <!-- //aria-coupon -->
+
+      <!-- aria-close -->
+      <div class="aria-close">
+        <div class="button-wrap">
+          <button type="button" class="closs-button">
+            <span class="blind">닫기</span>
+          </button>
+        </div>
+      </div>
+      <!-- //aria-close -->
     </div>
     <!-- //popup-body -->
   </div>

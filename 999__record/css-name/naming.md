@@ -114,6 +114,7 @@
 * `order` : 주문
 * `condition` : 컨디션, 상태
 * `status` : 상태(주로 더 많이 쓰임), ~~상태일때 
+* `__disabled` : (BEM 기법으로) 비활성화 상태
 
 <br>
 
