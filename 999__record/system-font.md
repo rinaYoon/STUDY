@@ -6,46 +6,72 @@
 
 <br>
 
+> ### ❗ 이슈
+> 만약 작업하는 콘텐츠가 글로벌(한중일영어등)언어가 포함되는 경우에는, `system-ui`를 사용하면 안됨.<br>
+> 현재 파폭이랑 엣지 브라우저에서
+> `fallback`폰트를 찾지 못하는 이슈가 있다고 함.
+
+<br>
+
 ## 시스템 폰트란?
 시스템폰트(system font) 또는 웹 세이프 폰트(web save font) 라고도 한다.
 로컬(=사용자 컴퓨터)에 기본으로 내장된 글꼴이며,
 웹에서 다운받지 않고 사이트에 로컬 글꼴로 나오게 하는거다.
 
+<br>
+
 ### 방식
 `font-family`에 모든 OS의 로컬 폰트들을 적으면 내 로컬에 저 폰트가 있는지 순서대로 비교하는데,
 있으면 바로 있는 폰트를 사이트에 띄우고 마지막까지 없다면 `sans-serif`를 띄우는 것이다.
 
-- 각 회사들마다 시스템 폰트를 정의하는게 다르다.
-  - 그래서 작업할때마다 시스템폰트가 있냐고 묻거나 찾아보는게 좋다.
-- 간간히 웹폰트도 같이 섞일때가 있다. (ex.G마켓 시스템폰트)
-  - 웹폰트가 넣어진거라면 왠만해선 서버에 이미 올렸다는 뜻이기도 함
-- 사이트들 글꼴
+1. 각 회사들마다 시스템 폰트를 정의하는게 다르다. <br>
+(그래서 작업할때마다 시스템폰트가 있냐고 묻거나 찾아보는게 좋다.)
+2. 간간히 웹폰트도 같이 섞일때가 있다. (ex.G마켓 시스템폰트) <br>
+(웹폰트가 넣어진거라면 왠만해선 서버에 이미 올렸다는 뜻이기도 함)
+3. 사이트들 폰트패밀리 구성
+    - 📌`추천:` Github, Notion, Product Huntm, 클래스101, 마이리얼트립, 탈잉에서 사용되는 순서
+      ```css
+      .wrapper {
+        font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica
+        Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji;
+      }
+      ```
     - G마켓
       ```css
-      font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;
+      .wrapper {
+        font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;
+      }
       ```
     - 네이버
       ```css
-      font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+      .wrapper {
+        font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
+      }
       ```
     - 네이버 모바일
       ```css
-      font-family: "Helvetica Neue","Apple SD Gothic Neo",sans-serif;
+      .wrapper {
+        font-family: "Helvetica Neue","Apple SD Gothic Neo",sans-serif;
+      }
       ```
     - 다음
       ```css
-      font-family: AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
+      .wrapper {
+        font-family: AppleSDGothicNeo-Regular,'Malgun Gothic','맑은 고딕',dotum,'돋움',sans-serif;
+      }
       ```
     - 다음 모바일
       ```css
-      font-family: HelveticaNeue-Light,AppleSDGothicNeo-Light,'Malgun Gothic','맑은 고딕',sans-serif;
+      .wrapper {
+        font-family: HelveticaNeue-Light,AppleSDGothicNeo-Light,'Malgun Gothic','맑은 고딕',sans-serif;
+      }
       ```
 
 ### OS폰트
-OS폰트는 말 그대로 맥, 크롬, 사파리, 윈도우, 크롬, 안드로이드... 등등의 운영체제들 안에
-기본적으로 내장된 폰트들을 말한다.
-그래서 어떤 기기나 운영체제로든간에 내가 만든 사이트를 띄운다면,
-그 사이트에 '딱 이 폰트들만 적용하게 해주세요' 라고 하는거다.
+OS폰트는 말 그대로 맥, 크롬, 사파리, 윈도우, 크롬, 안드로이드... 등등의 운영체제들 안에<br>
+기본적으로 내장된 폰트들을 말한다.<br>
+그래서 어떤 기기나 운영체제로든간에 내가 만든 사이트를 띄운다면,<br>
+그 사이트에 '딱 이 폰트들만 적용하게 해주세요' 라고 하는거다.<br>
 ~~아ㅋㅋ 똥같은 폰트 갑자기 끼게 하지 말라고~~
 
 ### 뭐가좋음
@@ -54,18 +80,13 @@ OS폰트는 말 그대로 맥, 크롬, 사파리, 윈도우, 크롬, 안드로�
 3. 디자인상으로 우선순위 설정하기 좋음(<< 디자이너관점)
 4. 좋음나쁨을 꺼나서 필수요소임
 
-> ### 이슈
-> 만약 작업하는 콘텐츠가 글로벌(한중일영어등)언어가 포함되는 경우에는, `system-ui`를 사용하면 안됨.<br>
-> 현재 파폭이랑 엣지 브라우저에서
-> `fallback`폰트를 찾지 못하는 이슈가 있다고 함.
-
 <br>
 
 ## 시스템폰트 사용방법
 
 ### 0.
-일단 시스템폰트 지정된게 없고 새로 짜야한다면,
-구글에 'CSS기본 시스템 폰트 설정 (년도)'를 검색해서 찾아보는게 좋다.
+일단 시스템폰트 지정된게 없고 새로 짜야한다면,<br>
+구글에 'CSS기본 시스템 폰트 설정 (년도)'를 검색해서 찾아보는게 좋다.<br>
 왜냐면 OS가 갑자기 바뀌던가 그런날에는 폰트도 바뀌기 때문.
 
 ### 1. 기본사용
@@ -110,7 +131,7 @@ css변수를 이용해서 짧게 줄일 수 있다.
 ```
 
 ### 3. font-face로 줄이기
-font-face로 새로 등록해서 한번에 이름만 나오게도 할 수있다.
+font-face로 새로 등록해서 한번에 이름만 나오게도 할 수있다.<br>
 단, 굵기가 생긴다면 새로운 font-face를 작성해야한다. (font-weight 부분땜에)
 ```css
 @font-face {
@@ -129,3 +150,4 @@ body {
 - [CSS 기본 시스템 설정 2019](https://uxdev.org/entry/CSS-%EA%B8%B0%EB%B3%B8-%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%8F%B0%ED%8A%B8-%EC%84%A4%EC%A0%95-2019)
 - [font-family 설정 시 주의사항](https://junside.tistory.com/239)
 - [System Font Stack](https://css-tricks.com/snippets/css/system-font-stack/)
+- [웹 폰트와 사이즈는 어떻게 결정해야할까?](https://www.peterkimzz.com/how-to-pick-web-font-and-size/)

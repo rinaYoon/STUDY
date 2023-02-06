@@ -1,20 +1,16 @@
-.event-popup-wrapper {
-  width: 660px;
-  height: 870px;
+.event-popup-wrapper {width: 660px;height: 870px;font-family: 'Malgun Gothic', '맑은 고딕', dotum, '돋움', -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Tahoma, "Helvetica Neue", Arial, sans-serif;position: relative;}
 
-  /* 뽑아다 쓰기 */
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Tahoma, sans-serif;
+.popup-header {background-color: #383838;}
+.popup-header .popup-header-fence {padding: 34px 30px 37px;}
+.popup-header .popup-header-title .title {color: #eeeeee;font-size: 30px;letter-spacing: -0.07em;margin-left: 10px;}
+.popup-header .popup-header-title .title .deco {display: block;color: #7d7d7d;letter-spacing: -0.020em;font-size: 22px;}
 
-  font-family: AppleSDGothicNeo-Regular, 'Malgun Gothic', '맑은 고딕', dotum, '돋움', sans-serif;
-  font-family:'Malgun Gothic', 맑은고딕, Dotum, 돋움;
+.popup-body {background-color: #e5e5e5;}
 
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  font-family: -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, 'Gmarket Sans', Tahoma, sans-serif;
-  font-family:-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-family:-apple-system,system-ui,BlinkMacSystemFont,"AppleSDGothicNeo","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-family:-apple-system, BlinkMacSystemFont, 'Malgun Gothic','Droid Sans','Apple-Gothic','애플고딕','Tahoma',dotum,'돋움',gulim,'굴림',sans-serif;
-  font-family:-apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Noto Sans CJK KR, Tahoma, 'Noto Sans KR', sans-serif
+.aria-coupon {}
+.aria-coupon .aria-division-fence {padding: 20px 30px 0;}
 
-}
-.popup-header {}
-.popup-body {}
+.aria-close {position: absolute;}
+.aria-close .button-wrap {}
+.aria-close .button-wrap .closs-button {}
+/* 닫기버튼부터만들기 */
