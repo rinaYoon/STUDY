@@ -11,7 +11,7 @@
 <body>
   <div id="p_wrapper" class="event-wrapper">
     <div class="event-popup-layer">
-      <div class="event-popup-wrapper">
+      <div class="event-popup-fence">
         <!-- popup-header -->
         <div class="popup-header">
           <div class="popup-header-fence">
@@ -27,26 +27,35 @@
 
         <!-- popup-body -->
         <div class="popup-body">
-          <!-- aria-coupon -->
-          <div class="aria-coupon">
-            <div class="aria-division-fence">
+          <!-- area-coupon -->
+          <div class="area-coupon">
+            <div class="area-division-fence">
+              <!-- division-coupon -->
               <div class="division-coupon">
-                <div class="coupon-table__wrap">
-                  <table class="coupon-table">
+                <div class="slot-item">
+                  <table class="item-group">
                     <caption class="blind">쿠폰 선택창</caption>
                     <thead>
                       <tr>
-                        <th scope="col" class="slot-title">NO</th>
-                        <th scope="col" class="slot-title">아이템 쿠폰번호</th>
-                        <th scope="col" class="slot-title">쿠폰타입</th>
-                        <th scope="col" class="slot-title">쿠폰상태</th>
+                        <th scope="col" class="item-title__number">
+                          NO
+                        </th>
+                        <th scope="col" class="item-title__data">
+                          아이템 쿠폰번호
+                        </th>
+                        <th scope="col" class="item-title__type">
+                          쿠폰타입
+                        </th>
+                        <th scope="col" class="item-title__status">
+                          쿠폰상태
+                        </th>
                       </tr>
                     </thead>
 
                     <tbody>
                       <tr>
                         <td>
-                          <div class="slot-number">
+                          <div class="item-number">
                             <div class="check-wrap">
                               <label>
                                 <input type="checkbox" name="check01" class="blind">
@@ -59,20 +68,20 @@
                         </td>
 
                         <td>
-                          <div class="slot-data">
+                          <div class="item-data">
                             <span class="data-text">ABCD-12-EFGH</span>
                           </div>
                         </td>
 
                         <td>
-                          <div class="slot-type">
+                          <div class="item-type">
                             <span class="type-text">일반</span>
                           </div>
                         </td>
 
                         <td>
-                          <div class="slot-status">
-                            <span class="status">일반</span>
+                          <div class="item-status">
+                            <span class="status">사용가능</span>
                           </div>
                         </td>
                       </tr>
@@ -81,31 +90,34 @@
                 </div>
 
                 <div class="button-wrap">
-                  <button type="button" class="coupon-button">
+                  <button type="button" class="item-button">
                     쿠폰 교환하기
                   </button>
                 </div>
               </div>
+              <!-- //division-coupon -->
 
+              <!-- division-notice -->
               <div class="division-notice">
                 <p class="notice-text">
                   쿠폰 사용 관련 문의는 <strong class="text-strong">리니지M 고객센터</strong>를 이용해 주세요.<br>
                   <em>리니지M 고객센터(02-0000-0000)</em>
                 </p>
               </div>
+              <!-- //division-notice -->
             </div>
           </div>
-          <!-- //aria-coupon -->
+          <!-- //area-coupon -->
 
-          <!-- aria-close -->
-          <div class="aria-close">
+          <!-- area-close -->
+          <div class="area-close">
             <div class="button-wrap">
               <button type="button" class="closs-button">
                 <span class="blind">닫기</span>
               </button>
             </div>
           </div>
-          <!-- //aria-close -->
+          <!-- //area-close -->
         </div>
         <!-- //popup-body -->
       </div>

@@ -1,4 +1,42 @@
-.event-popup-wrapper {width: 660px;height: 870px;font-family: 'Malgun Gothic', '맑은 고딕', dotum, '돋움', -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Tahoma, "Helvetica Neue", Arial, sans-serif;position: relative;}
+
+/* item목록 */
+[class^="area-"] .slot-item {font-size: 22px;}
+[class^="area-"] .slot-item .item-group {}
+
+[class^="area-"] .slot-item thead [class^="item-title__"] {color: #383838;padding: 0 25px;height: 70px;font-weight:normal;position: relative;}
+[class^="area-"] .slot-item thead [class^="item-title__"] + [class^="item-title__"]::before {content: '';display: block;width: 1px;height: 30px;background-color: #959595;position: absolute;left: 0;top: 50%;transform: translateY(-50%);}
+
+[class^="area-"] .slot-item tbody [class^="item-"] {text-align: center;color: #7d7d7d;}
+[class^="area-"] .slot-item tbody .item-number {}
+[class^="area-"] .slot-item tbody .item-data {}
+[class^="area-"] .slot-item tbody .item-type {}
+[class^="area-"] .slot-item tbody .item-status {font-size: 18px;}
+/* //item목록 */
+
+/* 공용버튼 */
+[class^="area-"] .item-button {}
+[class^="area-"] .item-button__select {}
+
+[class^="area-"] .closs-button {display: block;width: 50px;height: 50px;position: relative;}
+[class^="area-"] .closs-button::before,
+[class^="area-"] .closs-button::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: #7d7d7d;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+[class^="area-"] .closs-button::after {width: 3px;height: 50px;}
+/* //공용버튼 */
+
+
+.event-wrapper {position: relative;max-width:2000px;height: 100vh;margin:0 auto;font-family: 'Malgun Gothic', '맑은 고딕', dotum, '돋움', -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Tahoma, "Helvetica Neue", areal, sans-serif;}
+.event-popup-layer {width: 660px;position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
+.event-popup-fence {position: relative;}
 
 .popup-header {background-color: #383838;}
 .popup-header .popup-header-fence {padding: 34px 30px 37px;}
@@ -7,10 +45,14 @@
 
 .popup-body {background-color: #e5e5e5;}
 
-.aria-coupon {}
-.aria-coupon .aria-division-fence {padding: 20px 30px 0;}
+.area-coupon {}
+.area-coupon .area-division-fence {padding: 20px 30px 0;}
+.area-coupon .division-coupon {}
+.area-coupon .division-coupon .slot-item {}
+.area-coupon .division-coupon .button-wrap {}
 
-.aria-close {position: absolute;}
-.aria-close .button-wrap {}
-.aria-close .button-wrap .closs-button {}
-/* 닫기버튼부터만들기 */
+.area-coupon .division-notice {}
+.area-coupon .division-notice .notice-text {}
+.area-coupon .division-notice .notice-text .text-strong {}
+
+.area-close {position: absolute;top: 45px;right: 24px;}
