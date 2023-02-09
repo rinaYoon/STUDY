@@ -54,7 +54,7 @@
 /* //공용버튼 */
 
 
-.event-wrapper {position: relative;max-width:2000px;height: 100vh;margin:0 auto;word-break: break-all;font-family: 'Malgun Gothic', '맑은 고딕', dotum, '돋움', -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Tahoma, "Helvetica Neue", areal, sans-serif;}
+.event-wrapper {position: relative;max-width:2000px;height: 100vh;margin:0 auto;word-break: break-all;box-sizing: border-box;font-family: 'Malgun Gothic', '맑은 고딕', dotum, '돋움', -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Tahoma, "Helvetica Neue", areal, sans-serif;}
 .event-popup-layer {width: 660px;position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
 .event-popup-fence {position: relative;}
 
