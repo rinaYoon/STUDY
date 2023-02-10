@@ -38,16 +38,16 @@
                     <thead>
                       <tr>
                         <th scope="col" class="item-title__number">
-                          NO.
+                          <span class="number">NO.</span>
                         </th>
                         <th scope="col" class="item-title__data">
-                          아이템 쿠폰번호
+                          <span class="data">아이템 쿠폰번호</span>
                         </th>
                         <th scope="col" class="item-title__type">
-                          쿠폰타입
+                          <span class="type">쿠폰타입</span>
                         </th>
                         <th scope="col" class="item-title__status">
-                          쿠폰상태
+                          <span class="status">쿠폰상태</span>
                         </th>
                       </tr>
                     </thead>
@@ -85,7 +85,71 @@
                           </div>
                         </td>
                       </tr>
-                      <tr class="item-bundle">
+                      <tr class="item-bundle__desable">
+                        <td>
+                          <div class="item-number">
+                            <div class="check-wrap">
+                              <label>
+                                <input type="checkbox" name="check01" class="blind" checked onclick="return false;">
+                                <span class="check-button"></span>
+                              </label>
+                            </div>
+
+                            <span class="number">2</span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="item-data">
+                            <span class="data">ABCD-13-EFGH</span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="item-type">
+                            <span class="type">일반</span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="item-status">
+                            <span class="status">사용가능</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="item-bundle__used">
+                        <td>
+                          <div class="item-number">
+                            <div class="check-wrap">
+                              <label>
+                                <input type="checkbox" name="check01" class="blind" checked onclick="return false;">
+                                <span class="check-button"></span>
+                              </label>
+                            </div>
+
+                            <span class="number">3</span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="item-data">
+                            <span class="data">ABCD-14-EFGH</span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="item-type">
+                            <span class="type">일반</span>
+                          </div>
+                        </td>
+
+                        <td>
+                          <div class="item-status">
+                            <span class="status">사용가능</span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="item-bundle__typegroup">
                         <td>
                           <div class="item-number">
                             <div class="check-wrap">
@@ -95,19 +159,20 @@
                               </label>
                             </div>
 
-                            <span class="number">1</span>
+                            <span class="number">4</span>
                           </div>
                         </td>
 
                         <td>
                           <div class="item-data">
-                            <span class="data">ABCD-12-EFGH</span>
+                            <span class="data">ABCD-15-EFGH</span>
                           </div>
                         </td>
 
                         <td>
                           <div class="item-type">
                             <span class="type">일반</span>
+                            <!-- <span class="type-num">(3)</span> -->
                           </div>
                         </td>
 
@@ -155,5 +220,7 @@
       </div>
     </div>
   </div>
+
+  <script src="../js/popup.js"></script>
 </body>
 </html>

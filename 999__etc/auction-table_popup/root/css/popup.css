@@ -1,21 +1,45 @@
 
 /* item목록 */
 [class^="area-"] .slot-item {font-size: 22px;}
-[class^="area-"] .slot-item .item-group {}
 
 [class^="area-"] .slot-item thead [class^="item-title__"] {color: #383838;height: 70px;font-weight:normal;position: relative;}
-[class^="area-"] .slot-item thead [class^="item-title__"] + [class^="item-title__"]::before {content: '';display: block;width: 1px;height: 30px;background-color: #959595;position: absolute;left: 0;top: 50%;transform: translateY(-50%);}
+[class^="area-"] .slot-item thead [class^="item-title__"] + [class^="item-title__"]::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 30px;
+  background-color: #959595;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+[class^="area-"] .slot-item thead [class^="item-title__"]:first-child {padding-left: 30px;text-align: left;}
+[class^="area-"] .slot-item thead [class^="item-title__"]:last-child {padding-right: 30px;text-align: right;}
 
-[class^="area-"] .slot-item thead .item-title__number {width: 139px;}
+[class^="area-"] .slot-item thead .item-title__number {width: 109px;}
+[class^="area-"] .slot-item thead .item-title__number .number {margin-left: 33px;}
 [class^="area-"] .slot-item thead .item-title__data {width: 200px;}
 [class^="area-"] .slot-item thead .item-title__type {width: 120px;}
-[class^="area-"] .slot-item thead .item-title__status {width: 141px;}
+[class^="area-"] .slot-item thead .item-title__status {width: 111px;}
+[class^="area-"] .slot-item thead .item-title__status .status {margin-right: 10px;}
 
-[class^="area-"] .slot-item tbody .item-bundle {background-color: #fff;height: 80px;}
-[class^="area-"] .slot-item tbody .item-bundle + .item-bundle {border-top: 1px solid #d2d2d2;}
-[class^="area-"] .slot-item tbody [class^="item-"] {text-align: center;color: #7d7d7d;}
+[class^="area-"] .slot-item tbody [class^="item-bundle"] {background-color: #fff;height: 80px;text-align: center;color: #7d7d7d;position: relative;}
+[class^="area-"] .slot-item tbody [class^="item-bundle"]::after {
+  content: '';
+  width: 93%;
+  height: 1px;
+  background-color: #d2d2d2;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+[class^="area-"] .slot-item tbody [class^="item-bundle"]:last-child::after {width: 0;height: 0;}
+[class^="area-"] .slot-item tbody [class^="item-bundle"] td:first-child {text-align: left;}
+[class^="area-"] .slot-item tbody [class^="item-bundle"] td:last-child {text-align: right;}
 
-[class^="area-"] .slot-item tbody .item-number {font-size: 0;}
+[class^="area-"] .slot-item tbody .item-number {font-size: 0;display: inline-block;}
 [class^="area-"] .slot-item tbody .item-number .check-wrap {display: inline-block;margin-right: 43px;}
 [class^="area-"] .slot-item tbody .item-number .check-button {display: block;width: 30px;height: 30px;border: 1px solid #0088cc;border-radius: 5px;}
 [class^="area-"] .slot-item tbody .item-number input[type="checkbox"]:checked + .check-button::after {
@@ -28,15 +52,40 @@
   background-repeat: no-repeat;
   background-position: center center;
 }
+[class^="area-"] .slot-item tbody .item-number {display: inline-block;margin-left: 30px;}
 [class^="area-"] .slot-item tbody .item-number .number {display: inline-block;font-size: 22px;vertical-align: top;}
 
-[class^="area-"] .slot-item tbody .status {display: inline-block;text-align: center;width: 100px;line-height: 40px;border: 1px solid #7f7fff;border-radius: 100px;font-size: 18px;color: #0000ff;}
+[class^="area-"] .slot-item tbody .item-status {display: inline-block;width: 100px;margin-right: 30px;color: #0000ff;}
+[class^="area-"] .slot-item tbody .item-status .status {display: block;width: 100px;line-height: 40px;border: 1px solid #7f7fff;border-radius: 100px;font-size: 18px;text-align: center;}
 /* //item목록 */
 
-/* 공용버튼 */
-[class^="area-"] .item-button {}
-[class^="area-"] .item-button__select {}
+/* item 쿠폰 반응 */
+/* desable, used 체크버튼 */
+[class^="area-"] .slot-item tbody [class$="desable"],
+[class^="area-"] .slot-item tbody [class$="used"] {background-color: #f5f5f5;}
+[class^="area-"] .slot-item tbody [class$="desable"] .item-number .check-button,
+[class^="area-"] .slot-item tbody [class$="used"] .item-number .check-button {border-color: #d2d2d2;}
 
+/* desable 변환 */
+[class^="area-"] .slot-item tbody [class$="desable"] .item-number input[type="checkbox"]:checked + .check-button::after {background-color: #d2d2d2;background-size: 0;}
+[class^="area-"] .slot-item tbody [class$="desable"] .item-status {color: #e60012;}
+[class^="area-"] .slot-item tbody [class$="desable"] .item-status .status {border-color: #ed7a83;}
+
+/* used 변환 */
+[class^="area-"] .slot-item tbody [class$="used"] .item-number input[type="checkbox"]:checked + .check-button::after {background-color: #d2d2d2;background-size: 0;}
+[class^="area-"] .slot-item tbody [class$="used"] .item-status {color: #7d7d7d;}
+[class^="area-"] .slot-item tbody [class$="used"] .item-status .status {border-color: #d2d2d2;background-color: #d2d2d2;}
+
+/* typegroup 변환 */
+[class^="area-"] .slot-item tbody [class$="typegroup"] [class^="item-"]:not(.item-number) {color: #ba6000;}
+
+[class^="area-"] .slot-item tbody [class$="typegroup"] .item-type {padding: 0 20px;display: flex;flex-wrap: wrap;justify-content: center;}
+[class^="area-"] .slot-item tbody [class$="typegroup"] .item-type .type .type-num {word-break: normal;}
+
+[class^="area-"] .slot-item tbody [class$="typegroup"] .item-status .status {border-color: #ba6000;}
+/* //item반응 */
+
+/* 공용버튼 */
 [class^="area-"] .closs-button {display: block;width: 50px;height: 50px;position: relative;}
 [class^="area-"] .closs-button::before,
 [class^="area-"] .closs-button::after {
@@ -65,14 +114,10 @@
 
 .popup-body {background-color: #e5e5e5;}
 
-.area-coupon {}
 .area-coupon .area-division-fence {padding: 20px 30px 0;}
-.area-coupon .division-coupon {}
-.area-coupon .division-coupon .slot-item {}
-.area-coupon .division-coupon .button-wrap {}
 
-.area-coupon .division-notice {}
+/* .area-coupon .division-notice {}
 .area-coupon .division-notice .notice-text {}
-.area-coupon .division-notice .notice-text .text-strong {}
+.area-coupon .division-notice .notice-text .text-strong {} */
 
 .area-close {position: absolute;top: 45px;right: 24px;}
