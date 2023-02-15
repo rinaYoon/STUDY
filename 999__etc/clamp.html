@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {margin: 0;padding: 0;box-sizing: border-box;font-size: 0;}
+    .wrapper {max-width: 1000px;min-width: 400px;height: 100vh;background-color: #e6dada;margin: 0 auto;padding: 10px;}
+    .a {height: 500px;background-color: pink;text-align: center;}
+    .b {font-size: clamp(60px, 15.00vw, 150px);}
+    .c {font-size: 70px;}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="a">
+      <p class="b">test</p>
+      <p class="c">test</p>
+    </div>
+  </div>
+
+  <!--
+    ~ clamp 계산법 ~
+    - clamp(60px, 15.00vw, 150px) 에서 60px은 최소폰트사이즈(min-width), 중간은 반응형으로 해야하는것, 150px은 최대사이즈(max-width)이다.
+    - clamp는 평소 하던 vw계산에 미디어쿼리 min, max를 사용한것과 같으며,
+      그것이 한줄로 끝내는 것이다.
+    - clamp를 사용할때는 vw계산기가 필요하며 계산해야한다. (vw계산 하던대로!)
+
+    - clamp 최대사이즈 계산 : wrapper에 써져있는 max-width. (ex. max-width: 1920px)
+    - clamp 중간값 : vw계산하던거대로.
+    - clamp 최소사이즈 계산 : wrapper에 써져있는 min-width. (ex. min-width: 900px) 에서 vw -> px로 되는 계산
+
+    -IE호환 안됨. 그래서 IE대응해야하는것들은 걍 미디어쿼리 써야할듯
+    - vw계산사이트 http://publishing.kr/vw/
+
+    -폰트뿐만 아니라 다른 경우에도 사용가능함
+    (https://mong-blog.tistory.com/entry/CSS-%EB%B0%98%EC%9D%91%ED%98%95-%EC%9B%B9-%EA%B5%AC%ED%98%84%EC%97%90-%EC%A2%8B%EC%9D%80-min-max-clamp)
+  -->
+</body>
+</html>
