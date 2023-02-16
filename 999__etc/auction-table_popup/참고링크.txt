@@ -1,0 +1,7 @@
+- 로그인
+https://eventv2.auction.co.kr/event3/Bigs/2023/digital/tab1.aspx#anchor__new-smilecard
+https://memberssl.auction.co.kr/authenticate/default.aspx?SELLER=AUCTION_HELP&loginType=20&url=https://eventv2.auction.co.kr/event3/common/popLogin.aspx?type=2
+
+
+- table (또는 table내부 태그들 암데나 가능)에 스크롤주기 (table display block)
+https://zetawiki.com/wiki/HTML_%ED%85%8C%EC%9D%B4%EB%B8%94_tbody_%EC%8A%A4%ED%81%AC%EB%A1%A4_%EC%A0%81%EC%9A%A9
