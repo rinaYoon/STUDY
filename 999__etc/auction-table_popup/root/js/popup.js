@@ -1,48 +1,33 @@
-
-const itemPossible = document.querySelector('[class^="area-"] .slot-item tbody .item-bundle .status');
-const itemDesable = document.querySelector('[class^="area-"] .slot-item tbody .item-bundle__desable .status');
-const itemUsed = document.querySelector('[class^="area-"] .slot-item tbody .item-bundle__used .status');
-const itemGroup = document.querySelector('[class^="area-"] .slot-item tbody .item-bundle__typegroup .item-type');
-
-// function itemStatus(){
-//   if(itemPossible){
-//     itemPossible.innerHTML="사용가능";
-//     // 체크불가한 체크박스 원상태로
-//   }
-
-//   if(itemDesable){
-//     itemDesable.innerHTML="사용불가";
-//     // 체크박스 막기
-//   }
-
-//   if(itemUsed){
-//     itemUsed.innerHTML="사용완료";
-//     // 체크박스 막기
-//   }
-
-//   if(itemGroup){
-//     // 타입 일반 -> 그룹 바꾸기
-//     // 그룹에 엘리먼트 추가하기 (<span class="type-num">0</span>)
-//   }
-// }
-function itemStatus(){
-  itemPossible.innerHTML="사용가능";
-  itemDesable.innerHTML="사용불가";
-  itemUsed.innerHTML="사용완료";
-}
-
 /*
 해야하는거..
 
-- NO. 갯수만큼 숫자표기
-- find대체용 찾기, 자식선택찾기
+- NO. 갯수만큼 숫자표기 (OK)
 - 체크박스 2개부터 item-button__once로 바뀜
-- 타입, 상태에 따라 사용부분이랑 그룹으로 바뀌는거 (*다시해야함)
 
+- 타입, 상태에 따라 사용부분이랑 그룹으로 바뀌는거
+  - find대체용 찾기, 자식선택찾기
+  - for또는 forEach 필요할듯
+
+- item-bundle : 쿠폰상태 문구 사용가능으로 변경, 체크박스 checked onclick="return false;" 삭제
+
+- __desable : 쿠폰상태 문구 '사용불가'변경, 체크버튼 checked onclick="return false;" 추가
+- __used : 쿠폰상태 문구 '사용완료'변경, 체크버튼 checked onclick="return false;" 추가
+- __typegroup : 쿠폰타입 문구 '그룹'변경 + type-num 추가
 */
 
-document.addEventListener("DOMContentLoaded",function(){
+const number = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-number .number');
+function numberIndex(){
+  for (let i = 0; i < number.length; i++) {
+    number[i].innerHTML= i+1;
+  }
+}
 
+
+
+
+
+document.addEventListener("DOMContentLoaded",function(){
+  numberIndex();
 });
 
 
