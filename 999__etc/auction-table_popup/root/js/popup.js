@@ -15,18 +15,18 @@
 */
 
 
-const bundleAll = document.querySelectorAll('[class^="area-"] .slot-item tbody [class^="item-bundle"]');
-
-const bundleInit = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle');
-const bundleDesable = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle__desable');
-const bundleUsed = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle__used');
-const bundleTypegroup = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle__typegroup');
+const bundleAll = document.querySelectorAll('[class^="area-"] .slot-item tbody [class^="item-bundle"]'); //tr 갯수
 
 const number = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-number .number');
 
 const checkButton = document.querySelectorAll('[class^="area-"] .slot-item tbody input[type="checkbox"]');
 const itemButton = document.querySelectorAll('[class^="area-"] .division-coupon .item-button');
 const itemButtonOnes = document.querySelectorAll('[class^="area-"] .division-coupon .item-button__once');
+
+const bundleInit = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle');
+const bundleDesable = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle__desable');
+const bundleUsed = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle__used');
+const bundleTypegroup = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle__typegroup');
 
 let count = 0;
 
