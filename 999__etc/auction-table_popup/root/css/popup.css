@@ -23,7 +23,6 @@
 [class^="area-"] .slot-item tbody .item-number .check-wrap {display: inline-block;margin-right: 41px;}
 [class^="area-"] .slot-item tbody .item-number .check-button {display: block;width: 30px;height: 30px;border: 1px solid #0088cc;border-radius: 4px;}
 [class^="area-"] .slot-item tbody .item-number input[type="checkbox"]:checked + .check-button::after {content: '';display: block;width: 30px;height: 30px;background: url(../images/checkd.png);background-color: #0088cc;background-repeat: no-repeat;background-position: center center;box-sizing: border-box;}
-[class^="area-"] .slot-item tbody .item-number input[type="checkbox"]:focus + .check-button {border: 3px solid #0088cc;}
 [class^="area-"] .slot-item tbody .item-number .number {display: inline-block;font-size: 22px;vertical-align: top;}
 
 [class^="area-"] .slot-item tbody .item-data {width: 197px;}
@@ -31,7 +30,7 @@
 [class^="area-"] .slot-item tbody .item-type {width: 118px;padding: 0 15px;box-sizing: border-box;}
 [class^="area-"] .slot-item tbody .item-type .item-fence {display: flex;flex-wrap: wrap;justify-content: center;}
 
-[class^="area-"] .slot-item tbody .item-status {padding-left: 11px;width: 138px;}
+[class^="area-"] .slot-item tbody .item-status {padding: 0 25px 0 12px;/* width: 138px; */}
 [class^="area-"] .slot-item tbody .item-status .status {display: block;width: 100px;line-height: 40px;color: #0000ff;border: 1px solid #7f7fff;border-radius: 100px;font-size: 18px;text-align: center;}
 /* //item목록 */
 
@@ -39,11 +38,10 @@
 /* desable, used 체크버튼 */
 [class^="area-"] .slot-item tbody [class$="desable"],
 [class^="area-"] .slot-item tbody [class$="used"] {background-color: #f5f5f5;}
-[class^="area-"] .slot-item tbody [class$="desable"] .item-number .check-button,
-[class^="area-"] .slot-item tbody [class$="used"] .item-number .check-button {border-color: #d2d2d2;}
+[class^="area-"] .slot-item tbody [class$="desable"] .item-number .check-button__desable,
+[class^="area-"] .slot-item tbody [class$="used"] .item-number .check-button__desable {display: block;width: 30px;height: 30px;border-radius: 4px;border: 1px solid #d2d2d2;background-color: #d2d2d2;}
 
 /* desable 변환 */
-[class^="area-"] .slot-item tbody [class$="desable"] .item-number input[type="checkbox"]:checked + .check-button::after {background-color: #d2d2d2;background-size: 0;}
 [class^="area-"] .slot-item tbody [class$="desable"] .item-status .status {border-color: #ed7a83;color: #e60012;}
 
 /* used 변환 */
@@ -54,10 +52,11 @@
 [class^="area-"] .slot-item tbody [class$="typegroup"] [class^="item-"]:not(.item-number) {color: #ba6000;}
 [class^="area-"] .slot-item tbody [class$="typegroup"] .item-type .type .type-num {word-break: keep-all;}
 [class^="area-"] .slot-item tbody [class$="typegroup"] .item-status .status {border-color: #ba6000;color: #ba6000;}
-/* //item반응 */
+/* //item 쿠폰 반응 */
 
 /* 공용버튼 */
-[class^="area-"] [class^="item-button"] {width: 500px;height: 80px;font-size: 24px;letter-spacing: -0.025em;background-color: #000;color: #fff;border-radius: 4px;}
+[class^="area-"] [class^="item-button"] {width: 500px;height: 80px;font-size: 24px;letter-spacing: -0.025em;background-color: #000;color: #fff;border-radius: 4px;margin: 0 auto;}
+[class^="area-"] [class^="item-button"]:focus {outline: 1px solid red;}
 [class^="area-"] [class$="__once"] {background-color: #22b573;}
 
 [class^="area-"] .closs-button {display: block;width: 50px;height: 50px;position: relative;}
@@ -66,6 +65,11 @@
 [class^="area-"] .closs-button::after {width: 3px;height: 50px;}
 /* //공용버튼 */
 
+/* focus */
+[class^="area-"] .slot-item tbody .item-number input[type="checkbox"]:focus + .check-button,
+[class^="area-"] .slot-item tbody [class$="desable"] .item-number input[type="checkbox"]:focus + .check-button,
+[class^="area-"] .closs-button:focus {outline: 1px solid red;}
+/* //focus */
 
 .event-wrapper {position: relative;max-width:2000px;height: 100vh;margin:0 auto;word-break: break-all;box-sizing: border-box;font-family: 'Malgun Gothic', '맑은 고딕', dotum, '돋움', -apple-system, BlinkMacSystemFont, Apple SD Gothic Neo, Roboto, Tahoma, "Helvetica Neue", areal, sans-serif;}
 .event-popup-layer {width: 660px;position: absolute;left: 50%;top: 50%;transform: translate(-50%, -50%);}
