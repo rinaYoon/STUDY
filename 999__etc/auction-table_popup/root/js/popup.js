@@ -35,6 +35,8 @@ const bundleUsedLable = document.querySelectorAll('[class^="area-"] .item-bundle
 const bundleUsedType = document.querySelectorAll('[class^="area-"] .item-bundle__used .type');
 
 const bundleTypegroup = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-bundle__typegroup');
+const bundleTypegroupStatus = document.querySelectorAll('[class^="area-"] .item-bundle__typegroup .status');
+const bundleTypegroupLable = document.querySelectorAll('[class^="area-"] .item-bundle__typegroup label');
 const bundleTypegroupType = document.querySelectorAll('[class^="area-"] .item-bundle__typegroup .type');
 
 let count = 0;
@@ -43,35 +45,7 @@ function couponInit(){
   for (let i = 0; i < bundleAll.length; i++) {
     numberIndex(i);
     itemCheckBox(i);
-
-    if(bundleInit[i]){
-      bundleInitStatus[i].innerHTML='사용가능';
-      bundleInitLable[i].style.display = "block";
-      bundleInitLable[i].nextElementSibling.style.display = "none";
-      bundleInitType[i].innerHTML='일반';
-      bundleInitType[i].nextElementSibling.style.display = "none";
-    }
-
-    if(bundleDesable[i]){
-      bundleDesableStatus[i].innerHTML='사용불가';
-      bundleDesableLable[i].style.display = "none";
-      bundleDesableLable[i].nextElementSibling.style.display = "block";
-      bundleDesableType[i].innerHTML='일반';
-      bundleDesableType[i].nextElementSibling.style.display = "none";
-    }
-
-    if(bundleUsed[i]){
-      bundleUsedStatus[i].innerHTML='사용완료';
-      bundleUsedLable[i].style.display = "none";
-      bundleUsedLable[i].nextElementSibling.style.display = "block";
-      bundleUsedType[i].innerHTML='일반';
-      bundleUsedType[i].nextElementSibling.style.display = "none";
-    }
-
-    if(bundleTypegroup[i]){
-      bundleTypegroupType[i].innerHTML='그룹';
-      bundleTypegroupType[i].nextElementSibling.style.display = "block";
-    }
+    itemStatus(i);
   }
 }
 
@@ -102,16 +76,51 @@ function itemCheckBox(i){
   });
 }
 
+function itemStatus(i){
+  if(bundleInit[i]){
+    bundleInitStatus[i].innerHTML='사용가능';
+    bundleInitLable[i].style.display = "block";
+    bundleInitLable[i].nextElementSibling.style.display = "none";
+    bundleInitType[i].innerHTML='일반';
+    bundleInitType[i].nextElementSibling.style.display = "none";
+  }
 
+  if(bundleDesable[i]){
+    bundleDesableStatus[i].innerHTML='사용불가';
+    bundleDesableLable[i].style.display = "none";
+    bundleDesableLable[i].nextElementSibling.style.display = "block";
+    bundleDesableType[i].innerHTML='일반';
+    bundleDesableType[i].nextElementSibling.style.display = "none";
+  }
 
+  if(bundleUsed[i]){
+    bundleUsedStatus[i].innerHTML='사용완료';
+    bundleUsedLable[i].style.display = "none";
+    bundleUsedLable[i].nextElementSibling.style.display = "block";
+    bundleUsedType[i].innerHTML='일반';
+    bundleUsedType[i].nextElementSibling.style.display = "none";
+  }
 
+  if(bundleTypegroup[i]){
+    bundleTypegroupStatus[i].innerHTML='사용가능';
+    bundleTypegroupLable[i].style.display = "block";
+    bundleTypegroupLable[i].nextElementSibling.style.display = "none";
+    bundleTypegroupType[i].innerHTML='그룹';
+    bundleTypegroupType[i].nextElementSibling.style.display = "block";
+  }
+
+  /*
+  순서나 형식이 거의 비슷한데
+  어케 하나로 뭉쳐보냐
+
+  어레이로 할수있을거같기도하고
+
+  if( (클레스이름적힌대로? 불러오는?) === 만든변수? )
+  */
+}
 
 
 
 document.addEventListener("DOMContentLoaded",function(){
   couponInit();
 });
-
-
-
-// appendChild(slide[0])

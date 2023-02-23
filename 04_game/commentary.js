@@ -97,7 +97,9 @@ function result(index) {
 }
 
 function output() {
-  $(".text-box .text").text(resultText[state]); //문자열로 안가게 []로 함
+  $(".text-box .text").text(resultText[state]); //문자열로 안가게 []로 함.
+  // array는 숫자뿐만아니라 모든걸 []안에 넣을 수 있으므로 변수state 를 넣음.
+  // 그래서 [state]가 resultText의 값을 뽑아낼 수 있는것.
 }
 
 const userButton = $(".user .tool .tool__button");
