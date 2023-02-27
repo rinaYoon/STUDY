@@ -77,6 +77,45 @@ function itemCheckBox(i){
 }
 
 function itemStatus(i){
+/*
+bundleInit == bundleTypegroup  //속성비슷함(Type빼고)
+bundleDesable == bundleUsed  //완전히같음
+
+bundleTypegroup =/= bundleInit, bundleDesable, bundleUsed  //Type다름
+*/
+
+/*
+이런 방법은 없나?
+
+  const 이름1 = {
+    init: bundleInit,
+    Desable: bundleDesable,
+    Used: bundleUsed,
+    Typegroup: bundleTypegroup,
+  };
+
+  function 이름2(이름1추출){
+    if(이름1추출[i] === true){ // <<근데 무엇에 대한 기준으로 true라고 하지?
+    이름1추출Status[i].innerHTML='사용가능';
+    이름1추출Lable[i].style.display = "block";
+    이름1추출Lable[i].nextElementSibling.style.display = "none";
+    이름1추출Type[i].innerHTML='일반';
+    이름1추출Type[i].nextElementSibling.style.display = "none";
+
+      if(만약에 bundleTypegroup 이라면){
+        이름1추출Type[i].innerHTML='그룹';
+        이름1추출Type[i].nextElementSibling.style.display = "block";
+      }
+
+    }else if(이름1추출[i] === false){
+      이름1추출Status[i].innerHTML='사용불가';
+      이름1추출Lable[i].style.display = "none";
+      이름1추출Lable[i].nextElementSibling.style.display = "block";
+      이름1추출Type[i].innerHTML='일반';
+      이름1추출Type[i].nextElementSibling.style.display = "none";
+    }
+  }
+*/
   if(bundleInit[i]){
     bundleInitStatus[i].innerHTML='사용가능';
     bundleInitLable[i].style.display = "block";
@@ -108,15 +147,6 @@ function itemStatus(i){
     bundleTypegroupType[i].innerHTML='그룹';
     bundleTypegroupType[i].nextElementSibling.style.display = "block";
   }
-
-  /*
-  순서나 형식이 거의 비슷한데
-  어케 하나로 뭉쳐보냐
-
-  어레이로 할수있을거같기도하고
-
-  if( (클레스이름적힌대로? 불러오는?) === 만든변수? )
-  */
 }
 
 
