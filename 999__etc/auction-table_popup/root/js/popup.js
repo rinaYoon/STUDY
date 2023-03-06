@@ -1,16 +1,3 @@
-/*
-해야하는거..
-
-- NO. 갯수만큼 숫자표기 (OK)
-- 체크박스 2개부터 item-button__once로 바뀜 (OK)
-
-- .item-bundle : 사용가능, lable을 black변경, 체크버튼__desable을 none변경 (OK)
-- .item-bundle__desable : 사용불가, lable을 none변경, 체크버튼__desable을 black변경 (OK)
-- .item-bundle__used : 사용완료, lable을 none변경, 체크버튼__desable을 black변경 (OK)
-- .item-bundle__typegroup : '그룹' 변경 + type-num 추가
-*/
-
-
 const bundleAll = document.querySelectorAll('[class^="area-"] .slot-item tbody [class^="item-bundle"]'); //tr 갯수
 
 const number = document.querySelectorAll('[class^="area-"] .slot-item tbody .item-number .number');
@@ -77,18 +64,6 @@ function itemCheckBox(i){
 }
 
 function itemStatus(i){
-
-  const name = {
-    group1: {
-      init: bundleInit,
-      Typegroup: bundleTypegroup,
-    },
-    group2: {
-      Desable: bundleDesable,
-      Used: bundleUsed,
-    },
-  }
-
   if(bundleInit[i]){
     bundleInitStatus[i].innerHTML='사용가능';
     bundleInitLable[i].style.display = "block";
@@ -120,9 +95,7 @@ function itemStatus(i){
     bundleTypegroupType[i].innerHTML='그룹';
     bundleTypegroupType[i].nextElementSibling.style.display = "block";
   }
-
 }
-
 
 
 document.addEventListener("DOMContentLoaded",function(){
