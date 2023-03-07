@@ -8,38 +8,38 @@
 [class^="area-"] .slot-item thead [class^="item-title__"] {color: #383838;height: 9.7222vw;font-weight:normal;position: relative;}
 [class^="area-"] .slot-item thead [class^="item-title__"] + [class^="item-title__"]::before {content: '';display: block;width: 0.1389vw;height: 4.1667vw;background-color: #959595;position: absolute;left: 0;top: 50%;transform: translateY(-50%);}
 
-[class^="area-"] .slot-item thead .item-title__number {width: 23.4%;padding-left: 5%;}
-[class^="area-"] .slot-item thead .item-title__data {width: 33.5%;}
-[class^="area-"] .slot-item thead .item-title__type {width: 20.36%;}
-[class^="area-"] .slot-item thead .item-title__status {width: 111px;padding-right: 30px;text-align: center;}
+[class^="area-"] .slot-item thead .item-title__number {width: 15.1389vw;padding-left: 4.1667vw;}
+[class^="area-"] .slot-item thead .item-title__data {width: 27.7778vw;}
+[class^="area-"] .slot-item thead .item-title__type {width: 16.6667vw;}
+[class^="area-"] .slot-item thead .item-title__status {width: 15.4167vw;padding-right: 4.1667vw;text-align: center;}
 
 [class^="area-"] .slot-item tbody {width: 83.3333vw;height: 55.5556vw;overflow-y: auto;overflow-x: hidden;}
-[class^="area-"] .slot-item tbody [class^="item-bundle"] {background-color: #fff;height: 80px;text-align: center;color: #7d7d7d;position: relative;}
+[class^="area-"] .slot-item tbody [class^="item-bundle"] {background-color: #fff;height: 11.1111vw;text-align: center;color: #7d7d7d;position: relative;}
 [class^="area-"] .slot-item tbody [class^="item-bundle"]::after {content: '';width: 93%;height: 1px;background-color: #d2d2d2;position: absolute;bottom: 0;left: 50%;transform: translate(-50%, -50%);}
 [class^="area-"] .slot-item tbody [class^="item-bundle"]:last-child::after {width: 0;height: 0;}
 
-[class^="area-"] .slot-item tbody .item-number {padding-left: 30px;width: 109px;}
+[class^="area-"] .slot-item tbody .item-number {padding-left: 4.1667vw;width: 15.1389vw;}
 [class^="area-"] .slot-item tbody .item-number .item-fence {font-size: 0;display: flex;}
-[class^="area-"] .slot-item tbody .item-number .check-wrap {display: inline-block;margin-right: 41px;}
-[class^="area-"] .slot-item tbody .item-number .check-button {display: block;width: 30px;height: 30px;border: 1px solid #0088cc;border-radius: 4px;}
-[class^="area-"] .slot-item tbody .item-number input[type="checkbox"]:checked + .check-button::after {content: '';display: block;width: 30px;height: 30px;background: url(../images/checkd.png);background-color: #0088cc;background-repeat: no-repeat;background-position: center center;box-sizing: border-box;}
-[class^="area-"] .slot-item tbody .item-number .number {display: inline-block;font-size: 22px;vertical-align: top;}
+[class^="area-"] .slot-item tbody .item-number .check-wrap {display: inline-block;margin-right: 5.6944vw;}
+[class^="area-"] .slot-item tbody .item-number .check-button {display: block;width: 4.1667vw;height: 4.1667vw;border: 0.1389vw solid #0088cc;border-radius: 0.5556vw;}
+[class^="area-"] .slot-item tbody .item-number input[type="checkbox"]:checked + .check-button::after {content: '';display: block;width: 4.1667vw;height: 4.1667vw;background: url(../images/checkd.png);background-color: #0088cc;background-repeat: no-repeat;background-position: center center;background-size: 80% 56.66666666667%;box-sizing: border-box;}
+[class^="area-"] .slot-item tbody .item-number .number {display: inline-block;font-size: 3.0556vw;vertical-align: top;}
 
-[class^="area-"] .slot-item tbody .item-data {width: 197px;}
+[class^="area-"] .slot-item tbody .item-data {width: 27.3611vw;}
 
-[class^="area-"] .slot-item tbody .item-type {width: 118px;padding: 0 15px;box-sizing: border-box;}
+[class^="area-"] .slot-item tbody .item-type {width: 16.3889vw;padding: 0 2.0833vw;box-sizing: border-box;}
 [class^="area-"] .slot-item tbody .item-type .item-fence {display: flex;flex-wrap: wrap;justify-content: center;}
 
-[class^="area-"] .slot-item tbody .item-status {padding: 0 25px 0 12px;/* width: 138px; */}
-[class^="area-"] .slot-item tbody .item-status .status {display: block;width: 100px;line-height: 40px;color: #0000ff;border: 1px solid #7f7fff;border-radius: 100px;font-size: 18px;text-align: center;}
+[class^="area-"] .slot-item tbody .item-status {padding: 0 3.4722vw 0 1.6667vw;}
+[class^="area-"] .slot-item tbody .item-status .status {display: block;width: 13.8889vw;line-height: 5.5556vw;color: #0000ff;border: 0.1389vw solid #7f7fff;border-radius: 13.8889vw;font-size: 2.5000vw;text-align: center;}
 /* //item목록 */
 
 /* item 쿠폰 반응 */
-/* desable, used 체크버튼 */
+/* desable, used 체크버튼 변환 */
 [class^="area-"] .slot-item tbody [class$="desable"],
 [class^="area-"] .slot-item tbody [class$="used"] {background-color: #f5f5f5;}
 [class^="area-"] .slot-item tbody [class$="desable"] .item-number .check-button__desable,
-[class^="area-"] .slot-item tbody [class$="used"] .item-number .check-button__desable {display: block;width: 30px;height: 30px;border-radius: 4px;border: 1px solid #d2d2d2;background-color: #d2d2d2;}
+[class^="area-"] .slot-item tbody [class$="used"] .item-number .check-button__desable {width: 4.1667vw;height: 4.1667vw;border-radius: 0.5556vw;display: block;border: 0.1389vw solid #d2d2d2;background-color: #d2d2d2;}
 
 /* desable 변환 */
 [class^="area-"] .slot-item tbody [class$="desable"] .item-status .status {border-color: #ed7a83;color: #e60012;}
@@ -55,7 +55,7 @@
 /* //item 쿠폰 반응 */
 
 /* 공용버튼 */
-[class^="area-"] [class^="item-button"] {width: 500px;height: 80px;font-size: 24px;letter-spacing: -0.025em;background-color: #000;color: #fff;border-radius: 4px;margin: 0 auto;}
+[class^="area-"] [class^="item-button"] {width: 69.4444vw;height: 11.1111vw;font-size: 3.3333vw;border-radius: 0.5556vw;letter-spacing: -0.025em;background-color: #000;color: #fff;margin: 0 auto;}
 [class^="area-"] [class^="item-button"]:focus {outline: 1px solid red;}
 [class^="area-"] [class$="__once"] {background-color: #22b573;}
 
@@ -84,10 +84,10 @@
 
 .area-coupon .area-division-fence {padding: 3.0303030303% 4.54545454545% 7.57575757576%;}
 
-.area-coupon .division-coupon .button-wrap {margin-top: 40px;text-align: center;}
+.area-coupon .division-coupon .button-wrap {margin-top: 6.66666666667%;text-align: center;}
 
 .area-coupon .division-notice {margin-top: 2.5%;}
-.area-coupon .division-notice .notice-text {font-size: 20px;letter-spacing: -0.050em;line-height: 29px;color: #a1a1a1;text-align: center;}
+.area-coupon .division-notice .notice-text {font-size: 2.7778vw;line-height: 4.0278vw;letter-spacing: -0.050em;color: #a1a1a1;text-align: center;}
 .area-coupon .division-notice .notice-text .text-strong {font-weight: normal;}
 
 .area-close {position: absolute;top: 6.25vw;right: 3.3333vw;}
@@ -101,15 +101,42 @@
   [class^="area-"] .slot-item thead [class^="item-title__"] {height: 70px;}
   [class^="area-"] .slot-item thead [class^="item-title__"] + [class^="item-title__"]::before {width: 1px;height: 30px;}
 
+  [class^="area-"] .slot-item thead .item-title__number {width: 109px;padding-left: 30px;}
+  [class^="area-"] .slot-item thead .item-title__data {width: 200px;}
+  [class^="area-"] .slot-item thead .item-title__type {width: 120px;}
+  [class^="area-"] .slot-item thead .item-title__status {width: 111px;padding-right: 30px;}
+
   [class^="area-"] .slot-item tbody {width: 600px;height: 400px;}
+  [class^="area-"] .slot-item tbody [class^="item-bundle"] {height: 80px;}
+
+  [class^="area-"] .slot-item tbody .item-number {padding-left: 30px;width: 109px;}
+  [class^="area-"] .slot-item tbody .item-number .check-wrap {margin-right: 41px;}
+  [class^="area-"] .slot-item tbody .item-number .check-button {width: 30px;height: 30px;border-radius: 4px;}
+  [class^="area-"] .slot-item tbody .item-number input[type="checkbox"]:checked + .check-button::after {width: 30px;height: 30px;}
+  [class^="area-"] .slot-item tbody .item-number .number {font-size: 22px;}
+
+  [class^="area-"] .slot-item tbody .item-data {width: 197px;}
+
+  [class^="area-"] .slot-item tbody .item-type {width: 118px;padding: 0 15px;}
+
+  [class^="area-"] .slot-item tbody .item-status {padding: 0 25px 0 12px;}
+  [class^="area-"] .slot-item tbody .item-status .status {width: 100px;line-height: 40px;border-radius: 100px;font-size: 18px;}
+
+  /* desable, used 체크버튼 변환 */
+  [class^="area-"] .slot-item tbody [class$="desable"] .item-number .check-button__desable,
+  [class^="area-"] .slot-item tbody [class$="used"] .item-number .check-button__desable {width: 30px;height: 30px;border-radius: 4px;}
 
   /* 공용버튼 */
+  [class^="area-"] [class^="item-button"] {width: 500px;height: 80px;font-size: 24px;border-radius: 4px;}
+
   [class^="area-"] .closs-button {width: 50px;padding-bottom: 50px;}
   [class^="area-"] .closs-button::before {width: 50px;height: 3px;}
   [class^="area-"] .closs-button::after {width: 3px;height: 50px;}
 
   .popup-header .popup-header-title .title {font-size: 30px;margin-left: 10px;}
   .popup-header .popup-header-title .title .deco {font-size: 22px;}
+
+  .area-coupon .division-notice .notice-text {font-size: 20px;line-height: 29px;}
 
   .area-close {top: 45px;right: 24px;}
 }

@@ -76,16 +76,12 @@ function itemStatus(i){
     bundleDesableStatus[i].innerHTML='사용불가';
     bundleDesableLable[i].style.display = "none";
     bundleDesableLable[i].nextElementSibling.style.display = "block";
-    bundleDesableType[i].innerHTML='일반';
-    bundleDesableType[i].nextElementSibling.style.display = "none";
   }
 
   if(bundleUsed[i]){
     bundleUsedStatus[i].innerHTML='사용완료';
     bundleUsedLable[i].style.display = "none";
     bundleUsedLable[i].nextElementSibling.style.display = "block";
-    bundleUsedType[i].innerHTML='일반';
-    bundleUsedType[i].nextElementSibling.style.display = "none";
   }
 
   if(bundleTypegroup[i]){
