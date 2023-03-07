@@ -8,9 +8,11 @@
 - 체크박스 2개부터 item-button__once로 바뀜 (OK)
 
 - .item-bundle : 사용가능, lable을 black변경, 체크버튼__desable을 none변경 (OK)
+- .item-bundle__typegroup : '그룹' 변경 + type-num 추가
+
 - .item-bundle__desable : 사용불가, lable을 none변경, 체크버튼__desable을 black변경 (OK)
 - .item-bundle__used : 사용완료, lable을 none변경, 체크버튼__desable을 black변경 (OK)
-- .item-bundle__typegroup : '그룹' 변경 + type-num 추가
+
 
 
 
@@ -34,7 +36,7 @@ bundleTypegroup =/= bundleInit, bundleDesable, bundleUsed  //Type다름
       Used: bundleUsed,
     },
   };
-  => 성립이 안됨. 지금 i는 bundleAll(tr태그)의 갯수를 말하고 있음.
+    →성립이 안됨. 지금 i는 bundleAll(tr태그)의 갯수를 말하고 있음.
     그러므로 이름1.[i].[i] 는 변수 이름1을 가리키지 않음.
 
     if(이름1.[i].[i]이 그룹1에 속한다면){
@@ -69,8 +71,7 @@ bundleTypegroup =/= bundleInit, bundleDesable, bundleUsed  //Type다름
     const 이름1 = [bundleInit, bundleTypegroup]
     const 이름2 = [bundleDesable, bundleUsed]
 
-    //console.log(이름1[i]); //다 잘나오는데 3개가 남음
-    // 이 배열에 대한 i값이 필요하려나?
+    //console.log(이름1[i]); //다 잘나오는데 3개가 남음 → for문돌려서 남는거
 
     ~ 변수 + 문자열 = 변수 같은건 없나? ~
 예) 이름1[i][i] + "Status" + [i] = 하면
