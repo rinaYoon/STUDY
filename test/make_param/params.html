@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>파라미터만들기테스트</title>
+  <style>
+    [class^=test]{font-size: 30px;}
+  </style>
+</head>
+<body>
+  <h1>파라미터</h1>
+  <div class="param_box">
+    <!-- 파라미터 날짜에따라 P태그 내용 바뀜 -->
+  </div>
+
+  <script src="//script.auction.co.kr/common/jquery.js"></script>
+  <script>
+
+    //제이쿼리일때 : 태그와 문자열 잘 구분해서 넣어짐
+    // let paramBox = $('.param_box');
+    // let a = '<span>test</span>';
+
+    // paramBox.prepend(a);
+
+
+    //자바스크립트일때 : 전부 문자열로 넣어짐
+    let paramBox = document.querySelector('.param_box');
+    let a = `<span>test</span>`;
+
+    paramBox.innerHTML = a;
+
+
+
+
+    // 만약 URL에 쓴 쿼리파라미터가 동일할 때 param_box 안에있는 내용물이 나오기
+    function slotList(){
+      const paramBox = document.querySelector('.param_box');
+      let search = location.search.replace(/^\?/, '');
+
+      let slots = [
+        {
+          codeName: 'test01',
+          html: '<p class="test-01" style="color:pink;">테스트 111111111111111111111111111</p>',
+        },
+        {
+          codeName: 'test02',
+          html: '<p class="test-02" style="color:green;">테스트 222222222222222222222222</p>',
+        },
+        {
+          codeName: 'test03',
+          html: '<p class="test-03" style="color:blue;">테스트 33333333333333333333333333</p>',
+        },
+      ]
+
+      function urlCheck(){
+        slots.forEach(function(slot, index){
+          let paramCode = slot.codeName;
+          let cont = slot.html;
+
+          if(search === paramCode){
+            paramBox.prepend(cont);
+          }
+
+          // console.log('코드네임 : '+paramCode);
+          // console.log('html : '+cont);
+          // console.log('현재 파라미터 : '+location.search);
+        });
+
+        // for (let i = 0; i < slots.length; i++) {
+        //   let search = location.search.replace(/^\?/, '');
+        //   let paramCode = slots[i].codeName;
+        //   let cont = slots[i].html;
+
+        //   if(search === paramCode){
+        //     paramBox.prepend(cont);
+        //   }
+        // }
+      }
+
+      urlCheck();
+    }
+
+    // slotList();
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+@charset "utf-8";
+/* typography */
+@font-face{
+	font-family:'Noto Sans Korean';font-style:normal;font-weight:400;
+	src:url(//script.gmarket.com/fonts/NotoSansKR-DemiLight-Hestia.eot),
+		url(//script.gmarket.com/fonts/NotoSansKR-DemiLight-Hestia.eot?#iefix) format('embedded-opentype');
+	src:local('Noto Sans DemiLight'),local('NotoSans-DemiLight'),
+		url(//script.gmarket.com/fonts/NotoSansKR-DemiLight-Hestia.woff) format('woff'),
+		url(//script.gmarket.com/fonts/NotoSansKR-DemiLight-Hestia.otf) format('opentype');
+}
+@font-face{
+	font-family:'Noto Sans Korean';font-style:normal;font-weight:bold;
+	src:url(//script.gmarket.com/fonts/NotoSansKR-Medium-Hestia.eot),
+		url(//script.gmarket.com/fonts/NotoSansKR-Medium-Hestia.eot?#iefix) format('embedded-opentype');
+	src:local('Noto Sans Medium'),local('NotoSans-Medium'),
+		url(//script.gmarket.com/fonts/NotoSansKR-Medium-Hestia.woff) format('woff'),
+		url(//script.gmarket.com/fonts/NotoSansKR-Medium-Hestia.otf) format('opentype');
+}
+@font-face{
+	font-family:'Noto Sans Korean';font-style:normal;font-weight:800;
+	src:url(//script.gmarket.com/fonts/NotoSansKR-Bold-Hestia.eot),
+		url(//script.gmarket.com/fonts/NotoSansKR-Bold-Hestia.eot?#iefix) format('embedded-opentype');
+	src:local('Noto Sans Bold'),local('NotoSans-Bold'),
+		url(//script.gmarket.com/fonts/NotoSansKR-Bold-Hestia.woff) format('woff'),
+		url(//script.gmarket.com/fonts/NotoSansKR-Bold-Hestia.otf) format('opentype');
+}
+
+/************************************************************ layout ************************************************************/
+.event-wrapper {background-color: #F9F9F9;}
+
+.event-header {height:91px;background-color:#fff;}
+.event-header .event-header__fence {width:980px;margin:0 auto;}
+
+.event-nav .event-nav__item {width:980px;margin:0 auto;}
+.event-nav .event-nav__item:after {content: '';display:block;clear: both;}
+.event-nav .list-bundle {float:right;margin-top:-91px;}
+.event-nav .list-bundle .list-bundle__item {float:left;}
+.event-nav .list-bundle .button__link {display:block;}
+
+.event-body {padding-top:22px;}
+
+[class*="area-slot-"] + [class*="area-slot-"] {margin-top:20px;}
+[class*="area-slot-"] .area-slot__fence {width:980px;margin:0 auto;}
+[class*="area-slot-"] .button__link {display:block;}
+[class*="area-slot-"] .text-notice .button__link {display: inline-block;color: #427fed;text-decoration: underline;}
+[class*="area-slot-"] .module-item .item-box [class^="button__"]:hover,
+[class*="area-slot-"] .module-item .item-box [class^="button__"]:hover * {text-decoration: none;}
+
+.area-slot-coupon .division-slot:not(:first-child) {margin-top:10px;}
+
+.area-slot-banner .division-slot:not(:first-child) {margin-top:20px;}
+.area-slot-banner img {width:100%;}
+
+/************************************************************ coupon module ************************************************************/
+.box-module {position:relative;width:980px;margin:0 auto;border:1px solid #c3c3c3;background-color:#fff;box-sizing: border-box;}
+.box-module .module-header {display:flex;padding:39px 50px 0;font-weight: 800;font-family: 'Noto Sans Korean';letter-spacing: -0.5px;color: #000;}
+.box-module .module-header .module-header__title {width:203px;font-size: 27px;font-weight:800;line-height: 1;}
+.box-module .module-header .module-header__subtitle {flex:1;font-size: 21px;line-height: 1.05;}
+.box-module .module-header .module-header__subtitle .text-sub {margin:0;font-size: 21px;font-weight: 800;line-height: 1.05;}
+.box-module .module-header .text-notice {margin-top:15px;font-size: 13px;font-family:"맑은 고딕", Roboto, Droid Sans, Helvetica, AppleSDGothicNeo, 'Apple SD 산돌고딕 Neo', Apple-Gothic, '애플고딕', 'Tahoma', 'dotum', '돋움', 'gulim', '굴림', sans-serif;font-weight:normal;line-height: 13px;color: #666;}
+
+.box-module .module-body {padding:45px 0 41px 253px;}
+.box-module .module-item {font-size: 0;margin-top:-45px;}
+
+.module-item .item-box {display:inline-block;margin-top:45px;margin-right:31px;}
+.module-item .item-box .box-header {display:flex;font-family: 'Noto Sans Korean';font-weight:normal;letter-spacing: -0.5px;justify-content: space-evenly;border-bottom: 1px solid #e0e0e0;}
+.module-item .item-box .box-header .box-header__title {display:flex;width:146px;padding-bottom: 10px;font-size: 15px;font-weight:normal;line-height: 1.47;color: #222;box-sizing: border-box;letter-spacing: -0.5px;justify-content: space-evenly;white-space: nowrap;box-sizing: border-box;}
+.module-item .item-box .box-header .box-header__title:not(:first-child){margin-left:31px;}
+.module-item .item-box .box-header .text-spacing {letter-spacing: -1.5px;}
+
+.module-item .item-box .box-body {margin-top:16px;}
+.module-item .item-box .box-button {margin-top:30px;}
+.module-item .item-box .box-button .button__promotion {display:block;min-width:146px;height:44px;border:1px solid #bdbdbd;background:#fff;font-family: 'Noto Sans Korean';font-size: 14px;line-height: 44px;letter-spacing: -1px;text-align: center;color: #222;box-sizing: border-box;}
+.module-item .item-box .box-button .button__promotion:after {content: '';display:inline-block;width:8px;height:11px;margin-left:4px;background:url(//eventimg.auction.co.kr/md/auction/01982C89B6/220301.pc-arrow--promotion.png) no-repeat 50% 0;background-size: 8px auto;}
+
+.module-item .unit-coupon {display:inline-block;width:146px;margin-right:31px;}
+.module-item .unit-coupon:last-child {margin-right:0;}
+.module-item .unit-coupon .coupon-img {position:relative;width:146px;height:189px;}
+.module-item .unit-coupon .coupon-img img {width:100%;}
+.module-item .unit-coupon .coupon-img .icon__number {position:absolute;right:0;top:0;margin:-12px -13px 0 0;}
+.module-item .unit-coupon .button-case {margin-top:10px;}
+.module-item .unit-coupon .button-case .button__down {display:flex;width:130px;height:32px;margin:0 auto;background-color:#444;font-family: 'Noto Sans Korean';font-size: 14px;line-height: 1.57;letter-spacing: -1px;color: #fff;justify-content: center;align-items: center;}
+.module-item .unit-coupon .button-case .button__down:after {content: '';display:inline-block;width: 16px;height:16px;margin-left:2px;background:url(//eventimg.auction.co.kr/md/auction/01982C89B6/220301.pc-arrow--down.png) no-repeat 50% 50%;background-size: 100%;}
+.module-item .unit-coupon .button-case .button__down:disabled {background-color:#9a9a9a;pointer-events: none;}
+.module-item .unit-coupon .button-case .button__down:disabled:after {content: none;}
+
+.module-item .item-box.item-box--clear-right {margin-right:50px;}
+
+.module-item .item-box.item-box--bundle .box-header {border-bottom:0;}
+.module-item .item-box.item-box--bundle .box-header__title {border-bottom:1px solid #e0e0e0;}
+
+/************************************************************ coupon module notice ************************************************************/
+.module-notice .button__case {position:absolute;left:0;bottom:0;margin:0 0 41px 50px;}
+.module-notice .button__case .button__notice {display:block;width:116px;height:17px;padding:10px;margin:-10px;background:url(//eventimg.auction.co.kr/md/auction/01982C89B6/220301.pc-button__notice.png) no-repeat 50% 50%;box-sizing: content-box;}
+.module-notice .box-notice {display:none;border-top:1px solid #c3c3c3;}
+.module-notice .box-notice .box-notice__fence {display:flex;padding: 24px 50px 24px 50px;font-family: 'Noto Sans Korean';}
+.module-notice .box-notice .box-notice__title {width:203px;margin:0;font-size: 15px;font-weight: 800;color: #1b1b1b;}
+.module-notice .box-notice .box-notice__content {flex:1;line-height: 24px;font-size: 13px;color: #7d7d7d;}
+.module-notice .box-notice .list-block .list-title + .list-bullet {margin-left:12px;}
+.module-notice .box-notice .list-bullet .list-bullet__item {display:flex;}
+.module-notice .box-notice .list-bullet .list-bullet__item:before {content: '·';display:inline-block;margin-right:3px;}
+.module-notice .box-notice .list-bullet .list-bullet__item .title {display:inline-flex;}
+.module-notice .box-notice .list-bullet .list-bullet__item .data {flex:1;}
+.module-notice .box-notice .list-bullet .list-bullet__item .title + .data {margin-left:3px;}
+
+.is-active.module-notice {position:relative}
+.is-active.module-notice .box-notice {display:block;}
+.is-active.module-notice .button__case {left:auto;right:0;top:0;margin:20px 20px 0 0;}
+.is-active.module-notice .button__case .button__notice {display:block;width:22px;height:21px;padding:10px;margin:-10px;background:url(//eventimg.auction.co.kr/md/auction/01982C89B6/220301.pc-button__notice--close.png) no-repeat 50% 50%;box-sizing: content-box;}
+
+/************************************************************ contents ************************************************************/
+.area-slot-benefit .box-info {position:relative;}
+.area-slot-benefit .box-info img {width:100%;}
+.area-slot-benefit .box-info .button-case {position:absolute;left:50%;bottom:0;width:25.10204081633%;padding-top:5.51020408163%;margin-bottom:4.18367346939%;transform: translateX(-50%);}
+.area-slot-benefit .box-info .button-case .button__link {position:absolute;left:0;top:0;width:100%;height:100%;}
+
+.coupon-monthly.coupon-monthly--member {padding:37px 50px 42px;}
+.coupon-monthly.coupon-monthly--member .module-header {padding:0;}
+.coupon-monthly.coupon-monthly--member .module-header .module-header__title {width:205px;font-size: 21px;line-height: 1.05;}
+.coupon-monthly.coupon-monthly--member .module-header .module-header__subtitle {line-height: 1.69;}
+.coupon-monthly.coupon-monthly--member .module-header .module-header__subtitle .text-notice {margin:0;font-size: 13px;font-family: 'Noto Sans Korean';line-height: 1.69;letter-spacing: -0.5px;color: #333;}
+.coupon-monthly.coupon-monthly--member .module-header .module-header__subtitle .text-notice strong {font-weight: normal;}
+.coupon-monthly.coupon-monthly--member .module-header .module-header__subtitle .text-notice .icon__club {display: inline-block;width:39px;height:14px;margin-right:2px;background:url(//eventimg.auction.co.kr/md/auction/01982C89B6/220301.pc-icon__club.png) no-repeat 50% 50%;background-size: 39px auto;font-size:0;vertical-align: middle;color:transparent;}
+
+.coupon-smileclub .module-item .item-box:first-child .box-header .box-header__title {letter-spacing:-2px;}
+.coupon-first .module-item .item-box .box-header .text-spacing {letter-spacing: -2px;}
+
+.event-body [class*="area-slot-"].area-slot-banner--special {margin-top:0;}
+.event-body [class*="area-slot-"].area-slot-banner--special .area-slot__fence {margin-top:20px;}
+.area-slot-banner--special .box-banner {position:relative;background-repeat: no-repeat;background-position: 50% 0;background-size: 100% auto;}
+.area-slot-banner--special .box-banner .button__link {position:absolute;left:50%;bottom:0;;transform: translateX(-50%);}
