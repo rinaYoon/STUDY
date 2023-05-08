@@ -12,24 +12,59 @@
 <body>
   <h1>파라미터</h1>
   <div class="param_box">
+    <p>테스트텍스트</p>
     <!-- 파라미터 날짜에따라 P태그 내용 바뀜 -->
   </div>
 
   <script src="//script.auction.co.kr/common/jquery.js"></script>
   <script>
 
-    //제이쿼리일때 : 태그와 문자열 잘 구분해서 넣어짐
+    //제이쿼리일때 : prepend 로 해도 태그와 문자열 잘 구분해서 넣어짐
     // let paramBox = $('.param_box');
     // let a = '<span>test</span>';
-
     // paramBox.prepend(a);
 
 
-    //자바스크립트일때 : 전부 문자열로 넣어짐
-    let paramBox = document.querySelector('.param_box');
-    let a = `<span>test</span>`;
+    /*
+      //innerHTML - innerHTML = "html" | 인자 1개 (html 코드) | 기존 노드 삭제 후 재구성
 
-    paramBox.innerHTML = a;
+      1. el.innerHTML = 'text'; <<문자열내용만 쓰면 el본인의 글 내용이 바뀜
+      2. el.innerHTML = '<span>test</span>'; <<el에게 자식태그+내용이 생김
+      3. 2번에서 이미 el이 자식요소가 있는 경우 <<el의 자식이 바뀜
+
+      let paramBox = document.querySelector('.param_box');
+      let a = '<span>test</span>';
+
+      paramBox.innerHTML = a;
+    */
+
+
+    /*
+    // insertAdjacentHTML - el.insertAdjacentHTML( position, html ) | 인자 2개(위치값, html코드) | 기존 노드 건들지 않고 노드 추가 | position 종류 4가지(beforebegin, afterbegin, beforeend, afterend)
+
+    paramBox.insertAdjacentHTML('beforebegin', a); // paramBox보다 위쪽에 생성됨(형제요소가됨)
+    paramBox.insertAdjacentHTML('afterbegin', a); // paramBox의 자식요소로 맨위쪽에 생성됨(주석표시 기준 위쪽)
+    paramBox.insertAdjacentHTML('beforeend', a); // paramBox의 자식요소로 맨아래쪽에 생성됨(주석표시 기준 아래쪽)
+    paramBox.insertAdjacentHTML('afterend', a); // paramBox의 아래쪽에 생성됨(형제요소가됨)
+    */
+
+    /*
+    //덤: 리턴
+    function 함수(){
+      return 123 // << 123뜸
+      // '123' //<<언디파인드 뜸
+      // console.log('123') //<< 함수를 실행하면 123이 뜸
+
+      // 즉 함수가 실행되어도 출력을 할만한 (콘솔뿐만아니라 innerHTML이나 time 등등 보여지는거)껀덕지가 보이지 않으면
+      // 값은 보이지 않는다(undefined).
+      // 값을 어케던 끄집어 내고 싶을때 리턴을 쓰는걸로.
+
+      // 그리고 리턴은 함수종료의 뜻도 갖고있어서 리턴 아래의 커드는 실행 안됨.
+    }
+    // 함수();
+    console.log(함수());
+    */
+
 
 
 
@@ -83,6 +118,7 @@
     }
 
     // slotList();
+
   </script>
 </body>
 </html>
