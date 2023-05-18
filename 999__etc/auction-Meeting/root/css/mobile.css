@@ -2,20 +2,20 @@
 @font-face {
 	font-family: 'Gmarket Sans';font-style: normal;font-weight: 700;
 	src: local('Gmarket Sans Bold'), local('GmarketSans-Bold'),
-	url('https://script.ebay.co.kr/fonts/GmarketSansBold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-	url('https://script.ebay.co.kr/fonts/GmarketSansBold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('https://script.gmarket.com/fonts/GmarketSansBold.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+	url('https://script.gmarket.com/fonts/GmarketSansBold.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
 	font-family: 'Gmarket Sans';font-style: normal;font-weight: 500;
 	src: local('Gmarket Sans Medium'), local('GmarketSans-Medium'),
-	url('https://script.ebay.co.kr/fonts/GmarketSansMedium.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-	url('https://script.ebay.co.kr/fonts/GmarketSansMedium.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('https://script.gmarket.com/fonts/GmarketSansMedium.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+	url('https://script.gmarket.com/fonts/GmarketSansMedium.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 @font-face {
 	font-family: 'Gmarket Sans';font-style: normal;font-weight: 300;
 	src: local('Gmarket Sans Light'), local('GmarketSans-Light'),
-	url('https://script.ebay.co.kr/fonts/GmarketSansLight.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-	url('https://script.ebay.co.kr/fonts/GmarketSansLight.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+	url('https://script.gmarket.com/fonts/GmarketSansLight.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+	url('https://script.gmarket.com/fonts/GmarketSansLight.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* 공통 */
@@ -138,7 +138,7 @@
 	.event-wrapper .button-wrap .finish-link,
 	.event-wrapper .button-wrap .form-button,
 	.event-wrapper .button-wrap .alert-link {font-size: 34px;line-height: 88px;width: 420px;border-radius: 100px;}
-	
+
 	/* 공통 라디오 버튼 커스텀 */
 	.radio-select .ui-input__radio {width: 50px;height: 50px;margin-right: 12px;}
 	.radio-select input[type="radio"]:checked + .ui-input__radio::after {width: 32px;height: 32px;}
