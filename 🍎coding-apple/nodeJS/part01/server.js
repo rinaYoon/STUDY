@@ -12,6 +12,7 @@
 		'http://localhost:8080' 에서 8080아 포트번호 이다.
 
 04. 서버 실행하는 방법 : node 파일이름.js (ex: node server.js)
+		nodemon일경우 : nodemon 파일이름.js (ex: nodemon server.js)
 
 */
 
@@ -22,11 +23,9 @@ const app = express()
 
 
 // css, js 폴더 등록하기.
+//-'app.use(express.static(__dirname + '/public02'))' <<< 다른 폴더도 등록하고싶다면 이렇게 밑에다가 씀
+//-css, js, jpg 같은 파일들을 static 파일들이라고 부름(변동사항이 없기 때문에 글케 부른다함)
 app.use(express.static(__dirname + '/public'))
-/*
-- 'app.use(express.static(__dirname + '/public02'))' <<< 다른 폴더도 등록하고싶다면 이렇게 밑에다가 씀
-- css, js, jpg 같은 파일들을 static 파일들이라고 부름(변동사항이 없기 때문에 글케 부른다함)
-*/
 
 
 
@@ -59,7 +58,7 @@ app.get('/shop', (요청, 응답) => {
 })
 
 // html 파일을 서버로 보낼려면
-app.get('/', (요청, 응답) => {
+app.get('/', (요청, 응답) => {//참고로 슬래시 '/'는 메인페이지
 	응답.sendFile(__dirname + '/index.html')
 	// __dirname: 현재 프로젝트(server.js)절대 경로, server.js가 담긴 폴더
 	// sendFile: html 파일이 있는 경로
@@ -69,3 +68,12 @@ app.get('/', (요청, 응답) => {
 app.get('/about', (요청, 응답) => {
 	응답.sendFile(__dirname + '/homework-0926.html')
 })
+
+/*
+< part 06 - MongoDB 호스팅받고 셋팅하기 >
+- 관계형 DB (relational Database): 데이터의 정확도가 중요하고, 돈관련될때 쓰기 좋음. 정규화가 필수적임(중복은 제거해버림)
+- 비관계형 DB (Non-relational Database):다양한 형식으로 데이터 저장 가능하고, 정규화 안함(중복제거), 대신 데이터를 수정+삭제할때 느림. 그래서 데이터 입출력이 빠르고 정확하지 않아도 되는 SNS 같은데에 사용함.
+- 위가 절대적인거 아님!
+
+📌몽고DB 가입하고 해보기
+*/
